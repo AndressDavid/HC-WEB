@@ -1,0 +1,10 @@
+﻿cTareaNombre=Enviar Facturación Electrónica
+cTareaDescripcion=Envía los documentos de Facturación Electrónica
+cTareaActiva=NO
+cTareaMinuto=*/5
+cTareaHora=*
+cTareaDiaMes=*
+cTareaMes=*
+cTareaDiaSemana=*
+nIntentosMaximos=1
+cArchivo=script.php

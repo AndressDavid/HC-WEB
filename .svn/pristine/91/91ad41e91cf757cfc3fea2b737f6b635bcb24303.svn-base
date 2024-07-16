@@ -1,0 +1,18 @@
+.progress-bar-tv{
+	position: absolute;
+	float:left;
+	top: 0;
+	right: 0;
+	width:100%;
+	height:5px;
+}
+.progress-bar-tv .progress{
+	height:5px;
+}
+.progress-bar-tv .progress .progress-bar{
+	width: 0%;
+	height:5px;
+}
+.list-unstyled li{
+	margin: 5px;
+}

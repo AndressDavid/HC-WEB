@@ -1,0 +1,10 @@
+﻿cTareaNombre=Enviar datos Epimed
+cTareaDescripcion=Envía los datos al proveddor Epimed 
+cTareaActiva=NO
+cTareaMinuto=0
+cTareaHora=*/1
+cTareaDiaMes=*
+cTareaMes=*
+cTareaDiaSemana=*
+nIntentosMaximos=1
+cArchivo=script.php

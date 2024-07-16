@@ -1,0 +1,28 @@
+<div class="modal fade show modal-xl" *ngIf="vistaPDF" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1" style="display: block; background-color: rgba(0, 0, 0, 0.13);">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content ps-1 pe-1">
+        <div class="modal-header border border-0 justify-content-between ps-0 pb-0 rounded-0">
+            <div>
+                <img src="./assets/logo.png" class="d-inline">
+                <h5 class="d-inline" style="font-size: 21px;"><b>Documento PDF</b></h5>
+            </div>
+            <div>
+                <button (click)="cerrarModal()" class="btn btn-link text-dark text-decoration-none">X</button>
+            </div>
+        </div>
+
+        <div style="padding: 10px; width: 100%; height:697px" *ngIf="carga" class="d-flex justify-content-center">
+            <p><b>Cargando información, Por favor Espere...</b></p>
+            <div class="spinner-border" role="status" ></div>
+        </div>
+
+
+        <div class="modal-body p-0 pb-3" *ngIf="!carga">
+            <iframe [src]=pd style="padding: 10px; width: 100%; height:697px"> </iframe>
+        </div>  
+      </div>
+    </div>
+</div>
+
+<button type="button" *ngIf="!isDisable" (click)="abrirModal()" class="btn btn-danger btn-sm me-2" data-toggle="tooltip" data-placement="top" title="" data-original-title="Ver PDF"><i class="fas fa-file-pdf"></i></button>
+<button type="button" *ngIf="isDisable" disabled class="btn btn-danger btn-sm me-2" data-toggle="tooltip" data-placement="top" title="" data-original-title="Ver PDF"><i class="fas fa-file-pdf"></i></button>

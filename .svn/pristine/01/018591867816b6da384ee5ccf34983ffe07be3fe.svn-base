@@ -1,0 +1,10 @@
+﻿cTareaNombre=Actualización TRM
+cTareaDescripcion=Consume el webservice de la superfinanciera y actualiza la tabla CTBTRM en AS400
+cTareaActiva=SI
+cTareaMinuto=0
+cTareaHora=*/3
+cTareaDiaMes=*
+cTareaMes=*
+cTareaDiaSemana=*
+nIntentosMaximos=10
+cArchivo=script.php

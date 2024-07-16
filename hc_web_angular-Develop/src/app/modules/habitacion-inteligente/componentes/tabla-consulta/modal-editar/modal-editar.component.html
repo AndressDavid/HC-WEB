@@ -1,0 +1,109 @@
+<div
+  #editarHabModal
+  class="modal fade show"
+  tabindex="-1"
+  aria-hidden="true"
+  style="display: block; background-color: rgba(0, 0, 0, 0.364)"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5">Editar Habitación</h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+          (click)="close(false)"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="editarForm">
+          <div class="mb-3">
+            <label for="seccionValor" class="form-label"><b>Sección</b></label>
+            <input
+              id="seccionValor"
+              type="text"
+              class="form-control"
+              formControlName="seccionValor"
+              [disabled]="true"
+            />
+          </div>
+
+          <div class="mb-3">
+            <label for="habitacionValor" class="form-label"
+              ><b>Habitación</b></label
+            >
+            <input
+              id="habitacionValor"
+              type="text"
+              class="form-control"
+              formControlName="habitacionValor"
+              [disabled]="true"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="ipDispValor" class="form-label"
+              ><b>IP del Dispositivo</b></label
+            >
+            <input
+              formControlName="ipDispValor"
+              id="ipDispValor"
+              type="text"
+              class="form-control"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="macDispValor" class="form-label"
+              ><b>MAC del Dispositivo</b></label
+            >
+            <input
+              formControlName="macDispValor"
+              id="macDispValor"
+              type="text"
+              class="form-control"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="macDispValor" class="form-label"><b>Activo</b></label>
+            <select formControlName="activo" id="selActivo" class="form-select">
+              <option value="1">Activa</option>
+              <option value="0">Inactiva</option>
+            </select>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="close(false)">
+          Cancelar
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="guardarHabitacionEditada()"
+        >
+          Guardar
+        </button>
+        <app-modal-dinamico
+          *ngIf="activar"
+          [tipoModal]="tipoModal"
+          [contenido]="contenido"
+          (click)="CerarValidacion()"
+        ></app-modal-dinamico>
+        <app-modal-dinamico
+          *ngIf="activarConfir"
+          [tipoModal]="tipoModalConfir"
+          [contenido]="contenidoConfir"
+          (primerBotonEvento)="primerBotonEvento()"
+          (segundoBotonEvento)="segundoBotonEvento()"
+        ></app-modal-dinamico>
+        <app-modal-dinamico
+          *ngIf="activarVal"
+          [tipoModal]="tipoModalVal"
+          [contenido]="contenidoVal"
+          (primerBotonEvento)="CerrarModal()"
+        ></app-modal-dinamico>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,147 @@
+<div class="container-fluid">
+    <div class="card mt-3">
+       <div class="card-header">
+          <div class="row">
+             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-11">
+                <h5>
+                   Control de cirugías
+                </h5>
+             </div>
+          </div>
+          <form  method="post" [formGroup]="formularioBusqueda" >
+             <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3 col-xl-2">
+                   <label class="control-label" for="">Ingreso</label>
+                   <input  class="form-control"  formControlName="formIngresoC" type="number" name="" min="0">
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+                  <app-documento-paciente [frmParametro]="formularioBusqueda" ></app-documento-paciente> 
+               </div>
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3">
+                   <label class="control-label" for="">Nombre</label>
+                   <input class="form-control" formControlName="formNombreC" type="text">
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3">
+                   <label class="control-label" for="" >Apellido</label>
+                   <input  class="form-control" formControlName="formApellidoC" type="text" >
+                </div>
+             </div>
+             <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3">
+                   <app-vias [frmParametro]="formularioBusqueda"></app-vias>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3">
+                   <app-especialidades [frmParametro]="formularioBusqueda" [filtro]=filtrosEspecialidad></app-especialidades>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-5 col-lg-4 col-xl-3">
+                   <label class="control-label" for="">Fecha</label>
+                   
+                   <div class="form-inline row">
+                     <div class="form-group col-4 col-md-6 pr-0 d-inline">
+                        <input type="date" formControlName="formFechaC" class="form-control" id="txtFechaIni" required="required" value="" >
+                     </div>
+                     <div class="form-group col-4 ml-5 mt-1">
+                        <div>
+                           <div class="col mb-0 form-group form-check" style="margin: 0 auto;">
+                              <input type="checkbox" formControlName="formTodasC" class="form-check-input" id="allCheck">
+                              Todas
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 col-xl-1">
+                     <label for="btnBusca" class="control-label"> &nbsp;  &nbsp;  &nbsp; &nbsp;  &nbsp;  &nbsp; </label>
+                     <button id="btnBuscar" type="button" class="btn btn-secondary btn-sm w-100" accesskey="B" (click)="buscarCirugias()"><u>B</u>uscar</button>
+                 </div>
+ 
+                 <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 col-xl-1">
+                     <label for="btnLimpia" class="control-label"> &nbsp;  &nbsp;  &nbsp; &nbsp;  &nbsp;  &nbsp; </label>
+                     <button id="btnLimpiar" type="button" class="btn btn-secondary btn-sm w-100" (click)="limpiarTodo()" accesskey="L"><u>L</u>impiar</button>
+                 </div>
+             </div>
+          </form>
+       </div>
+       <div class="card-body">
+             <div class="container-fluid">
+                 <div class="col-12 border border-6">
+                     <small *ngIf="mostrarDatos">  
+                        <p-table [value]="datosTabla"  
+                        *ngIf="datosTabla" 
+                        [scrollable]="true" 
+                        scrollHeight="550px" 
+                        styleClass="p-datatable-striped" 
+                        selectionMode="single" 
+                        [showCurrentPageReport]="true"
+                        [tableStyle]="{ 'font-size': '13px' }"
+                        [paginator]="true"
+                        [rows]="15"
+                        currentPageReportTemplate="Mostrando del {first} al {last} de {totalRecords} entradas"
+                        >
+                              <ng-template pTemplate="header">
+                                 <tr>
+                                    <th pSortableColumn="nombres" style="width:0.1px;">Nombre<p-sortIcon field="nombres"></p-sortIcon></th>
+                                    <th pSortableColumn="fecha" style="width:0.1px;">Fecha<p-sortIcon field="fecha"></p-sortIcon></th>
+                                    <th pSortableColumn="hora" style="width:0.1px;">Hora<p-sortIcon field="hora"></p-sortIcon></th>
+                                    <th pSortableColumn="tipoAtencion" style="width:0.1px;">Tipo Atención<p-sortIcon field="tipoAtencion"></p-sortIcon></th>
+                                    <th pSortableColumn="via" style="width:0.1px;">Vía Ingreso<p-sortIcon field="via"></p-sortIcon></th>
+                                    <th pSortableColumn="cama" style="width:0.1px;">Cama<p-sortIcon field="cama"></p-sortIcon></th>
+                                    <th pSortableColumn="estado" style="width:0.1px;">Estado<p-sortIcon field="estado"></p-sortIcon></th>
+                                    <th pSortableColumn="especialidad" style="width:0.1px;">Especialidad<p-sortIcon field="especialidad"></p-sortIcon></th>
+                                    <th pSortableColumn="cita" style="width:0.1px;">Cita<p-sortIcon field="cita"></p-sortIcon></th>
+                                 </tr>
+                              </ng-template>
+                              <ng-template pTemplate="body" let-datos >
+                                 <tr style="height:10px; font-size: 14px;" [ngStyle]="{ backgroundColor: datos.color}">
+                                    <td>{{ datos.nombres }} {{ datos.apellidos }}</td>
+                                    <td>{{ datos.fecha }}</td>
+                                    <td>{{ datos.hora }}</td>
+                                    <td>{{ datos.tipoAtencion }}</td>
+                                    <td>{{ datos.via }}</td>
+                                    <td>{{ datos.cama }}</td>
+                                    <td>{{ datos.estado }}</td>
+                                    <td>{{ datos.especialidad }}</td>
+                                    <td>{{ datos.cita }}</td>
+                              </tr>
+                              </ng-template>
+                        </p-table>
+                     </small>
+                 </div>
+             </div>
+             <div class="row my-6">
+                 <div class="col">
+                     <div class="row justify-content-end">
+                        <div class="col-12 col-sm-6 col-lg-4 col-xl-2 pt-2">
+                           <app-libro-hcweb [tipoBtn]="'N'"  *ngIf="isDatos && datosTabla" [ingreso]="ingreso" ></app-libro-hcweb>
+                        </div>
+                        <div class="col-12 col-sm-6 col-lg-4 col-xl-2 pt-2">
+                           <button id="btnConvencion" *ngIf="isDatos && datosTabla"  type="button" (click)="buscarDatosPaciente()" class="btn btn-info btn-sm w-100">Información Paciente</button>
+                        </div>
+                         <div class="col-12 col-sm-6 col-lg-4 col-xl-2 pt-2">
+                             <app-convenciones *ngIf="isDatos && datosTabla"></app-convenciones>
+                         </div>
+                         <div class="col-12 col-sm-6 col-lg-4 col-xl-2 pt-2">
+                             <a id="btnConvencion" routerLink="/control-cirugia-formulario"  [queryParams]="{ingreso: ingreso}" type="button" class="btn btn-secondary btn-sm w-100" accesskey="A"><u>A</u>dicionar Cirugía</a>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </div>
+    </div>
+ </div>
+
+
+<app-modal-dinamico 
+ [tipoModal]=tipoModal  
+ [contenido]="modalContenido" 
+ *ngIf="modal"
+ (primerBotonEvento) = "evento1($event)"
+ (segundoBotonEvento) = "evento2($event)"
+ (isActivoModalEvento) = "cerrarModal($event)"
+ >
+</app-modal-dinamico>
+
+<app-modal-datos-paciente *ngIf="datosTabla  && datosPaciente"  [datosPaciente]=datosTabla[0]  (IsModalActive)="modalPaciente($event)"></app-modal-datos-paciente>
+
+<router-outlet></router-outlet>

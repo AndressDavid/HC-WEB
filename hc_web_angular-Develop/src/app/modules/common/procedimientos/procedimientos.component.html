@@ -1,0 +1,5 @@
+<label class="control-label" for="id"> <b>{{titulo}}</b>  <b *ngIf="requerido" class="text-danger"> * </b>  </label>
+
+<div  class="d-block p-fluid" [formGroup]=frmParametro >
+    <p-autoComplete formControlName="{{forname}}"  [suggestions]="RespuestaProcedimientos" (completeMethod)="recuperarEspecialidadComponent($event)"></p-autoComplete>
+</div>

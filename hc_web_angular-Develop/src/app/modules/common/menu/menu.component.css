@@ -1,0 +1,17 @@
+.colorTexto {
+  color: #007bff;
+  /* Color de texto inicial */
+  transition: color 0.3s;
+  /* Transición suave */
+}
+
+.colorTexto:hover {
+  color: #0056b3;
+  /* Nuevo color de texto al pasar el ratón */
+}
+.esp{
+  color:rgba(0,0,0,.5);
+}
+.esp:hover {
+  color: #000000E6;
+}

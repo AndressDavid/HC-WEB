@@ -1,0 +1,8 @@
+/* alto del footer para que no quede detras de los botones */
+body {
+	padding-bottom: 50px;
+}
+/* color de opción de menú seleccionada */
+.nav-pills .nav-link.active {
+	background-color: lightgrey;
+}

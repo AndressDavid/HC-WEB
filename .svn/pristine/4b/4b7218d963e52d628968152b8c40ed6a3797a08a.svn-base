@@ -1,0 +1,10 @@
+﻿cTareaNombre=Crea Json Rips facturas y notas crédito
+cTareaDescripcion=Crear tarea programada para generar Json de facturas y notas crédito a partir del registro de la tabla RIPREC, se actualiza el estado y registrar los datos en Json en la tabla RIPRES
+cTareaActiva=NO
+cTareaMinuto=*/1
+cTareaHora=*
+cTareaDiaMes=*
+cTareaMes=*
+cTareaDiaSemana=*
+nIntentosMaximos=1
+cArchivo=script.php

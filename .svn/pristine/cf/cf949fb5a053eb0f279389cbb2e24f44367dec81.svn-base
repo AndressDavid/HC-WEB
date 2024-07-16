@@ -1,0 +1,62 @@
+{
+	"ID": {
+		"title": "Identif",
+		"sortable": true
+	},
+	"FECDIR": {
+		"title": "Fecha",
+		"sortable": true
+	},
+	"NUMPRES": {
+		"title": "Prescripción",
+		"sortable": true
+	},
+	"INGRESO": {
+		"title": "Ingreso",
+		"sortable": true
+	},
+	"IDPAC": {
+		"title": "Doc Pac",
+		"formatter": "docPaciente"
+	},
+	"PACIENTE": {
+		"title": "Paciente",
+		"sortable": true
+	},
+	"TIPOTEC": {
+		"title": "Tec",
+		"sortable": true
+	},
+	"CNSTEC": {
+		"title": "Cns"
+	},
+	"NUMENT": {
+		"title": "Entr"
+	},
+	"CODIGO": {
+		"title": "Código",
+		"sortable": true
+	},
+	"DESCRIPCION": {
+		"title": "Descripción",
+		"sortable": true
+	},
+	"CANTUNI": {
+		"title": "Cantidad",
+		"formatter": "cantUnidadDir"
+	},
+	"CODEPS": {
+		"title": "EPS",
+		"sortable": true,
+		"formatter": "epsFormato"
+	},
+	"ESTADO": {
+		"title": "Estado",
+		"formatter": "estadoDir"
+	},
+	"ACCION": {
+		"title": "Acción",
+		"formatter": "accionFormato",
+		"events": "window.accionEventos"
+	}
+}

@@ -1,0 +1,10 @@
+﻿cTareaNombre=Alertas Tempranas
+cTareaDescripcion=Cambia a estado 9 todas las alertas pendientes de respuesta de pacientes con ingresos o activos y a las cuales le han pasado mas de 36 horas
+cTareaActiva=SI
+cTareaMinuto=*/15
+cTareaHora=*
+cTareaDiaMes=*
+cTareaMes=*
+cTareaDiaSemana=*
+nIntentosMaximos=2
+cArchivo=script.php

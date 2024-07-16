@@ -1,0 +1,8 @@
+<label class="control-label" for="">{{titulo}} <b *ngIf="requerido" class="text-danger"> * </b>  </label>
+
+<div class="input-group" [formGroup]=frmParametro >
+    <select class="form-control"  (change)="labelSelect($event)" formControlName="{{forname}}">
+        <option value=""></option>
+        <option value="{{medico.registro}}"  *ngFor="let medico of medicosEspecialidadesRespuesta" >{{medico.nombre}}</option>
+    </select>
+</div>

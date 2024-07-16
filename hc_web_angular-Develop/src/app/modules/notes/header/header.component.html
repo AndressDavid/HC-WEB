@@ -1,0 +1,29 @@
+<div class="card-header">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-8 col-lg-11">
+      <h5>Notas Aclaratorias</h5>
+    </div>
+  </div>
+
+  <form  method="post" [formGroup]="frmHeader" (ngSubmit)="onSubmit()" novalidate>
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+        <app-documento-paciente [frmParametro]="frmHeader" ></app-documento-paciente>
+     </div>
+      <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
+        <label>Paciente</label>
+          <input type="text" formControlName="nombrepac"  class="form-control" placeholder="" [readOnly]="true">
+      </div>
+
+      <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-1 pb-1">
+        <label class="control-label"> &nbsp;  &nbsp;  &nbsp; &nbsp;  &nbsp;  &nbsp; </label>
+        <button type="submit" class="form-control-sm btn btn-secondary btn-sm w-100" (click)="ObtenerDatosPaciente()">Buscar</button>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-1 pb-1">
+        <label class="control-label"> &nbsp;  &nbsp;  &nbsp; &nbsp;  &nbsp;  &nbsp; </label>
+        <a type="button" class="form-control-sm btn btn-secondary btn-sm w-100" href="inicio-notas" >Limpiar</a>
+        <app-modal-dinamico tipoModal="{{tipoAlerta}}" *ngIf="activar" [contenido]=contenidoa (click)="ValidarDatosAlerta()"></app-modal-dinamico>
+      </div>
+    </div>
+  </form>
+</div>

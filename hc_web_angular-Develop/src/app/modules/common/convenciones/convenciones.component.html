@@ -1,0 +1,23 @@
+
+
+<button type="button" class="btn btn-warning btn-sm w-100 position-relative" (mouseover)="activarPop()" (mouseout)="desactivarPop()"  >Convención
+    <div class="position-absolute start-60 bottom-100 popoverM" title="Popover title" *ngIf="isActive">
+        <div class="card cardpop">
+            <div xclass="card-header text-start mt-2 mb-2">
+              <b>Estados Procedimientos</b>
+            </div>
+            <div *ngIf="estadoError !== ''"><p>{{estadoError}}</p></div>
+
+            <div class="container-fluid w-100 m-0 p-0 ps-4">
+                <div class="container-fluid">
+                    <div *ngIf="estadoError == ''"  class="row row-cols-2 w-100">
+                        <div class="col ms-3 divColor" [ngStyle]=" {backgroundColor: color(estados.value['COLOR'])}" *ngFor="let estados of EstadosColores | keyvalue" >
+                            <p class="mx-auto">{{estados.value['DESCR']}}</p>
+                        </div>
+                    </div>
+                    <div class="mb-2"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</button>

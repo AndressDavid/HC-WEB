@@ -1,0 +1,65 @@
+:host {
+  display: block;
+}
+
+mover{
+  padding-top: 100px;
+}
+
+.modal-backdrop.show {
+  opacity: .8;
+  backdrop-filter: none;
+  filter: alpha(opacity=80); /* Para versiones anteriores de IE */
+  }
+  body.modal-open{
+    opacity: .8;
+    backdrop-filter: none;
+    filter: alpha(opacity=80); /* Para versiones anteriores de IE */
+  }
+
+
+  .custom-table-container {
+    max-height: 700px; /* Establece la altura máxima del contenedor */
+    overflow-y: auto; /* Agrega un desplazamiento vertical si es necesario */
+  }
+
+  .encabezar{
+    position: sticky; 
+    top: 7.5%;
+    left: 0;
+    width: 100%;
+    background-color: #fff; 
+    z-index: 999; 
+  }
+  
+  
+  @media (max-width: 768px) {
+    .encabezar {
+        position: fixed !important;
+        bottom: 0;
+    }
+  }
+
+  .padding{
+    padding-top: 3%;
+  }
+
+  .scrollable-container {
+    max-height: 300px; /* Ajusta la altura según tus necesidades */
+    overflow-y: auto; /* Permite el desplazamiento vertical */
+    padding-right: 10px; /* Ajuste del padding para evitar superposición con la barra de desplazamiento */
+  }
+  
+  /* Opcional: Estilos para la barra de desplazamiento para una mejor apariencia */
+  .scrollable-container::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .scrollable-container::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+  }
+  
+  .scrollable-container::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+  }

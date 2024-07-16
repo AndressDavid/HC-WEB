@@ -1,0 +1,10 @@
+﻿cTareaNombre=Bloqueo/Inactivación de Usuarios
+cTareaDescripcion=Bloquea/Inactiva usuarios por no inicio de sesion en HC
+cTareaActiva=SI
+cTareaMinuto=0
+cTareaHora=1,2,3
+cTareaDiaMes=*
+cTareaMes=*
+cTareaDiaSemana=*
+nIntentosMaximos=10
+cArchivo=script.php

@@ -1,0 +1,682 @@
+<?php
+// index.php
+if (isset($_SERVER['HTTP_ORIGIN'])) {
+    header("Access-Control-Allow-Origin: *");
+    header('Access-Control-Allow-Credentials: true');
+    header('Access-Control-Max-Age: 86400');    // cache for 1 day
+}
+
+// Access-Control headers are received during OPTIONS requests
+if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
+    if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_METHOD']))
+        header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
+
+    if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS']))
+        header("Access-Control-Allow-Headers: {$_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS']}");
+
+    exit(0);
+}
+
+// Aquí puedes implementar la lógica de tu API
+
+
+$usuarios = [
+    "Rol1" => ["Nombre" => "Mario", "Edad" => 25, "Direccion" => "Algo1"],
+    "Rol3" => ["Nombre" => "Paco", "Edad" => 22, "Direccion" => "Algo3"],
+    "Rol2" => ["Nombre" => "Luis", "Edad" => 30, "Direccion" => "Algo2"],
+    "Rol4" => ["Nombre" => "Hugo", "Edad" => 28, "Direccion" => "Algo4"],
+    "Rol5" => ["Nombre" => "Lukas", "Edad" => 35, "Direccion" => "Algo5"]
+];
+
+$datosUsuarios = [];
+
+foreach ($usuarios as $key => $valor) {
+    $datosUsuarios[] = ["Rol" => $key, "Nombre" => $valor['Nombre'], "Edad" => $valor['Edad'], "Direccion" => $valor['Direccion']];
+}
+
+
+$array = [
+    "menu" => [
+        "03" => [
+            "10" => [
+                "APPID" => "HCW",
+                "MENU" => "MENPRI  ",
+                "MENUID" => "0310",
+                "MENUOF" => "03  ",
+                "MENUTYPE" => "bar",
+                "MENUORD" => "11",
+                "CMD" => "MODULO-PACIENTES-CORREO",
+                "PROMPT" => "Actualizar Correo Pacientes",
+                "TOOLBAR" => "",
+                "MESSAGE" => "Correo Pacientes   ",
+                "PICTURE" => "\"RESOURCE\\BITMAPS\\PNG\\FW\\SOLID\\USER-TAG.PNG\""
+            ],
+            "APPID" => "HCW",
+            "MENU" => "MENPRI  ",
+            "MENUID" => "03  ",
+            "MENUOF" => "    ",
+            "MENUTYPE" => "pad",
+            "MENUORD" => "1",
+            "CMD" => "    ",
+            "PROMPT" => "Información Administrativa",
+            "TOOLBAR" => "    ",
+            "MESSAGE" => "Información administrativa",
+            "PICTURE" => "    ",
+            "06" => [
+                "APPID" => "HCW",
+                "MENU" => "MENPRI  ",
+                "MENUID" => "0306",
+                "MENUOF" => "03  ",
+                "MENUTYPE" => "bar",
+                "MENUORD" => "2",
+                "CMD" => "MODULO-APERTURA-SALAS   ",
+                "PROMPT" => "Apertura de Salas  ",
+                "TOOLBAR" => "    ",
+                "MESSAGE" => "Apertura de salas (Versión simple)",
+                "PICTURE" => "    "
+            ],
+            "01" => [
+                "APPID" => "HCW",
+                "MENU" => "MENPRI  ",
+                "MENUID" => "0301",
+                "MENUOF" => "03  ",
+                "MENUTYPE" => "bar",
+                "MENUORD" => "3",
+                "CMD" => "MODULO-BITACORAS   ",
+                "PROMPT" => "Bitácoras",
+                "TOOLBAR" => "    ",
+                "MESSAGE" => "Bitácoras",
+                "PICTURE" => "    "
+            ],
+            "03" => [
+                "APPID" => "HCW",
+                "MENU" => "MENPRI  ",
+                "MENUID" => "0303",
+                "MENUOF" => "03  ",
+                "MENUTYPE" => "bar",
+                "MENUORD" => "4",
+                "CMD" => "MODULO-CONSULTAS-AS400  ",
+                "PROMPT" => "Consultas AS400    ",
+                "TOOLBAR" => "    ",
+                "MESSAGE" => "Consultas AS400    ",
+                "PICTURE" => "\"RESOURCE\\BITMAPS\\PNG\\FW\\SOLID\\UPLOAD.PNG\"  "
+            ],
+            "04" => [
+                "APPID" => "HCW",
+                "MENU" => "MENPRI  ",
+                "MENUID" => "0304",
+                "MENUOF" => "03  ",
+                "MENUTYPE" => "bar",
+                "MENUORD" => "5",
+                "CMD" => "MODULO-CITAS-TELEMEDICINA    ",
+                "PROMPT" => "Gestión de Citas por Telemedicina ",
+                "TOOLBAR" => "    ",
+                "MESSAGE" => "Gestión de Citas por Telemedicina ",
+                "PICTURE" => "    "
+            ],
+            "05" => [
+                "APPID" => "HCW",
+                "MENU" => "MENPRI  ",
+                "MENUID" => "0305",
+                "MENUOF" => "03  ",
+                "MENUTYPE" => "bar",
+                "MENUORD" => "6",
+                "CMD" => "MODULO-INGRESOS    ",
+                "PROMPT" => "Ingresos ",
+                "TOOLBAR" => "    ",
+                "MESSAGE" => "Modulo de ingresos ",
+                "PICTURE" => "    "
+            ],
+            "02" => [
+                "APPID" => "HCW",
+                "MENU" => "MENPRI  ",
+                "MENUID" => "0302",
+                "MENUOF" => "03  ",
+                "MENUTYPE" => "bar",
+                "MENUORD" => "7",
+                "CMD" => "MODULO-MIPRES ",
+                "PROMPT" => "Módulos MiPRES",
+                "TOOLBAR" => "    ",
+                "MESSAGE" => "Módulos MiPRES",
+                "PICTURE" => "\"RESOURCE\\BITMAPS\\PNG\\FW\\SOLID\\TABLE.PNG\"   "
+            ],
+            "07" => [
+                "APPID" => "HCW",
+                "MENU" => "MENPRI  ",
+                "MENUID" => "0307",
+                "MENUOF" => "03  ",
+                "MENUTYPE" => "bar",
+                "MENUORD" => "8",
+                "CMD" => "MODULO-IMPORTAR-AS400   ",
+                "PROMPT" => "Importar a AS400   ",
+                "TOOLBAR" => "    ",
+                "MESSAGE" => "Importar a AS400   ",
+                "PICTURE" => "\"RESOURCE\\BITMAPS\\PNG\\FW\\SOLID\\DOWNLOAD.PNG\""
+            ],
+            "08" => [
+                "APPID" => "HCW",
+                "MENU" => "MENPRI  ",
+                "MENUID" => "0308",
+                "MENUOF" => "03  ",
+                "MENUTYPE" => "bar",
+                "MENUORD" => "9",
+                "CMD" => "modulo-soportescm  ",
+                "PROMPT" => "Opciones Radicación",
+                "TOOLBAR" => "    ",
+                "MESSAGE" => "Soportes y Planos para Radicación ",
+                "PICTURE" => "resource\\bitmaps\\png\\fw\\solid\\file-invoice.png   "
+            ],
+            "09" => [
+                "APPID" => "HCW",
+                "MENU" => "MENPRI  ",
+                "MENUID" => "0309",
+                "MENUOF" => "03  ",
+                "MENUTYPE" => "bar",
+                "MENUORD" => "10",
+                "CMD" => "MODULO-FACTURACION ",
+                "PROMPT" => "Módulo Facturación ",
+                "TOOLBAR" => "    ",
+                "MESSAGE" => "    ",
+                "PICTURE" => "    "
+            ]
+        ],
+        "01" => [
+            "12" => [
+                "APPID" => "HCW",
+                "MENU" => "MENPRI  ",
+                "MENUID" => "0112",
+                "MENUOF" => "01  ",
+                "MENUTYPE" => "bar",
+                "MENUORD" => "15",
+                "CMD" => "MODULO-HISTORIACLINICA&CP=CEX",
+                "PROMPT" => "HC Consulta Externa",
+                "TOOLBAR" => "    ",
+                "MESSAGE" => "    ",
+                "PICTURE" => "\"RESOURCE\\BITMAPS\\PNG\\FW\\SOLID\\HOSPITAL-USER.PNG\""
+            ],
+            "13" => [
+                "APPID" => "HCW",
+                "MENU" => "MENPRI  ",
+                "MENUID" => "0113",
+                "MENUOF" => "01  ",
+                "MENUTYPE" => "bar",
+                "MENUORD" => "16",
+                "CMD" => "MODULO-HISTORIACLINICA&CP=HOS",
+                "PROMPT" => "HC Consulta Hospitalizados   ",
+                "TOOLBAR" => "    ",
+                "MESSAGE" => "    ",
+                "PICTURE" => "\"RESOURCE\\BITMAPS\\PNG\\FW\\SOLID\\HOSPITAL.PNG\""
+            ],
+            "14" => [
+                "APPID" => "HCW",
+                "MENU" => "MENPRI  ",
+                "MENUID" => "0114",
+                "MENUOF" => "01  ",
+                "MENUTYPE" => "line    ",
+                "MENUORD" => "19",
+                "CMD" => "    ",
+                "PROMPT" => "\\-  ",
+                "TOOLBAR" => "    ",
+                "MESSAGE" => "    ",
+                "PICTURE" => "    "
+            ],
+            "15" => [
+                "APPID" => "HCW",
+                "MENU" => "MENPRI  ",
+                "MENUID" => "0115",
+                "MENUOF" => "01  ",
+                "MENUTYPE" => "bar",
+                "MENUORD" => "25",
+                "CMD" => "MODULO-EVOCONSULTA ",
+                "PROMPT" => "Consulta Evoluciones    ",
+                "TOOLBAR" => "    ",
+                "MESSAGE" => "Evoluciones   ",
+                "PICTURE" => "\"RESOURCE\\BITMAPS\\PNG\\FW\\SOLID\\NEWSPAPER.PNG\"    "
+            ],
+            "16" => [
+                "APPID" => "HCW",
+                "MENU" => "MENPRI  ",
+                "MENUID" => "0116",
+                "MENUOF" => "01  ",
+                "MENUTYPE" => "bar",
+                "MENUORD" => "20",
+                "CMD" => "MODULO-ORDENES-AMBULATORIAS  ",
+                "PROMPT" => "Ordenes ambulatorias    ",
+                "TOOLBAR" => "    ",
+                "MESSAGE" => "    ",
+                "PICTURE" => "\"RESOURCE\\BITMAPS\\PNG\\FW\\SOLID\\FILE-PRESCRIPTION.PNG\" "
+            ],
+            "18" => [
+                "APPID" => "HCW",
+                "MENU" => "MENPRI  ",
+                "MENUID" => "0118",
+                "MENUOF" => "01  ",
+                "MENUTYPE" => "bar",
+                "MENUORD" => "21",
+                "CMD" => "MODULO-CONSULTA-NUTRICION    ",
+                "PROMPT" => "Ordenes Médicas    ",
+                "TOOLBAR" => "    ",
+                "MESSAGE" => "    ",
+                "PICTURE" => "    "
+            ],
+            "19" => [
+                "APPID" => "HCW",
+                "MENU" => "MENPRI  ",
+                "MENUID" => "0119",
+                "MENUOF" => "01  ",
+                "MENUTYPE" => "bar",
+                "MENUORD" => "27",
+                "CMD" => "MODULO-NUTRICION   ",
+                "PROMPT" => "Nutrición",
+                "TOOLBAR" => "    ",
+                "MESSAGE" => "    ",
+                "PICTURE" => "\"RESOURCE\\BITMAPS\\PNG\\FW\\SOLID\\UTENSILS.PNG\""
+            ],
+            "20" => [
+                "APPID" => "HCW",
+                "MENU" => "MENPRI  ",
+                "MENUID" => "0120",
+                "MENUOF" => "01  ",
+                "MENUTYPE" => "bar",
+                "MENUORD" => "26",
+                "CMD" => "MODULO-INFCONSULTA ",
+                "PROMPT" => "Consulta PROA ",
+                "TOOLBAR" => "    ",
+                "MESSAGE" => "Infectologia  ",
+                "PICTURE" => "RESOURCE\\BITMAPS\\PNG\\FW\\SOLID\\FILE-ALT.PNG  "
+            ],
+            "21" => [
+                "APPID" => "HCW",
+                "MENU" => "MENPRI  ",
+                "MENUID" => "0121",
+                "MENUOF" => "01  ",
+                "MENUTYPE" => "bar",
+                "MENUORD" => "18",
+                "CMD" => "MODULO-CONSULTAAVAL",
+                "PROMPT" => "Registro AVAL ",
+                "TOOLBAR" => "FARMACIA - Farmacia",
+                "MESSAGE" => "    ",
+                "PICTURE" => "\"D=>\\REPOSITORIOS\\HCP-2022\\RESOURCE\\BITMAPS\\PNG\\FW\\SOLID\\CHECK-DOUBLE.PNG\" "
+            ],
+            "22" => [
+                "APPID" => "HCW",
+                "MENU" => "MENPRI  ",
+                "MENUID" => "0122",
+                "MENUOF" => "01  ",
+                "MENUTYPE" => "bar",
+                "MENUORD" => "22",
+                "CMD" => "MODULO-HISTORIACLINICA&CP=INT",
+                "PROMPT" => "Interconsultas",
+                "TOOLBAR" => "    ",
+                "MESSAGE" => "    ",
+                "PICTURE" => "\"RESOURCE\\BITMAPS\\PNG\\FW\\SOLID\\EXCHANGE-ALT.PNG\" "
+            ],
+            "23" => [
+                "APPID" => "HCW",
+                "MENU" => "MENPRI  ",
+                "MENUID" => "0123",
+                "MENUOF" => "01  ",
+                "MENUTYPE" => "line    ",
+                "MENUORD" => "23",
+                "CMD" => "    ",
+                "PROMPT" => "\\-  ",
+                "TOOLBAR" => "    ",
+                "MESSAGE" => "    ",
+                "PICTURE" => "    "
+            ],
+            "24" => [
+                "APPID" => "HCW",
+                "MENU" => "MENPRI  ",
+                "MENUID" => "0124",
+                "MENUOF" => "01  ",
+                "MENUTYPE" => "bar",
+                "MENUORD" => "39",
+                "CMD" => "MODULO-HISTORIACLINICA&CP=PROEST  ",
+                "PROMPT" => "Procedimientos ordenados",
+                "TOOLBAR" => "    ",
+                "MESSAGE" => "    ",
+                "PICTURE" => "\"RESOURCE\\BITMAPS\\PNG\\FW\\SOLID\\EXCHANGE-ALT.PNG\" "
+            ],
+            "25" => [
+                "APPID" => "HCW",
+                "MENU" => "MENPRI  ",
+                "MENUID" => "0125",
+                "MENUOF" => "01  ",
+                "MENUTYPE" => "bar",
+                "MENUORD" => "40",
+                "CMD" => "MODULO-HISTORIACLINICA&CP=CIRU    ",
+                "PROMPT" => "Realizar Cirugía   ",
+                "TOOLBAR" => "    ",
+                "MESSAGE" => "    ",
+                "PICTURE" => "\"RESOURCE\\BITMAPS\\PNG\\FW\\SOLID\\USERS.PNG\"   "
+            ],
+            "APPID" => "HCW",
+            "MENU" => "MENPRI  ",
+            "MENUID" => "01  ",
+            "MENUOF" => "    ",
+            "MENUTYPE" => "pad",
+            "MENUORD" => "12",
+            "CMD" => "    ",
+            "PROMPT" => "Información Médica ",
+            "TOOLBAR" => "    ",
+            "MESSAGE" => "    ",
+            "PICTURE" => "    ",
+            "03" => [
+                "APPID" => "HCW",
+                "MENU" => "MENPRI  ",
+                "MENUID" => "0103",
+                "MENUOF" => "01  ",
+                "MENUTYPE" => "bar",
+                "MENUORD" => "13",
+                "CMD" => "MODULO-DOCUMENTOS  ",
+                "PROMPT" => "Libro de HC   ",
+                "TOOLBAR" => "OPCPRI - Opciónes Principales",
+                "MESSAGE" => "    ",
+                "PICTURE" => "\"RESOURCE\\BITMAPS\\PNG\\FW\\SOLID\\BOOK-MEDICAL.PNG\" "
+            ],
+            "04" => [
+                "APPID" => "HCW",
+                "MENU" => "MENPRI  ",
+                "MENUID" => "0104",
+                "MENUOF" => "01  ",
+                "MENUTYPE" => "line    ",
+                "MENUORD" => "14",
+                "CMD" => "    ",
+                "PROMPT" => "\\-  ",
+                "TOOLBAR" => "    ",
+                "MESSAGE" => "    ",
+                "PICTURE" => "    "
+            ],
+            "09" => [
+                "APPID" => "HCW",
+                "MENU" => "MENPRI  ",
+                "MENUID" => "0109",
+                "MENUOF" => "01  ",
+                "MENUTYPE" => "bar",
+                "MENUORD" => "17",
+                "CMD" => "MODULO-HISTORIACLINICA&CP=URG",
+                "PROMPT" => "HC Consulta Urgencias   ",
+                "TOOLBAR" => "    ",
+                "MESSAGE" => "    ",
+                "PICTURE" => "\"RESOURCE\\BITMAPS\\PNG\\FW\\SOLID\\AMBULANCE.PNG\"    "
+            ],
+            "06" => [
+                "APPID" => "HCW",
+                "MENU" => "MENPRI  ",
+                "MENUID" => "0106",
+                "MENUOF" => "01  ",
+                "MENUTYPE" => "bar",
+                "MENUORD" => "24",
+                "CMD" => "MODULO-PROGRAMACION-SALAS    ",
+                "PROMPT" => "Programación Salas ",
+                "TOOLBAR" => "    ",
+                "MESSAGE" => "    ",
+                "PICTURE" => "\"RESOURCE\\BITMAPS\\PNG\\FW\\SOLID\\PROCEDURES.PNG\"   "
+            ],
+            "01" => [
+                "APPID" => "HCW",
+                "MENU" => "MENPRI  ",
+                "MENUID" => "0101",
+                "MENUOF" => "01  ",
+                "MENUTYPE" => "popup   ",
+                "MENUORD" => "28",
+                "CMD" => "    ",
+                "PROMPT" => "Enfermería    ",
+                "TOOLBAR" => "    ",
+                "MESSAGE" => "    ",
+                "PICTURE" => "user-nurse    ",
+                "02" => [
+                    "APPID" => "HCW",
+                    "MENU" => "MENPRI  ",
+                    "MENUID" => "010102   ",
+                    "MENUOF" => "0101",
+                    "MENUTYPE" => "bar",
+                    "MENUORD" => "29",
+                    "CMD" => "MODULO-MEDICAMENTOS-ADMINISTRACION",
+                    "PROMPT" => "Administración de medicamentos    ",
+                    "TOOLBAR" => "ENFERMER - Enfermería   ",
+                    "MESSAGE" => "    ",
+                    "PICTURE" => "\"RESOURCE\\BITMAPS\\PNG\\FW\\SOLID\\SYRINGE.PNG\" "
+                ],
+                "03" => [
+                    "APPID" => "HCW",
+                    "MENU" => "MENPRI  ",
+                    "MENUID" => "010103   ",
+                    "MENUOF" => "0101",
+                    "MENUTYPE" => "bar",
+                    "MENUORD" => "30",
+                    "CMD" => "MODULO-ALERTA-TEMPRANA  ",
+                    "PROMPT" => "Alertas tempranas (DSAT)",
+                    "TOOLBAR" => "ENFERMER - Enfermería   ",
+                    "MESSAGE" => "Opciones del sistema digital de alertas temprana (DSAT)    ",
+                    "PICTURE" => "\"RESOURCE\\BITMAPS\\PNG\\FW\\SOLID\\EXCLAMATION-TRIANGLE.PNG\"   "
+                ],
+                "01" => [
+                    "APPID" => "HCW",
+                    "MENU" => "MENPRI  ",
+                    "MENUID" => "010101   ",
+                    "MENUOF" => "0101",
+                    "MENUTYPE" => "bar",
+                    "MENUORD" => "31",
+                    "CMD" => "MODULO-SIGNOS ",
+                    "PROMPT" => "Registro de Signos vitales   ",
+                    "TOOLBAR" => "ENFERMER - Enfermería   ",
+                    "MESSAGE" => "Capture los signos vitales del paciente",
+                    "PICTURE" => "\"RESOURCE\\BITMAPS\\PNG\\FW\\SOLID\\HEARTBEAT.PNG\"    "
+                ],
+                "04" => [
+                    "APPID" => "HCW",
+                    "MENU" => "MENPRI  ",
+                    "MENUID" => "010104   ",
+                    "MENUOF" => "0101",
+                    "MENUTYPE" => "bar",
+                    "MENUORD" => "32",
+                    "CMD" => "MODULO-ALERTA-TEMPRANA&P=REGISTROCONSULTA   ",
+                    "PROMPT" => "Consulta de valoraciones de signos vitales  ",
+                    "TOOLBAR" => "    ",
+                    "MESSAGE" => "    ",
+                    "PICTURE" => "\"RESOURCE\\BITMAPS\\PNG\\FW\\SOLID\\TABLE.PNG\"   "
+                ]
+            ],
+            "02" => [
+                "APPID" => "HCW",
+                "MENU" => "MENPRI  ",
+                "MENUID" => "0102",
+                "MENUOF" => "01  ",
+                "MENUTYPE" => "popup   ",
+                "MENUORD" => "33",
+                "CMD" => "    ",
+                "PROMPT" => "Farmacia ",
+                "TOOLBAR" => "    ",
+                "MESSAGE" => "    ",
+                "PICTURE" => "    ",
+                "01" => [
+                    "APPID" => "HCW",
+                    "MENU" => "MENPRI  ",
+                    "MENUID" => "010201   ",
+                    "MENUOF" => "0102",
+                    "MENUTYPE" => "bar",
+                    "MENUORD" => "34",
+                    "CMD" => "MODULO-MEDICAMENTOS-DISPENSACION  ",
+                    "PROMPT" => "Dispensación de medicamentos ",
+                    "TOOLBAR" => "FARMACIA - Farmacia",
+                    "MESSAGE" => "    ",
+                    "PICTURE" => "\"RESOURCE\\BITMAPS\\PNG\\FW\\SOLID\\PRESCRIPTION-BOTTLE-ALT.PNG\""
+                ],
+                "02" => [
+                    "APPID" => "HCW",
+                    "MENU" => "MENPRI  ",
+                    "MENUID" => "010202   ",
+                    "MENUOF" => "0102",
+                    "MENUTYPE" => "bar",
+                    "MENUORD" => "35",
+                    "CMD" => "MODULO-INSUMOS-DISPENSACION  ",
+                    "PROMPT" => "Dispensación de insumos ",
+                    "TOOLBAR" => "FARMACIA - Farmacia",
+                    "MESSAGE" => "    ",
+                    "PICTURE" => "\"RESOURCE\\BITMAPS\\PNG\\FW\\SOLID\\CRUTCH.PNG\"  "
+                ]
+            ],
+            "08" => [
+                "APPID" => "HCW",
+                "MENU" => "MENPRI  ",
+                "MENUID" => "0108",
+                "MENUOF" => "01  ",
+                "MENUTYPE" => "popup   ",
+                "MENUORD" => "36",
+                "CMD" => "    ",
+                "PROMPT" => "Urgencias",
+                "TOOLBAR" => "    ",
+                "MESSAGE" => "    ",
+                "PICTURE" => "    ",
+                "01" => [
+                    "APPID" => "HCW",
+                    "MENU" => "MENPRI  ",
+                    "MENUID" => "010801   ",
+                    "MENUOF" => "0108",
+                    "MENUTYPE" => "bar",
+                    "MENUORD" => "37",
+                    "CMD" => "MODULO-TRIAGE ",
+                    "PROMPT" => "Triage   ",
+                    "TOOLBAR" => "    ",
+                    "MESSAGE" => "    ",
+                    "PICTURE" => "    "
+                ],
+                "02" => [
+                    "APPID" => "HCW",
+                    "MENU" => "MENPRI  ",
+                    "MENUID" => "010802   ",
+                    "MENUOF" => "0108",
+                    "MENUTYPE" => "bar",
+                    "MENUORD" => "38",
+                    "CMD" => "MODULO-CENSO-PACIENTES  ",
+                    "PROMPT" => "Censo pacientes    ",
+                    "TOOLBAR" => "    ",
+                    "MESSAGE" => "    ",
+                    "PICTURE" => "    "
+                ]
+            ]
+        ],
+        "04" => [
+            "APPID" => "HCW",
+            "MENU" => "MENPRI  ",
+            "MENUID" => "04  ",
+            "MENUOF" => "    ",
+            "MENUTYPE" => "pad",
+            "MENUORD" => "41",
+            "CMD" => "    ",
+            "PROMPT" => "Enfermería    ",
+            "TOOLBAR" => "    ",
+            "MESSAGE" => "    ",
+            "PICTURE" => "    ",
+            "01" => [
+                "APPID" => "HCW",
+                "MENU" => "MENPRI  ",
+                "MENUID" => "0401",
+                "MENUOF" => "04  ",
+                "MENUTYPE" => "bar",
+                "MENUORD" => "42",
+                "CMD" => "MODULO-KARDEX ",
+                "PROMPT" => "Kardex   ",
+                "TOOLBAR" => "    ",
+                "MESSAGE" => "    ",
+                "PICTURE" => "\"D=>\\REPOSITORIOS\\HCP-2023\\RESOURCE\\BITMAPS\\PNG\\FW\\SOLID\\HEARTBEAT.PNG\"    "
+            ]
+        ],
+        "02" => [
+            "APPID" => "HCW",
+            "MENU" => "MENPRI  ",
+            "MENUID" => "02  ",
+            "MENUOF" => "    ",
+            "MENUTYPE" => "pad",
+            "MENUORD" => "43",
+            "CMD" => "    ",
+            "PROMPT" => "Configuración ",
+            "TOOLBAR" => "    ",
+            "MESSAGE" => "    ",
+            "PICTURE" => "    ",
+            "03" => [
+                "APPID" => "HCW",
+                "MENU" => "MENPRI  ",
+                "MENUID" => "0203",
+                "MENUOF" => "02  ",
+                "MENUTYPE" => "bar",
+                "MENUORD" => "44",
+                "CMD" => "MODULO-LOGS   ",
+                "PROMPT" => "Administración de Logs  ",
+                "TOOLBAR" => "    ",
+                "MESSAGE" => "Administración de Logs  ",
+                "PICTURE" => "    "
+            ],
+            "01" => [
+                "APPID" => "HCW",
+                "MENU" => "MENPRI  ",
+                "MENUID" => "0201",
+                "MENUOF" => "02  ",
+                "MENUTYPE" => "bar",
+                "MENUORD" => "45",
+                "CMD" => "MODULO-TAREAS ",
+                "PROMPT" => "Administración de Tareas programadas   ",
+                "TOOLBAR" => "    ",
+                "MESSAGE" => "Opción para administrar las tareas programadas   ",
+                "PICTURE" => "\"RESOURCE\\BITMAPS\\PNG\\FW\\REGULAR\\CLOCK.PNG\" "
+            ],
+            "02" => [
+                "APPID" => "HCW",
+                "MENU" => "MENPRI  ",
+                "MENUID" => "0202",
+                "MENUOF" => "02  ",
+                "MENUTYPE" => "bar",
+                "MENUORD" => "46",
+                "CMD" => "MODULO-USUARIOS    ",
+                "PROMPT" => "Usuarios del sistema    ",
+                "TOOLBAR" => "    ",
+                "MESSAGE" => "Usuarios del sistema    ",
+                "PICTURE" => "    "
+            ]
+        ]
+    ]
+];
+
+$especiales = [];
+$submenus = [];
+
+
+$especialidades = [
+    [
+        "id" => "03",  "appId" => "HCW",
+        "menuType" => "pad", "menuOrder" => "1", "cmd" => "",
+        "prompt" => "Información Administrativa", "message" => "Información Administrativa",
+        "picture" => "",
+        "submenu" => [
+            "id" => "03",  "appId" => "HCW",
+            "menuType" => "pad", "menuOrder" => "1", "cmd" => "",
+            "prompt" => "Información Administrativa", "message" => "Información Administrativa",
+            "picture" => ""
+        ]
+    ],
+    [
+        "id" => "0310",  "appId" => "HCW",
+        "menuType" => "bar", "menuOrder" => "11", "cmd" => "MODULO-PACIENTES-CORREO",
+        "prompt" => "Actualizar Correo Pacientes", "message" => "Correo Pacientes",
+        "picture" => "\"RESOURCE\\BITMAPS\\PNG\\FW\\SOLID\\USER-TAG.PNG\"",
+        "submenu" => [
+            "id" => "03",  "appId" => "HCW",
+            "menuType" => "pad", "menuOrder" => "1", "cmd" => "",
+            "prompt" => "Información Administrativa", "message" => "Información Administrativa",
+            "picture" => ""
+        ]
+    ]
+];
+
+foreach ($especialidades as $especialidad) {
+    if ($especialidad['submenu'] && is_array($especialidad['submenu'])) {
+        foreach ($especialidad['submenu'] as $submenu) {
+        }
+    }
+}
+
+$jsonData = json_encode(["menu" => $especialidades], JSON_PRETTY_PRINT);
+
+
+echo ($jsonData);

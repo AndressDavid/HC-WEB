@@ -1,0 +1,34 @@
+    <div class="container-fluid pt-2 encabezar">
+        <div class="card border bg-fondo p-2" *ngIf="listaDatosEncabezado && listaDatosEncabezado.length > 0">
+            <div class="row">
+                <div class="col-sm-3">
+                    <small>{{lcPaciente}}</small> <b> {{ listaDatosEncabezado[0].cNombre }}</b>
+                </div>
+                <div class="col-sm-3">
+                    <small>{{lcGenero}}</small><b>{{ listaDatosEncabezado[0].cDescSexo }}</b>
+                </div>
+                <div class="col-sm-3">
+                    <small>{{lcDocumento}}</small><b>{{ listaDatosEncabezado[0].cTipId }} {{ listaDatosEncabezado[0].nNumId }}</b>
+                </div>
+                <div class="col-sm-3">
+                    <small>{{lcIngreso}} </small><b>{{ listaDatosEncabezado[0].nIngreso }}</b>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3">
+                    <small>{{lcVia}} </small><b>{{ listaDatosEncabezado[0].cDesVia }}</b>
+                    <small>{{lcPeso}} </small> <b>{{ listaDatosEncabezado[0].cPesoUnidad }}</b>
+                </div>
+                <div class="col-sm-3">
+                    <small>{{lcHabitacion}}</small><b>{{ listaDatosEncabezado[0].cHabita }}</b>
+                </div>
+                <div class="col-sm-3">
+                    <small>{{lcEdad}} </small> <b>{{ listaDatosEncabezado[0].aEdad.y }}A {{ listaDatosEncabezado[0].aEdad.m
+                        }}M {{ listaDatosEncabezado[0].aEdad.d }}D</b>
+                </div>
+                <div class="col-sm-3">
+                    <small>{{lcHistoria}}</small> <b>{{ listaDatosEncabezado[0].nHistoria }}</b>
+                </div>
+            </div>
+        </div>
+    </div>

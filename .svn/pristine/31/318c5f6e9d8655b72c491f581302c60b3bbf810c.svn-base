@@ -1,0 +1,10 @@
+﻿cTareaNombre=Alertas Tempranas SOFA
+cTareaDescripcion=Realiza las valoraciones SOFA para activar el código sepsis
+cTareaActiva=NO
+cTareaMinuto=*/15
+cTareaHora=*
+cTareaDiaMes=*
+cTareaMes=*
+cTareaDiaSemana=*
+nIntentosMaximos=2
+cArchivo=script.php

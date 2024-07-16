@@ -1,0 +1,24 @@
+RewriteOptions inherit
+RewriteEngine on
+Options -Indexes
+Options FollowSymLinks
+
+# ACCESO
+Order Allow,Deny
+#Deny From 172.20.30.71
+#Deny From 172.20.30.50
+Allow From all
+
+
+<IfModule mod_rewrite.c>
+  Options Indexes FollowSymLinks
+  RewriteEngine On
+
+  RewriteRule ^index\.html$ - [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+
+  #If the requested resource doesn't exist, use index.html
+  RewriteRule ^(.*)$ /angular/web/browser/index.html
+
+</IfModule>

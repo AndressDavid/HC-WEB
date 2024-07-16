@@ -1,0 +1,310 @@
+<div class="card-body" *ngIf="datosDeEvaluacion">
+  <div class="row">
+    <div class="card-header">
+      <small><b>{{lcNombreEvaluacion}}</b></small>
+    </div>
+    <div class="col-lg-12 pt-3">
+      <h4 class="text-center border rounded p-1 bg-fondo"><small><b><i>{{lcEscalas}}</i></b></small>
+      </h4>
+    </div>
+    <div class="text-center col-lg-6 border rounded bg-fondo pt-2">
+      <label for="" class="form-label px-1"><small><b>{{lcRiesgoDeCaida}} </b></small></label>
+      <input class="form-check-input" type="text" value="" id="flexCheckDefault" [ngModel]="datosDeEvaluacion.RiesgoCaida">
+    </div>
+    <div class="text-center col-lg-6 border rounded bg-fondo pt-2">
+      <label for="" class="form-label px-1"><small><b>{{lcHumptyDumpt}} </b></small></label>
+      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+    </div>
+    <div class="col-lg-3 pb-2 pt-2">
+      <label for="" class="form-label px-1"><small><b>{{lcPuntaje}}</b></small></label>
+      <input type="text" class="form-control">
+    </div>
+    <div class="col-lg-3 pb-2 pt-2">
+      <label for="" class="form-label px-1"><small><b>{{lcRondaFrecuente}}</b></small></label>
+      <input type="text" class="form-control">
+    </div>
+    <div class="col-lg-3 pb-2 pt-2">
+      <label for="" class="form-label px-1"><small><b>{{lcRiesgoAlto}}</b></small></label>
+      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+    </div>
+    <div class="col-lg-3 pb-2 pt-2">
+      <label for="" class="form-label px-1"><small><b>{{lcRiesgoBajo}}</b></small></label>
+      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+    </div>
+    <div class="col-lg-3">
+      <label for="" class="form-label px-1"><small><b>{{lcInformacionTimbreMano}}</b></small></label>
+      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+    </div>
+    <div class="col-lg-3">
+      <label for="" class="form-label px-1"><small><b>{{lcCamaNivel}}</b></small></label>
+      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+    </div>
+    <div class="col-lg-3">
+      <label for="" class="form-label px-1"><small><b>{{lcCompaniaPermanente}}</b></small></label>
+      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+    </div>
+    <div class="col-lg-3">
+      <label for="" class="form-label px-1"><small><b>{{lcMedidasSujecion}}</b></small></label>
+      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+    </div>
+    <div class="col-lg-12 pt-3">
+      <h4 class="text-center border rounded p-1 bg-fondo"><small><b><i>{{lcRiesgoLesiones}}</i></b></small></h4>
+    </div>
+    <div class="col-lg-3 pb-2 pt-2">
+      <label for="" class="form-label px-1"><small><b>{{lcPuntajeLesiones}}</b></small></label>
+      <input type="text" class="form-control">
+    </div>
+    <div class="col-lg-3 pb-2 pt-2">
+      <label for="" class="form-label px-1"><small><b>{{lcRiesgoAlto}}</b></small></label>
+      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+    </div>
+    <div class="col-lg-3 pb-2 pt-2">
+      <label for="" class="form-label px-1"><small><b>{{lcRiesgoMedio}}</b></small></label>
+      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+    </div>
+    <div class="col-lg-3 pb-2 pt-2">
+      <label for="" class="form-label px-1"><small><b>{{lcRiesgoBajo}}</b></small></label>
+      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+    </div>
+    <div class="col-lg-3 pb-2 pt-2">
+      <label for="" class="form-label"><small><b>{{lcIntervencion}}</b></small></label>
+    </div>
+    <div class="col-lg-3 pb-2 pt-2">
+      <label for="" class="form-label"><small><b>{{lcICPielSana}}</b></small></label>
+      <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault1">
+    </div>
+    <div class="col-lg-3 pb-2 pt-2">
+      <label for="" class="form-label px-1"><small><b>{{lcLubricacionDePiel}}</b></small></label>
+      <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault1">
+    </div>
+    <div class="col-lg-3 pb-2 pt-2">
+      <label for="" class="form-label px-1"><small><b>{{lcCambiosPosicion}}</b></small></label>
+      <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault1">
+    </div>
+    <div class="col-lg-4 pb-2 pt-2">
+      <label for="" class="form-label px-1"><small><b>{{lcAcidosGrasos}}</b></small></label>
+      <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault1">
+    </div>
+    <div class="col-lg-4 pb-2 pt-2">
+      <label for="" class="form-label px-1"><small><b>{{lcAliviadorPresion}}</b></small></label>
+      <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault1">
+    </div>
+    <div class="col-lg-4 pb-2 pt-2">
+      <label for="" class="form-label px-1"><small><b>{{lcProtectoresCutaneos}}</b></small></label>
+      <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault1">
+    </div>
+    <div class="col-lg-12 pt-3">
+      <h4 class="text-center border rounded p-1 bg-fondo"><small><b><i>{{lcRiesgoFuga}}</i></b></small></h4>
+    </div>
+    <div class="col-lg-3 pb-2 pt-2">
+      <label for="" class="form-label px-1"><small><b>{{lcPuntaje}}</b></small></label>
+      <input type="text" class="form-control">
+    </div>
+    <div class="col-lg-3 pb-2 pt-2">
+      <label for="" class="form-label px-1"><small><b> {{lcRiesgoSi}}</b></small></label>
+      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+    </div>
+    <div class="col-lg-3 pb-2 pt-2">
+      <label for="" class="form-label px-1"><small><b>{{lcRiesgoNo}}</b></small></label>
+      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+    </div>
+    <div class="col-lg-3 pb-2 pt-2"></div>
+    <div class="col-lg-3 pb-2 pt-2">
+      <label for="" class="form-label"><small><b>{{lcIntervencion}}</b></small></label>
+    </div>
+    <div class="col-lg-2 pb-2 pt-2">
+      <label for="" class="form-label"><small><b>{{lcBataVerde}}</b></small></label>
+      <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault1">
+    </div>
+    <div class="col-lg-2 pb-2 pt-2">
+      <label for="" class="form-label px-1"><small><b>{{lcPuntoVerde}}</b></small></label>
+      <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault1">
+    </div>
+    <div class="col-lg-2 pb-2 pt-2">
+      <label for="" class="form-label px-1"><small><b>{{lcCompaniaPermanente}}</b></small></label>
+      <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault1">
+    </div>
+    <div class="col-lg-2 pb-2 pt-2">
+      <label for="" class="form-label px-1"><small><b>{{lcMedidasSujecion}}</b></small></label>
+      <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault1">
+    </div>
+    <div class="col-lg-3 pb-2 pt-2">
+      <label for="" class="form-label"><small><b>{{lcNotificacion}}</b></small></label>
+    </div>
+    <div class="col-lg-3 pb-2 pt-2">
+      <label for="" class="form-label"><small><b>{{lcCalidad}}</b></small></label>
+      <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault1">
+    </div>
+    <div class="col-lg-3 pb-2 pt-2">
+      <label for="" class="form-label px-1"><small><b>{{lcSeguridad}}</b></small></label>
+      <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault1">
+    </div>
+    <div class="col-lg-3 pb-2 pt-2">
+      <label for="" class="form-label px-1"><small><b>{{lcEnfermeria}}</b></small></label>
+      <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault1">
+    </div>
+    <div class="col-lg-12 pt-3">
+      <h4 class="text-center border rounded p-1 bg-fondo"><small><b><i>{{lcRiesgoSangrado}}</i></b></small></h4>
+    </div>
+    <div class="col-lg-3 pb-2 pt-2">
+      <label for="" class="form-label px-1"><small><b>{{lcPuntaje}}</b></small></label>
+      <input type="text" class="form-control">
+    </div>
+    <div class="col-lg-3 pb-2 pt-2">
+      <label for="" class="form-label px-1"><small><b>{{lcRiesgoAlto}}</b></small></label>
+      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+    </div>
+    <div class="col-lg-3 pb-2 pt-2">
+      <label for="" class="form-label px-1"><small><b>{{lcRiesgoBajo}}</b></small></label>
+      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+    </div>
+    <div class="col-lg-3 pb-2 pt-2"></div>
+    <div class="col-lg-3 pb-2 pt-2">
+      <label for="" class="form-label"><small><b>{{lcIntervencion}}</b></small></label>
+    </div>
+    <div class="col-lg-3 pb-2 pt-2">
+      <label for="" class="form-label"><small><b>{{lcEducacionPte}}</b></small></label>
+      <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault1">
+    </div>
+    <div class="col-lg-3 pb-2 pt-2">
+      <label for="" class="form-label px-1"><small><b>{{lcVigilarSangrado}}</b></small></label>
+      <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault1">
+    </div>
+    <div class="col-lg-3 pb-2 pt-2">
+      <label for="" class="form-label px-1"><small><b>{{lcEvitarGolpesLesiones}}</b></small></label>
+      <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault1">
+    </div>
+    <div class="col-lg-12 pt-3">
+      <h4 class="text-center border rounded p-1 bg-fondo"><small><b><i>{{lcRiesgoEnfermedadCaprini}}</i></b></small></h4>
+    </div>
+    <div class="col-lg-3 pb-2 pt-2">
+      <label for="" class="form-label px-1"><small><b>{{lcPuntaje}}</b></small></label>
+      <input type="text" class="form-control">
+    </div>
+    <div class="col-lg-3 pb-2 pt-2">
+      <label for="" class="form-label px-1"><small><b>{{lcRiesgoAlto}}</b></small></label>
+      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+    </div>
+    <div class="col-lg-3 pb-2 pt-2">
+      <label for="" class="form-label px-1"><small><b>{{lcRiesgoMedio}}</b></small></label>
+      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+    </div>
+    <div class="col-lg-3 pb-2 pt-2">
+      <label for="" class="form-label px-1"><small><b>{{lcRiesgoBajo}}</b></small></label>
+      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+    </div>
+    <div class="col-lg-3 pb-2 pt-2">
+      <label for="" class="form-label"><small><b>{{lcIntervencion}}</b></small></label>
+    </div>
+    <div class="col-lg-4 pb-2 pt-2">
+      <label for="" class="form-label px-1"><small><b>{{lcDeambulacionTemprana}}</b></small></label>
+      <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault1">
+    </div>
+    <div class="col-lg-4 pb-2 pt-2">
+      <label for="" class="form-label px-1"><small><b>{{lcMediasAntiembolicas}}</b></small></label>
+      <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault1">
+    </div>
+    <div class="col-lg-3 pb-2 pt-2">
+      <label for="" class="form-label px-1"><small><b>{{lcAnticoagulacion}}</b></small></label>
+      <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault1">
+    </div>
+    <div class="col-lg-3 pb-2 pt-2">
+      <label for="" class="form-label px-1"><small><b>{{lcCompresorVascular}}</b></small></label>
+      <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault1">
+    </div>
+    <div class="col-lg-12 pt-3">
+      <h4 class="text-center border rounded p-1 bg-fondo"><small><b><i>{{lcControles}}</i></b></small></h4>
+    </div>
+    <div class="col-lg-4 pb-2 pt-2">
+      <label for="" class="form-label px-1"><small><b>{{lcGlasgow}}</b></small></label>
+      <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault1">
+    </div>
+    <div class="col-lg-4 pb-2 pt-2">
+      <label for="" class="form-label px-1"><small><b>{{lcDolor}}</b></small></label>
+      <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault1">
+    </div>
+    <div class="col-lg-4 pb-2 pt-2">
+      <label for="" class="form-label px-1"><small><b>{{lcControlLiquidos}}</b></small></label>
+      <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault1">
+    </div>
+    <div class="col-lg-12 pt-3">
+      <h4 class="text-center border rounded p-1 bg-fondo"><small><b><i>{{lcEvaluacionPielHeridas}}</i></b></small></h4>
+    </div>
+    <div class="col-lg-12">
+      <label for="" class="form-label"><small><b>{{lcPielHeridas}}</b></small></label>
+      <textarea class="form-control" id="" rows="2"></textarea>
+    </div>
+    <div class="col-lg-3 pb-2 pt-2">
+      <label for="" class="form-label"><small><b>{{lcUsuarioPanal}}</b></small></label>
+    </div>
+    <div class="col-lg-3 pb-2 pt-2">
+      <label for="" class="form-label px-1"><small><b>{{lcSi}}</b></small></label>
+      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+    </div>
+    <div class="col-lg-3 pb-2 pt-2">
+      <label for="" class="form-label px-1"><small><b>{{lcNo}}</b></small></label>
+      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+    </div>
+    <div class="col-lg-3 pb-2 pt-2">
+      <label for="" class="form-label px-1"><small><b>{{lcAseoGenital}}</b></small></label>
+      <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault1">
+    </div>
+    <div class="col-lg-12 pt-3">
+      <h4 class="text-center border rounded p-1 bg-fondo"><small><b><i>{{lcTerapias}}</i></b></small></h4>
+    </div>
+    <div class="col-lg-3 pb-2 pt-2">
+      <label for="" class="form-label px-1"><small><b>{{lcFisicaCH}}</b></small></label>
+      <input type="text" class="form-control">
+    </div>
+    <div class="col-lg-3 pb-2 pt-2">
+      <label for="" class="form-label px-1"><small><b>{{lcRespiratoriaCH}}</b></small></label>
+      <input type="text" class="form-control">
+    </div>
+    <div class="col-lg-6 pb-2 pt-2 pb-3">
+      <label for="" class="form-label px-1"><small><b>{{lcFonoaudiologia}}</b></small></label>
+      <input type="text" class="form-control">
+    </div>
+    <hr class="divider">
+    <div class="col-lg-3 pb-2 pt-2">
+      <label for="" class="form-label px-1"><small><b>{{lcFecha}}</b></small></label>
+      <input type="date" class="form-control">
+    </div>
+    <div class="col-lg-9 pb-2 pt-2">
+      <label for="" class="form-label px-1"><small><b>{{lcLaboratorios}}</b></small></label>
+      <input type="text" class="form-control">
+    </div>
+    <div class="col-lg-3 pb-2 pt-2">
+      <label for="" class="form-label px-1"><small><b>{{lcFecha}}</b></small></label>
+      <input type="date" class="form-control">
+    </div>
+    <div class="col-lg-9 pb-2 pt-2">
+      <label for="" class="form-label px-1"><small><b>{{lcInterconsultas}}</b></small></label>
+      <input type="text" class="form-control">
+    </div>
+    <div class="col-lg-3 pb-2 pt-2">
+      <label for="" class="form-label px-1"><small><b>{{lcFecha}}</b></small></label>
+      <input type="date" class="form-control">
+    </div>
+    <div class="col-lg-9 pb-2 pt-2">
+      <label for="" class="form-label px-1"><small><b>{{lcImagenesDiagnosticas}}</b></small></label>
+      <input type="text" class="form-control">
+    </div>
+    <div class="col-lg-3 pb-2 pt-2">
+      <label for="" class="form-label px-1"><small><b>{{lcFecha}}</b></small></label>
+      <input type="date" class="form-control">
+    </div>
+    <div class="col-lg-9 pb-2 pt-2">
+      <label for="" class="form-label px-1"><small><b>{{lcProcedimientos}}</b></small></label>
+      <input type="text" class="form-control">
+    </div>
+    <div class="col-lg-3 pb-2 pt-2">
+      <label for="" class="form-label px-1"><small><b>{{lcFecha}}</b></small></label>
+      <input type="date" class="form-control">
+    </div>
+    <div class="col-lg-9 pb-5 pt-2">
+      <label for="" class="form-label px-1"><small><b>{{lcTranfusiones}}</b></small></label>
+      <input type="text" class="form-control">
+    </div>
+  </div>
+</div>
+<app-footer-kardex></app-footer-kardex>

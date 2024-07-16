@@ -1,0 +1,10 @@
+﻿cTareaNombre=Telemedicina, Notifiaciones y Recordatorios
+cTareaDescripcion=Envia las notifiaciones y recordatorios de citas de telemediciina
+cTareaActiva=SI
+cTareaMinuto=*
+cTareaHora=*
+cTareaDiaMes=*
+cTareaMes=*
+cTareaDiaSemana=*
+nIntentosMaximos=2
+cArchivo=script.php

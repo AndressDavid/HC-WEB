@@ -1,0 +1,6 @@
+<div [formGroup]=frmParametro >
+    <label><b>Otra Sala</b> <b *ngIf="requerido" class="text-danger"> * </b></label>
+    <select class="form-control" formControlName="{{forname}}"  (change)="cambiarOtraSala($event)" >
+        <option value="{{otra.codigo}}" *ngFor="let otra of otraSala">{{otra.abreviado}} - {{otra.descripcion}}<option>
+    </select>
+</div>

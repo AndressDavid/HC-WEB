@@ -1,0 +1,38 @@
+<?php
+return [
+			'configuracion' =>	[
+									'acronis',
+									'administrador',
+									'capacitacion',
+									'capprofe',
+									'cobianbackup',
+									'hcpserver',
+									'inplant',
+									'inplantsrv',
+									'iusr_servidordc',
+									'iwam_servidordc',
+									'kav',
+									'mantenimiento',
+									'rec',
+									'sialbpen',
+									'siandama',
+									'siandfar',
+									'sibriord',
+									'sigusace',
+									'siinstalhc',
+									'sijimlop',
+									'sijosort',
+									'simargon',
+									'sisanmat',
+									'sonicwall',
+									'sso',
+									'tecnico',
+								],
+			'computers'		=>	[
+									'srvdca',
+									'srvdcb',
+								],
+			'mail'			=>	[
+									'administrador departamento t.i.',
+								],
+		];

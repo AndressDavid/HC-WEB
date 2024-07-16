@@ -1,0 +1,10 @@
+﻿cTareaNombre=Obtener token temporal
+cTareaDescripcion=Obtiene el token temporal para MiPres Dispensador
+cTareaActiva=NO
+cTareaMinuto=15
+cTareaHora=6,12,18
+cTareaDiaMes=*
+cTareaMes=*
+cTareaDiaSemana=*
+nIntentosMaximos=1
+cArchivo=script.php

@@ -1,0 +1,39 @@
+<div class="nav-bar navbar-light  container-fluid small letras" >
+    <div class="nav-bar navbar-light sticky-top" *ngIf="listaDatosEncabezado" style="z-index: -1;background-color: #d3d3d3;"  >
+        <div class="row container-fluid ms-2 pl-3 pr-3 pt-2 d-flex">
+            <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5 col-xl-5">
+                <small class="pe-2">Paciente: </small> <b> {{ listaDatosEncabezado.cNombre }}</b>
+            </div>
+
+            <div class="col-xs-12 col-sm-5 col-md-3 col-lg-2 col-xl-2">
+                <small>Género: </small><b>{{ listaDatosEncabezado.cDescSexo }}</b>
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-4 col-lg-2 col-xl-2">
+                <small class="pe-2">Documento: </small><b>{{ listaDatosEncabezado.cTipId }} {{ listaDatosEncabezado.nNumId }}</b>
+            </div>
+            <div class="col-xs-12 col-sm-3 col-md-4 col-lg-2 col-xl-3">
+                <small class="pe-2">Ingreso: </small><b>{{ listaDatosEncabezado.nIngreso }}</b>
+            </div>
+        </div>
+        <div class="row container-fluid ms-2 pl-3 pr-3 pt-2 pb-2">
+            <div class="col-xs-5 col-sm-5 col-md-3 col-lg-3 col-xl-3">
+                <small class="pe-2" >Vía: </small><b>{{ listaDatosEncabezado.cDesVia }}</b>
+                
+            </div>
+
+            <div class="col-xs-5 col-sm-5 col-md-2 col-lg-2 col-xl-2">
+                <small class="ps-2 pe-2" >Peso: </small> <b>{{ listaDatosEncabezado.cPesoUnidad }}</b>
+            </div>
+
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-2 col-xl-2">
+                <small class="pe-2">Habitación: </small><b>{{ listaDatosEncabezado.cSeccion }} - {{ listaDatosEncabezado.cHabita }}</b>
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-2 col-xl-2">
+                <small class="pe-2">Edad: </small> <b>{{ edadY }}A {{ edadMes}}M {{ edadDia }}D</b>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
+                <small class="pe-2">Historia: </small> <b>{{ listaDatosEncabezado.nHistoria }}</b>
+            </div>
+        </div>
+    </div>
+</div>

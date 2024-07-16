@@ -1,0 +1,10 @@
+cTareaNombre=Validar WebSockets
+cTareaDescripcion=Valida puertos a la escucha, si es necesario los inicia
+cTareaActiva=NO
+cTareaMinuto=*/5
+cTareaHora=*
+cTareaDiaMes=*
+cTareaMes=*
+cTareaDiaSemana=*
+nIntentosMaximos=1
+cArchivo=script.php

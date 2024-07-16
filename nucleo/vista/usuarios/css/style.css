@@ -1,0 +1,7 @@
+.fotoPreview img, .firmaPadPreview img , .firmaHtmlPreview, .firmaHtmlModelo, .bitacoraPreview{
+	min-height: 196px;
+	height: 196px;
+	max-height: 196px;
+}
+.overlay{ overflow: overlay; }
+.edicion .card-body {min-height: 451px;}

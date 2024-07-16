@@ -1,0 +1,52 @@
+<div class="card-body">
+  <table
+    class="table table-bordered table-hover table-sm table-responsive-sm table-striped"
+  >
+    <thead class="table-light">
+      <tr>
+        <th class="text-center"><div style="font-size: medium">Edit.</div></th>
+        <th><div style="font-size: medium">Número de Ingreso</div></th>
+        <th><div style="font-size: medium">Tipo de Documento</div></th>
+        <th><div style="font-size: medium">Número de Documento</div></th>
+        <th><div style="font-size: medium">Nombre del Paciente</div></th>
+        <th><div style="font-size: medium">Sección</div></th>
+        <th><div style="font-size: medium">Cama</div></th>
+        <th><div style="font-size: medium">IP del dispositivo</div></th>
+        <th><div style="font-size: medium">MAC del dispositivo</div></th>
+        <th class="text-center"><div style="font-size: medium">Activo</div></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let datos of datosTabla">
+        <td class="text-center">
+          <a href="javascript:void(0)" title="Editar Habitación"
+            ><i class="pi pi-pencil" (click)="onEditar(datos)"></i
+          ></a>
+        </td>
+        <td>{{ datos.ingreso }}</td>
+        <td>{{ datos.tipoDoc }}</td>
+        <td>{{ datos.numDoc }}</td>
+        <td>
+          {{ datos.primerNombre }}{{ datos.segundoNombre
+          }}{{ datos.primerApellido }}{{ datos.segundoApellido }}
+        </td>
+        <td>{{ datos.seccion }}</td>
+        <td>{{ datos.cama }}</td>
+        <td>{{ datos.ipDispositivo }}</td>
+        <td>{{ datos.macDispositivo }}</td>
+        <td class="text-center">{{ datos.activo | activo }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<app-modal-editar
+  *ngIf="editarHabModal"
+  (OutEditarHabModal)="close($event)"
+  [datosHabitacion]="selectedDatos"
+></app-modal-editar>
+
+<app-modal-nuevo
+  *ngIf="nuevaHabModal"
+  (OutNuevaHabModal)="nuevaHabModal = $event"
+></app-modal-nuevo>

@@ -1,0 +1,9 @@
+<div class="container-fluid">
+  <div class="card mt-2">
+    <app-consulta
+      (OutNuevaHabModal)="onGetNuevaHabModal($event)"
+      (OutDatosTabla)="onGetDatosTabla($event)"
+    />
+    <app-tabla-consulta [datosTabla]="datosTabla" />
+  </div>
+</div>

@@ -1,0 +1,199 @@
+<p>Buen dia, se solicita asignar los usuarios y contrase&ntilde;as correspondientes a esta solicitud a : [[Nombres]] [[Apellidos]]<br />
+</p>
+<h3>FECHA Y HORA</h3>
+<table width="100%" border="0">
+  <tbody>
+    <tr>
+      <td width="250">Fecha actual</td>
+      <td>[[FechaActual]]</FONT></td>
+    </tr>
+    <tr>
+      <td>Fecha y hora actual</td>
+      <td>[[FecheHoraActual]]</td>
+    </tr>
+    <tr>
+      <td>Hora actual</td>
+      <td>[[HoraActual]]</td>
+    </tr>
+  </tbody>
+</table>
+<h3>DATOS DE SOLICITUD</h3>
+<table width="100%" border="0">
+  <tbody>
+    <tr>
+      <td width="250">Numero unico de reggistro</FONT></td>
+      <td>[[id]]</td>
+    </tr>
+    <tr>
+      <td>Estado de solicitud</td>
+      <td>[[estado]]</td>
+    </tr>
+    <tr>
+      <td>Fecha de solicitud</td>
+      <td>[[fecha]]</td>
+    </tr>
+    <tr>
+      <td>Tipo de identificacion</td>
+      <td>[[idtipo]]</FONT></td>
+    </tr>
+    <tr>
+      <td>Numero de identificacion</td>
+      <td>[[idnumero]]</td>
+    </tr>
+    <tr>
+      <td>Area</td>
+      <td>[[area]]</td>
+    </tr>
+    <tr>
+      <td>Departamento</td>
+      <td>[[aread]]</td>
+    </tr>
+    <tr>
+      <td>Cargo</FONT></td>
+      <td>[[cargo]]</FONT></td>
+    </tr>
+    <tr>
+      <td>Empresa</td>
+      <td>[[empresa]]</td>
+    </tr>
+    <tr>
+      <td>Especialiddad</td>
+      <td>[[especialidad]]</td>
+    </tr>
+  </tbody>
+</table>
+<h3>COMPUTADOR / DOMINIO</h3>
+<table width="100%" border="0">
+  <tbody>
+    <tr>
+      <td width="250">Usuario</td>
+      <td>[[PcUsr]]</td>
+    </tr>
+    <tr>
+      <td>Tipo</td>
+      <td>[[PcTipo]]</td>
+    </tr>
+    <tr>
+      <td>Estado</td>
+      <td>[[PcEstado]]</td>
+    </tr>
+    <tr>
+      <td>Placa</td>
+      <td>[[PcPlaca]]</td>
+    </tr>
+    <tr>
+      <td>Capacitacion</td>
+      <td>[[PcCapacitacion]]</td>
+    </tr>
+    <tr>
+      <td>Observaciones</td>
+      <td>[[PcObs]]</td>
+    </tr>
+  </tbody>
+</table>
+<h3>GLPI</h3>
+<table width="100%" border="0">
+  <tbody>
+    <tr>
+      <td width="250">Usuario</td>
+      <td>[[GlpiUsr]]</td>
+    </tr>
+    <tr>
+      <td>Capacitacion</td>
+      <td>[[GlpiCapacitacion]]</td>
+    </tr>
+    <tr>
+      <td>Observaciones</td>
+      <td>[[GlpiObs]]</td>
+    </tr>
+  </tbody>
+</table>
+<h3>E-MAIL</h3>
+<table width="100%" border="0">
+  <tbody>
+    <tr>
+      <td width="250">Usuario</td>
+      <td>[[EmailUsr]]</td>
+    </tr>
+    <tr>
+      <td>Tipo</td>
+      <td>[[EmailTipo]]</td>
+    </tr>
+    <tr>
+      <td>Capacitacion</td>
+      <td>[[EmailCapacitacion]]</td>
+    </tr>
+    <tr>
+      <td>Observaciones</FONT></td>
+      <td>[[EmailObs]]</td>
+    </tr>
+  </tbody>
+</table>
+<h3>HISTORIA CLINICA</h3>
+<table width="100%" border="0">
+  <tbody>
+    <tr>
+      <td width="250">Usuario</td>
+      <td>[[HcUsr]]</td>
+    </tr>
+    <tr>
+      <td>Estado</td>
+      <td>[[HcEstado]]</td>
+    </tr>
+    <tr>
+      <td>Capacitacion</td>
+      <td>[[HcCapacitacion]]</td>
+    </tr>
+    <tr>
+      <td>Opciones</td>
+      <td>[[HcOpciones]]</td>
+    </tr>
+    <tr>
+      <td>Opciones solicitadas</td>
+      <td>[[HcOpcionesSolicitadas]]</FONT></td>
+    </tr>
+  </tbody>
+</table>
+<h3>AS/400</h3>
+<table width="100%" border="0">
+  <tbody>
+    <tr>
+      <td width="250">Usuario</td>
+      <td>[[AsUsr]]</td>
+    </tr>
+    <tr>
+      <td>Estado</td>
+      <td>[[AsEstado]]</td>
+    </tr>
+    <tr>
+      <td>Capacitacion</td>
+      <td>[[AsCapacitacion]]</td>
+    </tr>
+    <tr>
+      <td>Opciones</td>
+      <td>[[AsOpciones]]</td>
+    </tr>
+    <tr>
+      <td>Opciones solicitadas</td>
+      <td>[[AsOpcionesSolicitadas]] </td>
+    </tr>
+  </tbody>
+</table>
+<h3>RUAF</h3>
+<table width="100%" border="0">
+  <tbody>
+    <tr>
+      <td width="250">Usuario</td>
+      <td>[[RuafUsr]]</td>
+    </tr>
+    <tr>
+      <td>Capacitacion</td>
+      <td>[[RuafCapacitacion]]</td>
+    </tr>
+    <tr>
+      <td>Observaciones</FONT></td>
+      <td>[[RuafObs]]</td>
+    </tr>
+  </tbody>
+</table>
+<p>Recuerde agendar con el Departamento de Sistemas la fecha, hora y lugar en que se realizara la entrega de usuarios y capacitacion correspondiente. para mayor informacion comunicarse a la Ext 2173 Departamento de Sistemas y/o escriba al correo electronico a<a href="mailto:soporte@shaio.org">soporte@shaio.org</a> con copia a <a href="mailto:martha.gonzalez@shaio.org">martha.gonzalez@shaio.org</a></p>

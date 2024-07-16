@@ -1,0 +1,562 @@
+{
+	"id": {
+		"campo": "ID",
+		"descrip": "Identificador",
+		"longmax": "19",
+		"tipo": "N",
+		"formato": "",
+		"valores": []
+	},
+	"iddireccionamiento": {
+		"campo": "IDDireccionamiento",
+		"descrip": "Identificador de Direccionamiento",
+		"longmax": "19",
+		"tipo": "N",
+		"formato": "",
+		"valores": []
+	},
+	"idprogramacion": {
+		"campo": "IDProgramacion",
+		"descrip": "Identificador de Programación",
+		"longmax": "19",
+		"tipo": "N",
+		"formato": "",
+		"valores": []
+	},
+	"identrega": {
+		"campo": "IDEntrega",
+		"descrip": "Identificador de Entrega",
+		"longmax": "19",
+		"tipo": "N",
+		"formato": "",
+		"valores": []
+	},
+	"identregacodigo": {
+		"campo": "IdEntregaCodigo",
+		"descrip": "Identificador de Entrega Código",
+		"longmax": "19",
+		"tipo": "N",
+		"formato": "",
+		"valores": []
+	},
+	"idreporteentrega": {
+		"campo": "IDReporteEntrega",
+		"descrip": "Identificador Reporte de Entrega",
+		"longmax": "19",
+		"tipo": "N",
+		"formato": "",
+		"valores": []
+	},
+	"idfacturacion": {
+		"campo": "IdFacturacion",
+		"descrip": "Identificador Reporte Facturación",
+		"longmax": "19",
+		"tipo": "N",
+		"formato": "",
+		"valores": []
+	},
+	"noprescripcion": {
+		"campo": "NoPrescripcion",
+		"descrip": "Número de Prescripción",
+		"longmax": "20",
+		"tipo": "N",
+		"formato": "",
+		"valores": []
+	},
+	"tipotec": {
+		"campo": "TipoTec",
+		"descrip": "Tipo de Servicio o Tecnología",
+		"longmax": "1",
+		"tipo": "A",
+		"formato": "",
+		"valores": {
+			"M": "Medicamento",
+			"P": "Procedimiento",
+			"D": "Dispositivo médico",
+			"N": "Producto Nutricional",
+			"S": "Servicio Complementario"
+		}
+	},
+	"contec": {
+		"campo": "ConTec",
+		"descrip": "Consecutivo Orden servicio o Tecnología",
+		"longmax": "2",
+		"tipo": "N",
+		"formato": "99",
+		"valores": []
+	},
+	"tipoidpaciente": {
+		"campo": "TipoIDPaciente",
+		"descrip": "Tipo de Documento de Identificación del Paciente",
+		"longmax": "2",
+		"tipo": "A",
+		"formato": "",
+		"valores": {
+			"CC": "Cédula de Ciudadanía",
+			"RC": "Registro Civil",
+			"TI": "Tarjeta de Identidad",
+			"CE": "Cedula de extranjería",
+			"PA": "Pasaporte",
+			"NV": "Nacido Vivo",
+			"CD": "Carné Diplomático",
+			"SC": "Salvoconducto de permanencia",
+			"PR": "Pasaporte de la ONU",
+			"PE": "Permiso Especial de Permanencia",
+			"AS": "Adulto sin Identificación",
+			"MS": "Menor sin Identificación",
+			"PT": "Permiso por Protección Temporal"
+		}
+	},
+	"tipoidmadrepaciente": {
+		"campo": "TipoIDMadrePaciente",
+		"descrip": "Tipo de Documento de Identificación de la madre del Recién Nacido",
+		"longmax": "2",
+		"tipo": "A",
+		"formato": "",
+		"valores": {
+			"CC": "Cédula de Ciudadanía",
+			"TI": "Tarjeta de Identidad",
+			"PA": "Pasaporte",
+			"SC": "Salvoconducto de permanencia",
+			"PE": "Permiso Especial de Permanencia",
+			"AS": "Adulto sin Identificación",
+			"DE": "Documento Extranjero",
+			"PT": "Permiso por Protección Temporal"
+		}
+	},
+	"noidpaciente": {
+		"campo": "NoIDPaciente",
+		"descrip": "Número de Identificación del Paciente",
+		"longmax": "17",
+		"tipo": "A",
+		"formato": "",
+		"valores": []
+	},
+	"noentrega": {
+		"campo": "NoEntrega",
+		"descrip": "Numero Entrega",
+		"longmax": "2",
+		"tipo": "N",
+		"formato": "99",
+		"valores": []
+	},
+	"nosubentrega": {
+		"campo": "NoSubEntrega",
+		"descrip": "Número Sub Entrega",
+		"longmax": "2",
+		"tipo": "N",
+		"formato": "99",
+		"valores": []
+	},
+	"tipoidprov": {
+		"campo": "TipoIDProv",
+		"descrip": "Tipo de identificación del Proveedor",
+		"longmax": "2",
+		"tipo": "A",
+		"formato": "",
+		"valores": {
+			"NI": "NIT"
+		}
+	},
+	"noidprov": {
+		"campo": "NoIdProv",
+		"descrip": "Número de identificación del Proveedo",
+		"longmax": "17",
+		"tipo": "N",
+		"formato": "",
+		"valores": []
+	},
+	"tipoidsedeprov": {
+		"campo": "TipoIDSedeProv",
+		"descrip": "Tipo de Identificación Sede Proveedor",
+		"longmax": "2",
+		"tipo": "A",
+		"formato": "",
+		"valores": {
+			"NI": "NIT"
+		}
+	},
+	"noidsedeprov": {
+		"campo": "NoIDSedeProv",
+		"descrip": "Número de Identificación Sede Proveedor",
+		"longmax": "9",
+		"tipo": "N",
+		"formato": "",
+		"valores": []
+	},
+	"codsedeprov": {
+		"campo": "CodSedeProv",
+		"descrip": "Código de Sede de Proveedor",
+		"longmax": "15",
+		"tipo": "A",
+		"formato": "",
+		"valores": []
+	},
+	"codmunent": {
+		"campo": "CodMunEnt",
+		"descrip": "Lugar de Entrega",
+		"longmax": "5",
+		"tipo": "N",
+		"formato": "",
+		"valores": []
+	},
+	"fecmaxent": {
+		"campo": "FecMaxEnt",
+		"descrip": "Fecha Máxima de Entrega",
+		"longmax": "10",
+		"tipo": "F",
+		"formato": "AAAA-MM-DD",
+		"valores": []
+	},
+	"canttotaentregar": {
+		"campo": "CantTotAEntregar",
+		"descrip": "Cantidad Total a Entregar",
+		"longmax": "10",
+		"tipo": "D",
+		"formato": "999999,999",
+		"valores": []
+	},
+	"dirpaciente": {
+		"campo": "DirPaciente",
+		"descrip": "Dirección del Paciente",
+		"longmax": "80",
+		"tipo": "A",
+		"formato": "",
+		"valores": []
+	},
+	"codsertecaentregar": {
+		"campo": "CodSerTecAEntregar",
+		"descrip": "Código servicio o tecnología a entregar",
+		"longmax": "20",
+		"tipo": "A",
+		"formato": "",
+		"valores": []
+	},
+	"codsertecentregado": {
+		"campo": "CodSerTecEntregado",
+		"descrip": "Código servicio o tecnología entregado",
+		"longmax": "20",
+		"tipo": "A",
+		"formato": "",
+		"valores": []
+	},
+	"noideps": {
+		"campo": "NoIDEPS",
+		"descrip": "Nit de la EPS que realiza el direccionamiento",
+		"longmax": "17",
+		"tipo": "N",
+		"formato": "",
+		"valores": []
+	},
+	"codeps": {
+		"campo": "CodEPS",
+		"descrip": "Código de la EPS que realiza el direccionamiento",
+		"longmax": "17",
+		"tipo": "N",
+		"formato": "",
+		"valores": []
+	},
+	"fecdireccionamiento": {
+		"campo": "FecDireccionamiento",
+		"descrip": "Fecha Direccionamiento",
+		"longmax": "16",
+		"tipo": "F",
+		"formato": "AAAA-MM-DD HH:mm",
+		"valores": []
+	},
+	"estdireccionamiento": {
+		"campo": "EstDireccionamiento",
+		"descrip": "Estado Direccionamiento",
+		"longmax": "1",
+		"tipo": "N",
+		"formato": "",
+		"valores": ["Anulado", "Activo", "Procesado"]
+	},
+	"codtecaentregar": {
+		"campo": "CodTecAEntregar",
+		"descrip": "Código servicio o tecnología a entregar",
+		"longmax": "20",
+		"tipo": "A",
+		"formato": "",
+		"valores": []
+	},
+	"fecprogramacion": {
+		"campo": "FecProgramacion",
+		"descrip": "Fecha Programación",
+		"longmax": "16",
+		"tipo": "F",
+		"formato": "AAAA-MM-DD HH:mm",
+		"valores": []
+	},
+	"estprogramacion": {
+		"campo": "EstProgramacion",
+		"descrip": "Estado Programación",
+		"longmax": "1",
+		"tipo": "N",
+		"formato": "9",
+		"valores": ["Anulado", "Activo", "Procesado"]
+	},
+	"codtecentregado": {
+		"campo": "CodTecEntregado",
+		"descrip": "Código Servicio o Tecnología Entregado",
+		"longmax": "20",
+		"tipo": "A",
+		"formato": "",
+		"valores": []
+	},
+	"canttotentregada": {
+		"campo": "CantTotEntregada",
+		"descrip": "Cantidad Total Entregada",
+		"longmax": "10",
+		"tipo": "D",
+		"formato": "999999,999",
+		"valores": []
+	},
+	"enttotal": {
+		"campo": "EntTotal",
+		"descrip": "Entrega Total",
+		"longmax": "1",
+		"tipo": "N",
+		"formato": "9",
+		"valores": ["NO", "SI"]
+	},
+	"causanoentrega": {
+		"campo": "CausaNoEntrega",
+		"descrip": "Causa de No Entrega",
+		"longmax": "2",
+		"tipo": "N",
+		"formato": "99",
+		"valores": {
+			"0":  "N/A",
+			"1":  "Misma solicitud en otra prescripción",
+			"2":  "Existe evidencia de interacción o reacción medicamentosa",
+			"3":  "La indicación de uso del medicamento no está aprobada por el INVIMA",
+			"4":  "Presentación no fraccionable",
+			"5":  "Suministro por tutela",
+			"6":  "Paciente corresponde a otra EPS",
+			"7":  "No fue posible contactar al paciente",
+			"8":  "Paciente fallecido",
+			"9":  "Paciente se niega a recibir el suministro",
+			"10": "No se han agotado los topes o su prescripción corresponde a los condicionamientos de cobertura del PBS",
+			"11": "La prescripción excede la dosis máxima recomendada",
+			"12": "La prescripción excede los tres meses tratándose de una formulación de primera vez",
+			"13": "La prescripción excede el año y no está formulada como sucesiva",
+			"14": "El INVIMA no aprobó el MVND",
+			"15": "El paciente tiene suministro de otra prescripción",
+			"16": "El prescriptor y el paciente son el mismo",
+			"17": "Tecnología incluida en el Plan de Beneficios en Salud",
+			"18": "Exclusión del Plan de Beneficios en Salud",
+			"19": "Tecnología cubierta por otro Plan Adicional en Salud"
+		},
+		"rtas": {
+			"0":  {"tipo": "0", "tecno": "MPDNS", "entrega": "No entrega total"},
+			"1":  {"tipo": "1", "tecno": "MPDNS", "entrega": "No entrega total"},
+			"2":  {"tipo": "2", "tecno": "MXXNX", "entrega": "No entrega total"},
+			"3":  {"tipo": "2", "tecno": "MXXNX", "entrega": "No entrega total"},
+			"4":  {"tipo": "2", "tecno": "MPXNX", "entrega": "Entrega parcial"},
+			"5":  {"tipo": "2", "tecno": "MPDNS", "entrega": "No entrega total"},
+			"6":  {"tipo": "2", "tecno": "MPDNS", "entrega": "No entrega total"},
+			"7":  {"tipo": "2", "tecno": "MPDNS", "entrega": "No entrega total"},
+			"8":  {"tipo": "2", "tecno": "MPDNS", "entrega": "No entrega total"},
+			"9":  {"tipo": "2", "tecno": "MPDNS", "entrega": "No entrega total"},
+			"10": {"tipo": "2", "tecno": "MXDXX", "entrega": "No entrega total"},
+			"11": {"tipo": "3", "tecno": "MXXNX", "entrega": "Entrega parcial"},
+			"12": {"tipo": "3", "tecno": "MPDNS", "entrega": "Entrega parcial"},
+			"13": {"tipo": "3", "tecno": "MPDNS", "entrega": "Entrega parcial"},
+			"14": {"tipo": "2", "tecno": "MXXNX", "entrega": "No entrega total"},
+			"15": {"tipo": "2", "tecno": "MXXNS", "entrega": "Entrega diferida"},
+			"16": {"tipo": "1", "tecno": "MPDNS", "entrega": "No entrega total"},
+			"17": {"tipo": "2", "tecno": "MPDXX", "entrega": "No entrega total"},
+			"18": {"tipo": "2", "tecno": "MPDNS", "entrega": "No entrega total"},
+			"19": {"tipo": "2", "tecno": "MPDNS", "entrega": "No entrega total"}
+		},
+		"tipocausa": {
+			"1":  "NoPrescripcion,TipoTec,ConTec,TipoIDPaciente,NoIDPaciente,CausaNoEntrega,NoPrescripcionAsociada,ConTecAsociada",
+			"2":  "NoPrescripcion,TipoTec,ConTec,TipoIDPaciente,NoIDPaciente,CausaNoEntrega",
+			"3":  "NoPrescripcion,TipoTec,ConTec,TipoIDPaciente,NoIDPaciente,EntTotal,CausaNoEntrega,CodSerTecEntregado,CantTotEntregada,ValorEntregado,NoLote"
+		}
+	},
+	"fecentrega": {
+		"campo": "FecEntrega",
+		"descrip": "Fecha de Entrega",
+		"longmax": "16",
+		"tipo": "F",
+		"formato": "AAAA-MM-DD HH:mm",
+		"valores": []
+	},
+	"nolote": {
+		"campo": "NoLote",
+		"descrip": "Lote entregado",
+		"longmax": "20",
+		"tipo": "A",
+		"formato": "",
+		"valores": []
+	},
+	"tipoidrecibe": {
+		"campo": "TipoIDRecibe",
+		"descrip": "Tipo de Documento de Identificación de quien recibe",
+		"longmax": "2",
+		"tipo": "A",
+		"formato": "",
+		"valores": {
+			"CC": "Cédula de Ciudadanía",
+			"CE": "Cedula de extranjería",
+			"PA": "Pasaporte",
+			"CD": "Carné Diplomático",
+			"SC": "Salvoconducto de permanencia",
+			"PR": "Pasaporte de la ONU",
+			"PE": "Permiso Especial de Permanencia",
+			"AS": "Adulto sin Identificación"
+		}
+	},
+	"noidrecibe": {
+		"campo": "NoIDRecibe",
+		"descrip": "Número de Identificación de quien recibe",
+		"longmax": "17",
+		"tipo": "A",
+		"formato": "",
+		"valores": []
+	},
+	"estentrega": {
+		"campo": "EstEntrega",
+		"descrip": "Estado del registro de la Entrega",
+		"longmax": "1",
+		"tipo": "N",
+		"formato": "9",
+		"valores": ["Anulado", "Activo", "Procesado"]
+	},
+	"codigosentrega": {
+		"campo": "CodigosEntrega",
+		"descrip": "Códigos de Entrega Adicionales",
+		"longmax": "1000",
+		"tipo": "A",
+		"formato": "",
+		"valores": []
+	},
+	"estentregacodigo": {
+		"campo": "EstEntregaCodigo",
+		"descrip": "Estado del registro de la Entrega Código",
+		"longmax": "1",
+		"tipo": "N",
+		"formato": "9",
+		"valores": ["Anulado", "Activo", "Procesado"]
+	},
+	"estadoentrega": {
+		"campo": "EstadoEntrega",
+		"descrip": "Estado Entrega",
+		"longmax": "1",
+		"tipo": "N",
+		"formato": "9",
+		"valores": ["No se entrega", "Si se entrega"]
+	},
+	"fecrepentrega": {
+		"campo": "FecRepEntrega",
+		"descrip": "Fecha Reporte de Entrega",
+		"longmax": "16",
+		"tipo": "F",
+		"formato": "AAAA-MM-DD HH:mm",
+		"valores": []
+	},
+	"estrepentrega": {
+		"campo": "EstRepEntrega",
+		"descrip": "Estado Reporte de Entrega",
+		"longmax": "1",
+		"tipo": "N",
+		"formato": "9",
+		"valores": ["Anulado", "Activo", "Procesado"]
+	},
+	"nofactura": {
+		"campo": "NoFactura",
+		"descrip": "Número de Factura",
+		"longmax": "96",
+		"tipo": "N",
+		"formato": "",
+		"valores": []
+	},
+	"codsertecaentregado": {
+		"campo": "CodSerTecAEntregado",
+		"descrip": "Código servicio o tecnología entregado",
+		"longmax": "20",
+		"tipo": "A",
+		"formato": "",
+		"valores": []
+	},
+	"cantunmindis": {
+		"campo": "CantUnMinDis",
+		"descrip": "Cantidad en ud mín de Dispensación",
+		"longmax": "16",
+		"tipo": "D",
+		"formato": "999999999999,999",
+		"valores": []
+	},
+	"valorunitfacturado": {
+		"campo": "ValorUnitFacturado",
+		"descrip": "Valor Unitario Facturado",
+		"longmax": "19",
+		"tipo": "D",
+		"formato": "999999999999999,999",
+		"valores": []
+	},
+	"valortotfacturado": {
+		"campo": "ValorTotFacturado",
+		"descrip": "Valor Total Facturado",
+		"longmax": "19",
+		"tipo": "D",
+		"formato": "999999999999999,999",
+		"valores": []
+	},
+	"cuotamoder": {
+		"campo": "CuotaModer",
+		"descrip": "Cuota Moderadora",
+		"longmax": "19",
+		"tipo": "D",
+		"formato": "999999999999999,999",
+		"valores": []
+	},
+	"copago": {
+		"campo": "Copago",
+		"descrip": "Copago",
+		"longmax": "19",
+		"tipo": "D",
+		"formato": "999999999999999,999",
+		"valores": []
+	},
+	"fecfacturacion": {
+		"campo": "FecFacturacion",
+		"descrip": "Fecha Facturación",
+		"longmax": "16",
+		"tipo": "F",
+		"formato": "AAAA-MM-DD",
+		"valores": []
+	},
+	"estfacturacion": {
+		"campo": "EstFacturacion",
+		"descrip": "Estado Facturación",
+		"longmax": "1",
+		"tipo": "N",
+		"formato": "9",
+		"valores": ["Anulado", "Activo", "Procesado"]
+	},
+	"fecanulacion": {
+		"campo": "FecAnulacion",
+		"descrip": "Fecha Anulación",
+		"longmax": "16",
+		"tipo": "F",
+		"formato": "AAAA-MM-DD HH:mm",
+		"valores": []
+	},
+	"codambate": {
+		"campo": "CodAmbAte",
+		"descrip": "Código Ámbito de Atención",
+		"longmax": "2",
+		"tipo": "N",
+		"formato": "99",
+		"valores": {
+			"11": "Ambulatorio - Priorizado",
+			"12": "Ambulatorio - No Priorizado",
+			"21": "Hospitalario - Domiciliario",
+			"22": "Hospitalario - Internación",
+			"30": "Urgencias"
+		}
+	}
+}

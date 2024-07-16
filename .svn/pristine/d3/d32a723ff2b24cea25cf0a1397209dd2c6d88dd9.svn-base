@@ -1,0 +1,10 @@
+﻿cTareaNombre=Telemedicina, clave para anfitrion de JTM
+cTareaDescripcion=Genera la clave de 24hrs para ser anfitrion en JTM desde prosodyctl usado por JITSI para telemedicina
+cTareaActiva=SI
+cTareaMinuto=*/30
+cTareaHora=*
+cTareaDiaMes=*
+cTareaMes=*
+cTareaDiaSemana=*
+nIntentosMaximos=2
+cArchivo=script.php

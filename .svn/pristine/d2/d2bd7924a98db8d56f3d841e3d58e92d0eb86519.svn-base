@@ -1,0 +1,206 @@
+<p>Buen dia, con el presente se informa el detalle de   las capacitaciones dadas a:
+  [[Nombres]]   [[Apellidos]]<br />
+</p>
+<h3>FECHA Y HORA</h3>
+<table width="100%" border="0">
+  <tbody>
+    <tr>
+      <td width="250">Fecha actual</td>
+      <td>[[FechaActual]]</td>
+    </tr>
+    <tr>
+      <td>Fecha y hora actual</td>
+      <td>[[FecheHoraActual]]</td>
+    </tr>
+    <tr>
+      <td>Hora actual</td>
+      <td>[[HoraActual]]</td>
+    </tr>
+  </tbody>
+</table>
+<h3>DATOS DE SOLICITUD</h3>
+<table width="100%" border="0">
+  <tbody>
+    <tr>
+      <td width="250">Numero unico de registro</td>
+      <td>[[id]]</td>
+    </tr>
+    <tr>
+      <td>Estado de solicitud</td>
+      <td>[[estado]]</td>
+    </tr>
+    <tr>
+      <td>Fecha de solicitud</td>
+      <td>[[fecha]]</td>
+    </tr>
+    <tr>
+      <td>Tipo de identificacion</td>
+      <td>[[idtipo]]</td>
+    </tr>
+    <tr>
+      <td>Numero de identificacion</td>
+      <td>[[idnumero]]</td>
+    </tr>
+    <tr>
+      <td>Area</td>
+      <td>[[area]]</td>
+    </tr>
+    <tr>
+      <td>Departamento</td>
+      <td>[[aread]]</td>
+    </tr>
+    <tr>
+      <td>Cargo</td>
+      <td>[[cargo]]</td>
+    </tr>
+    <tr>
+      <td>Empresa</td>
+      <td>[[empresa]]</td>
+    </tr>
+    <tr>
+      <td>Especialiddad</td>
+      <td>[[especialidad]]</td>
+    </tr>
+  </tbody>
+</table>
+<h3>COMPUTADOR / DOMINIO</h3>
+<table width="100%" border="0">
+  <tbody>
+    <tr>
+      <td width="250">Usuario</td>
+      <td>[[PcUsr]]</td>
+    </tr>
+    <tr>
+      <td>Tipo</td>
+      <td>[[PcTipo]]</td>
+    </tr>
+    <tr>
+      <td>Estado</td>
+      <td>[[PcEstado]]</td>
+    </tr>
+    <tr>
+      <td>Placa</td>
+      <td>[[PcPlaca]]</td>
+    </tr>
+    <tr>
+      <td>Capacitacion</td>
+      <td>[[PcCapacitacion]]</td>
+    </tr>
+    <tr>
+      <td>Observaciones</td>
+      <td>[[PcObs]]</td>
+    </tr>
+  </tbody>
+</table>
+<h3>GLPI</h3>
+<table width="100%" border="0">
+  <tbody>
+    <tr>
+      <td width="250">Usuario</td>
+      <td>[[GlpiUsr]]</td>
+    </tr>
+    <tr>
+      <td>Capacitacion</td>
+      <td>[[GlpiCapacitacion]] TEMA CAPACITACION
+        <ul>
+            <li>Se dan indicaciones al usuario sobre como realizar un requerimiento al Departamento de sistemas.</li>
+        </ul></td>
+    </tr>
+    <tr>
+      <td>Observaciones</td>
+      <td>[[GlpiObs]]</td>
+    </tr>
+  </tbody>
+</table>
+<h3>E-MAIL</h3>
+<table width="100%" border="0">
+  <tbody>
+    <tr>
+      <td width="250">Usuario</td>
+      <td>[[EmailUsr]]</td>
+    </tr>
+    <tr>
+      <td>Tipo</td>
+      <td>[[EmailTipo]]</td>
+    </tr>
+    <tr>
+      <td>Capacitacion</td>
+      <td>[[EmailCapacitacion]] TEMA CAPACITACION:<br />
+          <ul>
+            <li>Ingreso a la Herramienta dec olaboraci&oacute;n Zimbra</li>
+            <li>Cambio de contrase&ntilde;a</li>
+            <li>Manejo de correo (Enviar, Cancelar, guardar Borrador A&ntilde;adir Adjunto, comprobar ortograf&iacute;a, leer, responder, enviar a todos).</li>
+            <li>Manejo de la libreta de direcciones(Libreta de direcciones Shaio, Libreta de direcciones Personalizada)</li>
+            <li>Manejo de Agendas(Crear agendas, Compartir agendas)</li>
+          </ul>
+        CONDICIONES DE USO<br />
+          <ul>
+            <li>No dejar abierto el usuario asignado</li>
+            <li> Los Usuarios son los &uacute;nicos responsablesde todas las actividades realizadas con sus cuentas de correo electr&oacute;nico y su buz&oacute;n asociado</li>
+            <li>La cuenta de correo electr&oacute;nico es personal e intransferible por lo cual se considera una falta grave facilitar y prestar su cuenta de correo electr&oacute;nico </li>
+            <li>Cambio Contrase&ntilde;a Inicial. El usuario por seguridad de su correspondencia y de la Red, debe cambiar la contrase&ntilde;a suministrada porel Administradordel correo. Al ingresar por primera vez a la cuenta de correo , se exige cambiar la contrase&ntilde;a la cual debe ser alfanum&eacute;rica m&iacute;nimo de 8 d&iacute;gitos</li>
+            <li>Est&aacute; prohibido utilizar el Correo Electr&oacute;nico para cualquier prop&oacute;sito comercial o financiero</li>
+            <li>Est&aacute; prohibido enviar informaci&oacute;n clasificada como confidencial o que sin serlo, el usuario no tenga atribuciones que permitan su uso y divulgaci&oacute;n, atente contra los derechos de autor o sea falsa o difamatoria</li>
+            <li>Esta prohibido el envi&oacute;interno o externo de correos Spam de cualquier &iacute;ndole. Se consideran correos Spam aquellos no relacionados con las funciones espec&iacute;ficas de cada usuario como por ejemplo cadenas de cartas,</li>
+            <li>publicidad, repeticiones exces ivas del mismo mensaje.</li>
+            <li>Debido a queel espaciode las cuentas incidedirectamente sobre el espacio del servidor, se establecen que:
+              <ul>
+                  <li>Todos los Usuarios deben de revisar frecuentemente su Correo Electr&oacute;nico para leer sus mensajes, de modo que los vayan borrando par ano afectar el esp acio de almacenamiento en el servidor.</li>
+                <li>As&iacute; mismo se agradece que vac&iacute;en frecuentemente las papeleras de su cuenta con el mismo fin de mantener el mayor espacio disponible en el servi dor.</li>
+              </ul>
+            </li>
+            <li>Toda informaci&oacute;n o contenido que sea transmitido por las cuentas de correode este sitio,son responsabilidad &uacute;nicamentedel due&ntilde;o de la cuenta, por lo que dichos contenidos no reflejan las preferencias o ideas de la Fundaci&oacute;n.</li>
+          </ul></td>
+    </tr>
+    <tr>
+      <td>Observaciones </td>
+      <td>[[EmailObs]]</td>
+    </tr>
+  </tbody>
+</table>
+<h3>HISTORIA CLINICA </h3>
+<table width="100%" border="0">
+  <tbody>
+    <tr>
+      <td width="250">Usuario</td>
+      <td>[[HcUsr]]</td>
+    </tr>
+    <tr>
+      <td>Estado</td>
+      <td>[[HcEstado]]</td>
+    </tr>
+    <tr>
+      <td>Capacitacion</td>
+      <td>[[HcCapacitacion]] TEMA CAPACITACION
+        <ul>
+            <li>Ingreso a la aplicaci&oacute;n Historia Clinica</li>
+          <li>Cambio de contrase&ntilde;a</li>
+          <li>Manejo de botones generalesde la aplicaci&oacute;n (Botones de b&uacute;squeda, filtros, refrescar, reset, selecci&oacute;n de campos, activaci&oacute;n de men&uacute;s)</li>
+          <li>Reconocimiento de diferentes opciones asignadas(Corresponde a una explicaci&oacute;n general de lo que se puede realizar por la opci&oacute;n solicitada)</li>
+          <li>Preguntas varias y/o especificas del usuario.</li>
+          <li>El uso especifico de las opciones solicitadas ser&aacute;n aplicadas en el desarrollo de la inducci&oacute;n al cargo del usuario a cargo de quien designe el Jefe inmediato del mismo.</li>
+          <li>Se solicita al usuario hacer pruebas de funcionalidad de las opciones asignadas.<br />
+            </li>
+        </ul>
+        CONDICIONES DE USO
+        <ul>
+            <li>No dejar abierto el usuario asignado</li>
+          <li>Los Usuarios son los &uacute;nicos responsables de todas las actividades realizadas con el usuario asignado</li>
+          <li>El usuario es personal e intransferible por lo cual se considera una falta grave facilitar y prestar su usuario asignado</li>
+          <li>Observaciones</li>
+        </ul></td>
+    </tr>
+    <tr>
+      <td>Usuario</td>
+      <td>[[RuafObs]]</td>
+    </tr>
+    <tr>
+      <td>Capacitacion</td>
+      <td>[[RuafCapacitacion]]</td>
+    </tr>
+    <tr>
+      <td>Observaciones</td>
+      <td>[[RuafObs]]</td>
+    </tr>
+  </tbody>
+</table>

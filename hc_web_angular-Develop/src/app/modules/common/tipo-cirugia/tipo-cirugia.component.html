@@ -1,0 +1,6 @@
+<div [formGroup]=frmParametro >
+    <label><b>Tipo de ciugía</b> <b *ngIf="requerido" class="text-danger"> * </b> </label>
+    <select formControlName="{{forname}}" class="form-control">
+        <option value="{{tipo.codigo}}" *ngFor="let tipo of tiposCirugias">{{tipo.descripcion}}<option>
+    </select>
+</div>

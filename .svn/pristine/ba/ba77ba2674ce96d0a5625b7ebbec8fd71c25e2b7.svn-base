@@ -1,0 +1,10 @@
+﻿cTareaNombre=MiPres_Hoy
+cTareaDescripcion=Prescripciones y Novedades MiPres del día
+cTareaActiva=NO
+cTareaMinuto=0
+cTareaHora=*/3
+cTareaDiaMes=*
+cTareaMes=*
+cTareaDiaSemana=*
+nIntentosMaximos=1
+cArchivo=script.php

@@ -1,0 +1,17 @@
+<div class="modal fade show" [ngClass]=classDinamico id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1" style="display: block; background-color: rgba(0, 0, 0, 0.13);">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+          <div style="height: 8px;" [ngStyle]="{backgroundColor: estilos.color}"></div>
+
+          <div class="modal-header border border-0 justify-content-start">
+            <i class="{{estilos.icono}} iconos" [ngStyle]="{color: estilos.color}"></i>
+            <p class="p-0 m-0 ps-2  titulo" [innerHTML] = "contenido.titulo" ></p></div>
+        <div class="modal-body" [style]=medidasBody() [innerHTML] = "contenido.contenido"></div>
+
+        <div class="modal-footer border border-0">
+            <button class="btn btn-light border border-7" *ngIf="contenido.boton2 != ''"  (click) = "segundoBoton()">{{ contenido.boton2 }}</button>
+            <button class="btn btn-light border border-7" (click) = "primerBoton()">{{ contenido.boton1 }}</button>
+        </div>
+      </div>
+    </div>
+</div>

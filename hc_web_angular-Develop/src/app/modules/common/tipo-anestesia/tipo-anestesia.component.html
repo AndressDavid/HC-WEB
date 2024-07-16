@@ -1,0 +1,6 @@
+<div [formGroup]=frmParametro >
+    <label><b>Tipo de Anestesia</b></label>
+    <select class="form-control" formControlName="{{forname}}"  (change)="cambioAnestecia($event)">
+        <option value="{{anestesia.codigo}}" *ngFor="let anestesia of tiposAnestesias">{{anestesia.anestesia}}<option>
+    </select>
+</div>

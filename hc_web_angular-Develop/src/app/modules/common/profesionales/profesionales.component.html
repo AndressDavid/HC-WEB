@@ -1,0 +1,10 @@
+<div [formGroup]=frmParametro >
+    <label><b>{{titulo}}</b> <b  class="text-danger" *ngIf="requerido"> * </b> </label>
+    <select class="form-control {{ activarValidations ? 
+        !formValid? 
+        'form-control is-invalid' : 'form-control is-valid' : ''}}" 
+        formControlName="{{forname}}" >
+        <option value="{{profesional.registro}}" *ngFor="let profesional of listaProfesionales">{{profesional.nombre}}<option>
+    </select>
+</div>
+

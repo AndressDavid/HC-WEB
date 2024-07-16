@@ -1,0 +1,36 @@
+{
+	"sProcessing":     "Procesando...",
+	"sLengthMenu":     "Mostrar _MENU_ registros",
+	"sZeroRecords":    "No se encontraron resultados",
+	"sEmptyTable":     "Ningún dato disponible en esta tabla",
+	"sInfo":           "Registros _START_ al _END_ - Total _TOTAL_ registros",
+	"sInfoEmpty":      "Registros 0 al 0 - Total 0 registros",
+	"sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
+	"sInfoPostFix":    "",
+	"sSearch":         "Buscar:",
+	"sUrl":            "",
+	"sInfoThousands":  ",",
+	"sLoadingRecords": "Cargando...",
+	"oPaginate": {
+		"sFirst":    "Primero",
+		"sLast":     "Último",
+		"sNext":     "Siguiente",
+		"sPrevious": "Anterior"
+	},
+	"oAria": {
+		"sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+		"sSortDescending": ": Activar para ordenar la columna de manera descendente"
+	},
+	"buttons": {
+		"copy": "Copiar",
+		"copyTitle": "Copiar al portapapeles",
+		"copyKeys": "Presione <i>ctrl</i> or <i>\u2318</i> + <i>C</i> para copiar la tabla a su portapapeles.<br><br>Para cancelar, haga clic en este mensaje o presione esc",
+		"copySuccess": {
+			"1": "Se ha copiado una fila al portapapeles",
+			"_": "Se han copiado %d filas al portapapeles"
+		},
+		"csv": "CSV",
+		"excel": "Excel",
+		"pdf": "PDF"
+	}
+}

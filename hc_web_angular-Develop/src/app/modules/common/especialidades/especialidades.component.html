@@ -1,0 +1,8 @@
+<label class="control-label" for="">Especialidad</label>
+
+<div class="input-group" [formGroup]=frmParametro  >
+    <select class="form-control"  formControlName="selectEspecialidad">
+        <option value="" selected></option>
+        <option value="{{especialidades.codigo}}" *ngFor="let especialidades of RespuestaEspecialidades">{{especialidades.descripcion}}<option>
+    </select>
+</div>

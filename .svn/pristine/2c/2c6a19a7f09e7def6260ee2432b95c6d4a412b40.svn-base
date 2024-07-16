@@ -1,0 +1,17 @@
+
+<BODY contentEditable=true>
+<P><B>Apreciado(a) Señor(a) [[NombrePaciente]]:</B><BR>Su cita es para [[FechaCita]] [[MedicoCita]]<BR><BR>El procedimiento que le realizarán es:<BR><B>[[ProDescripcion]]</B><BR></P>
+<P>SU CITA SE ENCUENTRA AGENDADA EN <B><U>MODALIDAD TELECONSULTA</U></B></P>
+<UL>
+<LI>Recuerde enviar con anterioridad (2 días) los documentos necesarios para la atención al correo: <U>"Consulta Externa" <consultaexterna@shaio.org></U></LI>
+<LI>En asunto colocar: la especialidad y el medico con el que pidió su cita. </LI>
+<LI>Enviar la autorización vigente y dirigida a la Fundación Clínica Shaio, si aplica en su caso, resultados de laboratorios y/o procedimientos.</LI>
+<LI>Si requiere realizar copago o cuota moderadora para la consulta ingrese a la pagina www.shaio.org al link pago PSE. Botón azul en la parte superior derecha de la pagina <B>PSE.</B> </LI>
+<LI>Debe realizar el registro en la plataforma: <B>pacientes.shaio.org</B> para recibir su consulta y descargar los documentos que se generen de esta (formula medica, ordenes e historia clínica).</LI>
+</UL>
+<P>Al correo registrado por usted se le enviara información por parte de un funcionario indicando el ingreso realizado o si falta algo para ser atendido en la modalidad de <B>Teleconsulta.</B></P>
+<P>[[Preparaciones]]</P>
+<P>[[DerechosDeberes]]</P>
+<P><B>Atentamente<BR></B><B>Departamento de [[Area]]</B><BR>[[AreaEmail]]&nbsp;[[AreaDireccion]]&nbsp;[[AreaTelefono]]<BR></P>
+<P>&nbsp;</P>
+<P>Este mensaje y sus archivos adjuntos van dirigidos exclusivamente a su destinatario pudiendo contener información confidencial sometida a secreto profesional. No está permitida su reproducción o distribución sin la autorización expresa de la Fundación Abood Shaio. Si usted no es el destinatario final por favor elimine este mensaje. La Institución informa que da cumplimiento a lo establecido en la Ley de Protección de Datos Personales y su Decreto Reglamentario y que conforme a ello ofrece mecanismos para que el titular de los datos personales otorgue consentimiento para el tratamiento de sus datos, así como ejercer sus derechos de consulta y reclamo sobre sus datos, visitando nuestra página web <A href="http://www.shaio.org">www.shaio.org</A> o mediante correo electrónico a <A href="mailto:info@shaio.org">info@shaio.org</A>.</P>

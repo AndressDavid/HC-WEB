@@ -1,0 +1,6 @@
+<label><b>{{titulo}}</b>   <b *ngIf="requerido" class="text-danger"> * </b> </label>
+<div class="d-block p-fluid" [formGroup]=frmParametro>
+    <p-autoComplete [suggestions]="suggestions"  formControlName="{{forname}}"  (completeMethod)="searchDX($event)"></p-autoComplete>
+</div>
+<!-- formControlName=forname
+[formGroup]=frmParametro -->

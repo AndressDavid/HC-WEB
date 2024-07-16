@@ -1,0 +1,15 @@
+.modalLoading{
+    z-index: 9999999;
+    background-color: #394759;
+}
+.modalCenter{
+    margin-top: 15%;
+}
+
+
+@media only screen and (max-width: 1000px) {
+    .modalCenter{
+        margin-top: 55%;
+    }
+    
+}

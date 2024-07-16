@@ -1,0 +1,4 @@
+chown -R www-data:www-data /var/www/html/logs/
+chown -R www-data:www-data /var/www/html/tareas/procesos && find /var/www/html/tareas/procesos -name 'configuracion.ini' -exec chown shaio:shaio {} \; && find /var/www/html/tareas/procesos -name 'script.php' -exec chown shaio:shaio {} \; && find /var/www/html/tareas/procesos -type f -exec chmod 644 {} \; && find /var/www/html/tareas/procesos -type d -exec chmod 755 {} \;
+find /var/www/html/tareas/procesos/ -type f -mtime +60 -name '*.log' -print0 && find /var/www/html/tareas/procesos/ -type f -mtime +60 -name '*.log' -delete
+find /var/www/html/logs/ -type f -mtime +366 -name '*.log' -print0 && find /var/www/html/logs/ -type f -mtime +366 -name '*.log' -delete

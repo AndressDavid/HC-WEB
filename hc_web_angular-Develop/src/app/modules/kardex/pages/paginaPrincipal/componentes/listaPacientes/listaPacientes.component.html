@@ -1,0 +1,160 @@
+<div class="modal" id="modalIngreso" *ngIf="InEntradaMostrarModal" (click)="cerrarModal()">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <div class="modal-header">
+        <div class=""><span class=""><i class="fas fa-clinic-medical" style="font-size: 30px;"></i></span><span
+            class=""><label class="m-2" for="" style="font-size: 1.4em;">{{lcConfirmarDatos}}</label></span></div>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="card">
+        <div class="modal-body">
+          <div class="row">
+            <div class="container col-lg-6">
+              <label for="">{{lcIngreso}}: <b>{{ingresoPaciente}}</b></label>
+            </div>
+            <div class="container col-lg-6">
+              <label for="">{{lcDocumento}} <b>{{tipoDocumento}} {{numeroDocumento}}</b></label>
+            </div>
+            <div class="container col-lg-12">
+              <label for="">{{lcPaciente}} <b>{{primerNombre}} {{segundoNombre}} {{primerApellido}}
+                  {{segundoApellido}}</b></label>
+            </div>
+            <div class="container col-lg-12">
+              <label for="">{{lcHabitacion}}<b>{{habitacion}}</b></label>
+            </div>
+            <div class="container col-lg-12">
+              <label for="">{{lcSeccion}} <b>{{seccion}}</b></label>
+            </div>
+          </div>
+
+          <div class="container-fluid col-lg-12">
+            <div class="card mt-2">
+              <div class="card-body">
+                <div class="alert alert-dark" role="alert">
+                  <b>{{lcOpciones}}</b>
+                </div>
+                <button class="btn btn-secondary" (click)="buscarIngreso(ingresoPaciente)"
+                  *ngIf="this.ingresoId ==='Turno Abierto' && mostrarBotonKardex">{{lcKardex}}</button>
+
+                <button class="btn btn-secondary" type="button" disabled *ngIf="!mostrarBotonKardex">
+                  <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                  {{lcCargando}}
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container" *ngIf="this.ingresoId === 'Turno Cerrado'">
+          <div class="pb-2 d-grid gap-2 d-md-flex justify-content-md-end">
+            <button class="btn btn-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
+              aria-expanded="false" aria-controls="collapseExample"
+              (click)="obtenerObservaciones(ingresoPaciente)">{{lcObservaciones}}</button>
+          </div>
+          <div class="collapse pt-2" id="collapseExample">
+            <div class="scrollable-container">
+              <div class="col-lg-12" *ngFor="let observaciones of datosObservaciones">
+                <p>{{observaciones.fecha_hora_crea | date:'yyyy-MM-dd HH:mm:ss'}} - {{observaciones.nombre}}
+                  {{observaciones.apellido}}</p>
+                <p>{{observaciones.observaciones}}</p>
+              </div>
+              <textarea class="form-control" id="" rows="3" [(ngModel)]="lcObservacionKardex"></textarea>
+            </div>
+            <div class="pt-2 pb-2 d-grid gap-2 d-md-flex justify-content-md-end">
+              <button class="btn btn-secondary" (click)="guardarDatosObservaciones()">{{lcGuardar}}</button>
+            </div>
+          </div>
+
+          <div *ngIf="mostrarAlerta" class="container alert alert-success fade show" role="alert" id="success-alert">
+            Guardado exitosamente.
+          </div>
+          <div *ngIf="mostrarAlertaError" class="alert alert-danger" role="alert">
+            La observación no puede estar vacía.
+          </div>
+          <div class="alert alert-primary pt-2" role="alert">{{this.ingresoId}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<ng-container>
+  <div class="container-fluid pt-2 encabezar">
+    <div class="card">
+      <div class="card-header">
+        <div class="row">
+          <div class="col-md-2 pb-2">
+            <label for="Ingreso" class="form-label"><small><b>{{lcIngreso}}</b></small></label>
+            <app-buscar (filtroIngreso)="filtrar($event)"></app-buscar>
+          </div>
+          <div class="col-md-4 pb-2">
+            <label for="Seccion" class="form-label"><small><b>{{lcSeccion}}</b></small></label>
+            <select [(ngModel)]="seccionSeleccionada" (change)="filtrarPorSeccion()" class="form-select">
+              <option value="">{{lcTodasSecciones}}</option>
+              <option *ngFor="let seccion of secciones" [value]="seccion.seccionDescripcion">{{
+                seccion.seccionDescripcion }}</option>
+            </select>
+          </div>
+          <div class="col-md-3 col-lg-2 pb-2">
+            <label>&nbsp;</label>
+            <button type="button" class="form-control form-control-sm btn btn-secondary btn-sm"><a href="./"
+                class="text-white" style="text-decoration: none;">{{lcLimpiar}}</a></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+
+<div class="overflow-auto custom-table-container padding">
+  <div class="container d-flex justify-content-center align-items-center pt-2">
+  </div>
+  <div class="p-3">
+    <div class="card">
+      <div class="card-body">
+        <p-table [value]="dataFiltrada" [paginator]="true" [rows]="rows" paginatorStyleClass=""
+          tableStyleClass="table table-striped">
+          <ng-template pTemplate="header">
+            <tr class="text-center">
+              <th>{{lcOpcBoton}}</th>
+              <th>{{lcSeccion}}</th>
+              <th>{{lcHabitacion}}</th>
+              <th>{{lcNumeroIngreso}}</th>
+              <th>{{lcTipoIdentificacion}}</th>
+              <th>{{lcNumeroIdentificacion}}</th>
+              <th>{{lcNombrePaciente}}</th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-listaKardexPaciente let-rowIndex="rowIndex">
+            <tr [class.table-striped]="rowIndex % 2 === 0">
+              <td style="text-align: center;">
+                <a data-bs-toggle="modal" data-bs-target="#modalIngreso" href="javascript:void(0)"
+                  title="Historia Clínica" (click)="abreModal(listaKardexPaciente.seccion, listaKardexPaciente.habitacion, listaKardexPaciente.ingreso,
+                    listaKardexPaciente.tipoIdentificacion, listaKardexPaciente.numeroIdentificacion, listaKardexPaciente.primerNombre, listaKardexPaciente.segundoNombre, 
+                    listaKardexPaciente.primerApellido)">
+                  <i class="fas fa-list-ol"></i>
+                </a>
+              </td>
+              <td>{{listaKardexPaciente.seccion}} - {{listaKardexPaciente.descripcionSeccion}}</td>
+              <td><b>{{listaKardexPaciente.habitacion}}</b></td>
+              <td>{{listaKardexPaciente.ingreso}}</td>
+              <td>{{listaKardexPaciente.tipoIdentificacion}}</td>
+              <td><b>{{listaKardexPaciente.numeroIdentificacion}}</b></td>
+              <td><i class="fa fa-user" style="font-size:90%"></i><b>
+                  {{listaKardexPaciente.primerNombre}}
+                  {{listaKardexPaciente.segundoNombre}} {{listaKardexPaciente.primerApellido}}
+                  {{listaKardexPaciente.segundoApellido}}</b></td>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="emptymessage">
+            <tr>
+              <td colspan="7">{{lcNoHayPacientes}}</td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+﻿cTareaNombre=Reenviar Facturación Electrónica
+cTareaDescripcion=Reenvía los documentos de Facturación Electrónica con error
+cTareaActiva=NO
+cTareaMinuto=*/25
+cTareaHora=*/3
+cTareaDiaMes=*
+cTareaMes=*
+cTareaDiaSemana=*
+nIntentosMaximos=3
+cArchivo=script.php

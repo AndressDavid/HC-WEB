@@ -1,0 +1,10 @@
+﻿cTareaNombre=Direccionamientos de MiPres
+cTareaDescripcion=Descarga y almacena los direccionamientos de MiPres del día anterior
+cTareaActiva=NO
+cTareaMinuto=00
+cTareaHora=4
+cTareaDiaMes=*
+cTareaMes=*
+cTareaDiaSemana=*
+nIntentosMaximos=1
+cArchivo=script.php

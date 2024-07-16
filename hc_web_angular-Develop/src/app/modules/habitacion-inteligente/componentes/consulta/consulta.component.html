@@ -1,0 +1,103 @@
+<div class="card-header">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-8 col-lg-11 my-2">
+      <h5>Habitaciones Habilitadas</h5>
+    </div>
+  </div>
+  <form
+    class="needs-validation form-inline"
+    novalidate
+    [formGroup]="consultaForm"
+  >
+    <div class="row">
+      <div class="col-12 col-md-6 col-lg-3">
+        <label for="selSeccion" class="form-label"><b>Sección</b></label>
+        <select
+          id="selSeccion"
+          class="form-select form-select-sm col-1"
+          formControlName="seccionValor"
+          (change)="onSeccionChange()"
+        >
+          <option></option>
+          <option
+            value="{{ seccion.key }}"
+            *ngFor="let seccion of secciones | keyvalue"
+          >
+            {{ seccion.key + " - " + seccion.value }}
+          </option>
+        </select>
+      </div>
+      <div class="col-12 col-md-6 col-lg-3">
+        <label for="selCama" class="form-label"><b>Cama</b></label>
+        <select
+          id="selCama"
+          class="form-select form-select-sm col-1"
+          formControlName="camaValor"
+        >
+          <option></option>
+          @for (Habitaciones of listadoHabitaciones; track $index) {
+          <option>{{ Habitaciones.cama }}</option>
+          }
+        </select>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-4 col-xl-2">
+        <div class="col-12">
+          <label for="selActivo" class="form-label"><b>Activo</b></label>
+        </div>
+        <select
+          id="selActivo"
+          class="form-select form-select-sm"
+          formControlName="activoValor"
+        >
+          <option value="1">Activos</option>
+          <option value="0">Inactivos</option>
+          <option value="-1" [selected]="true">Todos</option>
+        </select>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3 mb-2">
+        <div class="col-sm-12 col-md-6 col-lg-4">
+          <label class="form-label">
+            <br />
+          </label>
+        </div>
+        <button
+          id="ingresoModal"
+          type="submit"
+          class="me-4 mb-2 form-control-sm btn btn-secondary btn-sm col-12 col-sm-12 col-md-5 col-lg-3"
+          accesskey="B"
+          (click)="buscarHabitacion()"
+        >
+          <u>B</u>uscar
+        </button>
+        <a
+          type="button"
+          class="me-4 mb-2 form-control-sm btn btn-secondary btn-sm col-12 col-sm-12 col-md-5 col-lg-3"
+          href="habitacion-inteligente"
+        >
+          <u>L</u>impiar
+        </a>
+        <button
+          id="nuevaHabModal"
+          type="button"
+          (click)="onNuevo()"
+          class="mb-2 form-control-sm btn btn-danger btn-sm col-12 col-sm-12 col-md-5 col-lg-3"
+          tabindex="1"
+          accesskey="N"
+        >
+          <u><b>N</b></u
+          >uevo
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
+<app-modal-nuevo
+  *ngIf="nuevaHabModal"
+  (OutNuevaHabModal)="close($event)"
+></app-modal-nuevo>
+<app-modal-dinamico
+  *ngIf="activar"
+  [tipoModal]="tipoAlerta"
+  [contenido]="contenido"
+  (click)="ValidarDatos()"
+></app-modal-dinamico>

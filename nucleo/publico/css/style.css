@@ -1,0 +1,16 @@
+label{font-weight: bold;}
+label b,strong{font-weight: unset !important;}
+
+#main-app-panel { min-width: 200px; }
+#tabsMenuIcon .nav-link {color: #000000}
+#tabsMenuIcon .nav-link.active {background: #646464!important; color:#ffffff;}
+.menuIcon { margin: 10px; position: relative; }
+.menuOption{ text-align:center; vertical-align: middle; height:150px; padding:10px; line-height: 20px;}
+.menuColorAlto{ color:#646464; }
+#inner-message { position: fixed; bottom: 0; right: 0; width: 480px; margin: 0 auto; opacity:0.8; z-index: 9999; padding: 4px;}
+#inner-message h6 {	margin-bottom: 0px;}
+.row-select{cursor: pointer;}
+.bootstrap-table{overflow: hidden !important;}
+.required:after{content:" *"; color: #dc3545!important;}
+.avatar{width: 100%!important; overflow: hidden!important; justify-content: center;}
+.avatar img {border: 11px solid #ffffff; width:100%!important;}

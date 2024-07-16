@@ -1,0 +1,59 @@
+{
+	"NUMPRES": {
+		"title": "Prescripción",
+		"sortable": true
+	},
+	"FECPRES": {
+		"title": "Fecha",
+		"sortable": true
+	},
+	"AMBITO": {
+		"title": "Ambito",
+		"sortable": true
+	},
+	"INGRESO": {
+		"title": "Ingreso",
+		"sortable": true
+	},
+	"IDPAC": {
+		"title": "Doc Pac",
+		"formatter": "docPaciente"
+	},
+	"PACIENTE": {
+		"title": "Paciente",
+		"sortable": true
+	},
+	"TIPOTEC": {
+		"title": "Tec",
+		"sortable": true
+	},
+	"CNSTEC": {
+		"title": "Cns"
+	},
+	"CODIGO": {
+		"title": "Código",
+		"sortable": true
+	},
+	"DESCRIPCION": {
+		"title": "Descripción",
+		"sortable": true
+	},
+	"CANTUNI": {
+		"title": "Cantidad",
+		"formatter": "cantUnidad"
+	},
+	"CODEPS": {
+		"title": "EPS",
+		"sortable": true,
+		"formatter": "epsFormato"
+	},
+	"ESTADO": {
+		"title": "Estado",
+		"formatter": "estadoPres"
+	},
+	"ACCION": {
+		"title": "Acción",
+		"formatter": "accionFormato",
+		"events": "window.accionEventos"
+	}
+}

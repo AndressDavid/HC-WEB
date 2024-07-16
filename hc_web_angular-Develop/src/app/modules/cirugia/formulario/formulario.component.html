@@ -1,0 +1,876 @@
+
+<div class="alert alert-danger" role="alert" *ngIf="!ingreso || ingreso=='0' || errorMipres " >
+    <p *ngIf="!errorMipres">El ingreso enviado no es valido.</p>
+    <p *ngIf="errorMipres">Error al tratar de obtener información Mipres</p>
+    <a alt="Pagina principal" href="../" data-toggle="tooltip" data-placement="right" title="Ir a la pagina principal" class="btn btn-secondary btn-sm"><i class="fa fa-undo"></i></a>
+</div>
+
+<app-load-modal 
+    *ngIf="activar" 
+    [modal]=modalContenido
+></app-load-modal>
+
+
+<app-cabecera-paciente 
+    *ngIf="ingreso && ingreso !=='0' "
+    [ingreso]=ingreso
+    (datosIngreso) = "datosIngreso($event)"
+></app-cabecera-paciente>
+
+<div class="container-fluid mt-3" *ngIf="ingreso && ingreso !=='0' " >
+    <form action="" class="needs-validation" [formGroup]="guardarControlCirugia">
+        <div class="card" >
+            
+            <div class="card-header mb-5">
+                <h6 class="m-2">Descripción Quirúrgica</h6>
+            </div>
+            
+            <ul class="nav nav-tabs mb-3" id="pills-tab" role="tablist">
+                <li class="nav-item" role="presentation">
+                <button class="nav-link active " id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-acto" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Acto Quirúrgico</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-Procedimientos" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Procedimientos</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-Descripcion" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Descripción Quirúrgica</button>
+                </li>
+                <li class="nav-item" role="presentation" *ngIf="activePerfusion">
+                    <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-perfusion" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Perfusión</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button (click)="validarCampos()" class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-Medicamentos" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Medicamentos</button>
+                </li>
+                
+            </ul>
+        
+            <div class="tab-content" id="pills-tabContent">
+
+                <div class="tab-pane fade show active" id="pills-acto" role="tabpanel" aria-labelledby="pills-home-tab">
+                    <div class="row m-2 d-flex justify-content-between">
+
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-3">
+                            <app-sala-procedimientos [requerido]="true" [frmParametro] ="guardarControlCirugia" (salaSeleccionada)="cambioSala($event)"></app-sala-procedimientos>
+                        </div>
+
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-3">
+                            <app-otras-salas 
+                                [frmParametro]="guardarControlCirugia"  
+                                [frmParametro] ="guardarControlCirugia" 
+                                (otraSalaSeleccionada)="cambioOtraSala($event)"
+                                (otraSalaNombre) = "labelOtraSala($event)"
+                            ></app-otras-salas>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-4">
+
+                            <label class="d-inline w-50 mt-4 mb-4 m-0"><b>Fecha/Hora Inicio:</b> </label>
+
+                            <div class="row col-lg-6 col-xl-12 ps-2 ps-3">
+                                <div class="row col-xs-12 col-sm-7 col-md-6 col-lg-8 col-xl-6 me-2">
+                                    <input  
+                                        formControlName="fechaIn" 
+                                        type="date"
+                                        class="form-control d-inline {{ activarValidations ? !guardarControlCirugia.controls.fechaIn.valid ? 
+                                            'form-control is-invalid' : 'form-control is-valid' : ''}}"
+                                    >
+                                </div>
+
+                                <div class="row col-xs-12 col-sm-6 col-md-6 col-lg-8 col-xl-6">
+                                    <input  
+                                        formControlName="HoraIn"  
+                                        type="time"
+                                        class="form-control d-inline {{ activarValidations ? !guardarControlCirugia.controls.HoraIn.valid ? 
+                                            'form-control is-invalid' : 'form-control is-valid' : ''}}"
+                                    >
+                                </div>
+                            </div>
+                            <p class="text-danger" *ngIf="(!guardarControlCirugia.controls.fechaIn.valid || !guardarControlCirugia.controls.HoraIn.valid ) && activarValidations">
+                                Los campos fecha y hora inicio son obligatorio
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="row d-flex justify-content-between ms-2">
+                        
+                        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3">
+                            <label class="m-0 p-0"><b>Fecha/Hora Fin:</b> </label>
+                                <div class="col-xs-12 col-sm-5 col-md-12 col-lg-8 col-xl-12 me-2">
+                                    <input 
+                                        formControlName="fechaFin" 
+                                        type="date"
+                                        class="d-inline form-control w-50 me-2 {{ activarValidations ? !guardarControlCirugia.controls.fechaFin.valid ? 
+                                        'form-control is-invalid' : 'form-control is-valid' : ''}}"
+                                    >
+                                    <input 
+                                        style="width: 35%;"
+                                        formControlName="HoraFin" 
+                                        type="time"
+                                        class=" d-inline form-control {{ activarValidations ? !guardarControlCirugia.controls.HoraFin.valid ? 
+                                            'form-control is-invalid' : 'form-control is-valid' : ''}}"
+                                    >
+                                </div>
+                                <p class="text-danger" *ngIf="!guardarControlCirugia.controls.HoraFin.valid && activarValidations">
+                                    Los campos fecha y hora fin son obligatorio
+                                </p>
+                        </div>
+
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-3 pe-4">
+                            <app-tipo-cirugia [frmParametro]="guardarControlCirugia"></app-tipo-cirugia>
+                        </div>
+
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-4 pe-5 ms-2 ps-0">
+                            <label for="" class="pt-1"><b>Finalidad</b><b class="text-danger"> * </b></label>
+                            <select 
+                                name="" 
+                                class="form-control {{ activarValidations ? 
+                                    !guardarControlCirugia.controls.finalidad.valid ? 
+                                    'form-control is-invalid' : 'form-control is-valid' : ''}}"
+                                formControlName="finalidad"
+                            >
+                                <option value=""></option>
+                                <option value="1">Diagnóstico</option>
+                                <option value="2">Terapéutico</option>
+                            </select>
+                            <div class="text-danger ms-3" *ngIf="!guardarControlCirugia.controls.finalidad.valid && activarValidations">
+                                El campo finalidad es obligatorio
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row m-2  d-flex justify-content-between">
+
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-4">
+                            <app-profesionales 
+                            [tipo] = "'22'" 
+                            [estado]="'1'" 
+                            [titulo]="'Instrumentador'"
+                            [frmParametro]="guardarControlCirugia"
+                            forname ="instrumentador"
+                            ></app-profesionales>
+                        </div>
+
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-4">
+                            <app-profesionales 
+                                [tipo] = "'6'" 
+                                [requerido] = true 
+                                [estado]="'1'" 
+                                [titulo]="'Anestesiólogo'"
+                                [frmParametro]="guardarControlCirugia"
+                                forname ="anestesiologo"
+                                [activarValidations] = activarValidations
+                                [formValid] = guardarControlCirugia.controls.anestesiologo.valid
+                            ></app-profesionales>
+
+                            <div class="text-danger ms-3" *ngIf="!guardarControlCirugia.controls.anestesiologo.valid && activarValidations">
+                                El campo Anestesiólogo es obligatorio
+                            </div>
+                        </div>
+
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-4">
+                            <app-profesionales 
+                            [tipo] = "'5'" 
+                            [estado]="'1'" 
+                            [titulo]="'Perfusionista'"
+                            [frmParametro]="guardarControlCirugia"
+                            forname ="perfusionista"
+                            ></app-profesionales>
+                        </div>
+                    </div>
+
+                    <div class="row m-2 d-flex justify-content-between">
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-4">
+                            <app-tipo-anestesia 
+                                [frmParametro] = "guardarControlCirugia"
+                                (codigoTipoCirugia)="activarPerfusion($event)"
+                            ></app-tipo-anestesia>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-4">
+                            <label><b>Clasificar Cirugía</b> <b class="text-danger"> * </b> </label>
+                            <select 
+                                formControlName="clasificacion"
+                                class="form-control {{ activarValidations ? !guardarControlCirugia.controls.clasificacion.valid ? 
+                                'form-control is-invalid' : 'form-control is-valid' : ''}}"
+                            >
+                                <option value=""></option>
+                                <option value="1">Limpia</option>
+                                <option value="2">Limpia Contaminada</option>
+                                <option value="3">Contaminada</option>
+                                <option value="4">Sucia Infectada</option>
+                            </select>
+                            <div class="text-danger ms-3" *ngIf="!guardarControlCirugia.controls.clasificacion.valid && activarValidations">
+                                El campo Clasificar Cirugía es obligatorio
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-4">
+                            <div class="form-check form-check-inline col-xl-9 mt-4">
+                                <input class="form-check-input" formControlName="politraumatizado"  type="checkbox" value="option2">
+                                <label class="form-check-label" for=""><b>Paciente politraumatizado</b></label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row m-2 d-flex justify-content-between">
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-4">
+                            <label><b>Riesgo</b></label>
+                            <select formControlName="riesgo" name="" class="form-control">
+                                <option value=""></option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                            </select>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-4">
+                            <label><b>Vías</b></label>
+                            <select name=""  formControlName="viaActo" class="form-control">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                            </select>
+                        </div>
+
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-4">
+                            <label><b>ASA</b></label>
+                            <select formControlName="asa" class="form-control">
+                                <option value=""></option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="container-fluid">
+                        <div class="container-fluid col-xs-12 col-sm-12 col-md-12 col-lg-10 col-xl-12">
+                            <app-diagnosticos [requerido]="false" [frmParametro]="guardarControlCirugia" [sexRips]=sexoPaciente titulo="Dx Complicación" ></app-diagnosticos>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="container-fluid mt-3">
+                        <div class="container-fluid">
+                            <label><b>Hallazgos</b> <b class="text-danger"> * </b></label>
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                <textarea 
+                                    formControlName="hallazgos" 
+                                    name="" 
+                                    cols="30" 
+                                    rows="10" 
+                                    class="form-control w-100 {{ activarValidations ? 
+                                        !guardarControlCirugia.controls.hallazgos.valid ? 
+                                        'form-control is-invalid' : 'form-control is-valid' : ''}}"
+                                ></textarea>
+                            </div>
+                        </div>
+                        
+                        <div class="text-danger ms-3" *ngIf="!guardarControlCirugia.controls.hallazgos.valid && activarValidations">
+                            El campo Hallazgos es obligatorio
+                        </div>
+                    </div>
+                    <div class="mb-4"></div>
+                </div>
+                <!-- 2 -->
+            <div class="tab-pane fade" id="pills-Procedimientos" role="tabpanel" aria-labelledby="pills-profile-tab">
+                    
+                        <div class="container-fluid">
+                            <div class="container-fluid col-xs-12 col-sm-12 col-md-12 col-lg-10 col-xl-12">
+                                <app-procedimientos 
+                                    forname="procedimientos" 
+                                    [frmParametro]="guardarControlCirugia" 
+                                    titulo="Procedimiento" 
+                                    [requerido]=true
+                                ></app-procedimientos>
+                            </div>
+                        </div>
+        
+                        <div class="container-fluid mt-3">
+                            <div class="container-fluid col-xs-12 col-sm-12 col-md-12 col-lg-10 col-xl-12">
+                                <app-diagnosticos 
+                                    [sexRips] = sexoPaciente
+                                    forname="dxPre" 
+                                    [frmParametro]="guardarControlCirugia"  
+                                    titulo="Diagnóstico Prequirúrgico" 
+                                    [requerido]="true"
+                                ></app-diagnosticos>
+                            </div>
+                        </div>
+                        
+                        <div class="container-fluid mt-3">
+                            <div class="container-fluid col-xs-12 col-sm-12 col-md-12 col-lg-10 col-xl-12">
+                                <app-diagnosticos 
+                                    [sexRips] = sexoPaciente
+                                    forname="dxPost" 
+                                    [frmParametro]="guardarControlCirugia"  
+                                    titulo="Diagnóstico Postquirúrgico" 
+                                    [requerido]="true" 
+                                    style="z-index: 55;"
+                                ></app-diagnosticos>
+                            </div>
+                        </div>
+        
+                        <div class="container-fluid mt-3">
+                            <div class="container-fluid col-xs-12 col-sm-12 col-md-12 col-lg-10 col-xl-12">
+                                <app-diagnosticos 
+                                    [sexRips] = sexoPaciente 
+                                    forname="dxRel" 
+                                    [frmParametro]="guardarControlCirugia"  
+                                    titulo="Diagnóstico Relacionado" 
+                                    [requerido]="false" 
+                                    style="z-index: 55;"
+                                ></app-diagnosticos>
+                            </div>
+                        </div>
+        
+                        <div class="m-2 d-flex flex-row bd-highlight">
+                            
+                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 ms-3">
+                                <label class="form-check-label"  for=""><b>Vía</b></label>
+                                <input class="form-control" formControlName="via" type="number" value="" min="0" max="9">
+                            </div>
+                        
+                            <div class="form-check mt-2 form-check-inline col-xs-2 col-sm-2  col-xl-1">
+                                <div class="container-fluid m-4">
+                                    <input class="form-check-input" formControlName="bilateralidad" type="checkbox" value="false">
+                                    <label class="form-check-label" for=""><b>Bilateralidad</b></label>
+                                </div>
+                            </div>
+                            <div class="form-check mt-2 form-check-inline col-xs-2 col-sm-2 col-xl-1">
+                                <div class="container-fluid m-4">
+                                    <input class="form-check-input" formControlName="incruento" type="checkbox" value="false">
+                                    <label class="form-check-label" for=""><b>Incruento</b></label>
+                                </div>
+                            </div>
+                        </div>
+        
+                        <div class="container-fluid">
+                            <div class="container-fluid col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-4">
+                                <label class="control-label d-block mt-1" for=""><b>Cirujano</b> <b class="text-danger"> * </b></label>
+                                <app-especialidades-medicos  
+                                    opcion1="1"  
+                                    opcion2="5"  
+                                    [frmParametro]="guardarControlCirugia" 
+                                    forname="especialidad1"
+                                    (cambiocodigo)="cambioEspecialidadCirujano($event)" 
+                                ></app-especialidades-medicos>
+                                
+                                <div class="d-flex flex-row" *ngIf="especialidadCirujano !=='00'">
+                                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-10 col-xl-10">
+                                        <app-medicos-especialidad 
+                                            opcion1="2" 
+                                            opcion2="5"  
+                                            forname="cirujano" 
+                                            [frmParametro]="guardarControlCirugia" 
+                                            [especialidad]="especialidadCirujano"
+                                            (textoSeleccionado)="textoSeleccionadoCirujano($event)"
+                                        ></app-medicos-especialidad>
+                                    </div>
+                                    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 m-4 pt-2">
+                                        <input class="form-check-input" type="checkbox" value="option3" formControlName="C1">
+                                        <label class="form-check-label ps-1" for=""><b>Cobrable</b></label>
+                                    </div>
+                                </div>
+        
+                                <select class="form-control mt-4" disabled *ngIf="especialidadCirujano ==='00'">
+                                    <option value="">{{tituloBusca1}}</option>
+                                </select>
+                                <div class="mb-2"></div>
+                            </div>
+                            <div class="container-fluid col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-4">
+                                <label class="control-label d-block mt-1" for=""><b>Ayudante 1</b></label>
+        
+                                <app-especialidades-medicos  
+                                    opcion1="1"  
+                                    opcion2="2" 
+                                    (cambiocodigo)="cambioEspecialidadAyudante1($event)"
+                                    [frmParametro]="guardarControlCirugia" 
+                                    forname="especialidad2"
+                                ></app-especialidades-medicos>
+        
+                                <div class="d-flex flex-row" *ngIf="especialidadAyudante1 !=='00'">
+                                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-10 col-xl-10">
+                                        <app-medicos-especialidad 
+                                            opcion1="2" 
+                                            opcion2="2"   
+                                            forname="ayudante1" 
+                                            [frmParametro]="guardarControlCirugia"  
+                                            [especialidad]="especialidadAyudante1"
+                                            (textoSeleccionado) = "textoSeleccionadoAyudante1($event)"
+                                        ></app-medicos-especialidad>
+                                    </div>
+        
+                                    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 m-4 pt-2">
+                                        <input class="form-check-input" type="checkbox" value="option3"  formControlName="C2">
+                                        <label class="form-check-label ps-1" for=""><b>Cobrable</b></label>
+                                    </div>
+                                </div>
+        
+                                <select class="form-control mt-4" disabled *ngIf="especialidadAyudante1 ==='00'">
+                                    <option value="">{{tituloBusca2}}</option>
+                                </select>
+        
+                                <div class="mb-2"></div>
+                            </div>
+        
+                            <div class="container-fluid col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-4">
+                                <label class="control-label d-block mt-1" for=""><b>Ayudante 2</b></label>
+                                <app-especialidades-medicos 
+                                    opcion1="1"  
+                                    opcion2="5" 
+                                    [frmParametro]="guardarControlCirugia" 
+                                    forname="especialidad3"
+                                    (cambiocodigo)="cambioEspecialidadAyudante2($event)"
+                                ></app-especialidades-medicos>
+                                
+        
+                                <div class="d-flex flex-row" *ngIf="especialidadAyudante2 !=='00'">
+                                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-10 col-xl-10"  >
+                                        <app-medicos-especialidad 
+                                            opcion1="2" 
+                                            opcion2="2" 
+                                            forname="ayudante2" 
+                                            [frmParametro]="guardarControlCirugia"  
+                                            [especialidad]="especialidadAyudante2"
+                                            (textoSeleccionado) = "textoSeleccionadoAyudante2($event)"
+                                        ></app-medicos-especialidad>
+                                    </div>
+                                    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 m-4 pt-2">
+                                        <input class="form-check-input" type="checkbox" value="option3"  formControlName="C3">
+                                        <label class="form-check-label ps-1" for=""><b>Cobrable</b></label>
+                                    </div>
+                                </div>
+        
+                                <select class="form-control mt-4" disabled *ngIf="especialidadAyudante2 ==='00'">
+                                    <option value="">{{tituloBusca3}}</option>
+                                </select>
+                                <div class="mb-2"></div>
+                            </div>
+                        </div>
+        
+                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 ms-4">
+                            <button  *ngIf="!guardarDisable" type="button" (click)="validarProcedimiento()" class="btn btn-secondary" >Adicionar Procedimientos</button>
+                            <button  disabled *ngIf="guardarDisable" type="button" class="btn btn-secondary" >Adicionar Procedimientos</button>
+                        </div>
+
+                        <div class="card-body">
+                            <div class="container-fluid">
+                                <div class="col-12 border border-6">
+                                    <small>
+                                        <p-table
+                                            [value]="tablaProcedimientos"  
+                                            styleClass="p-datatable-striped" 
+                                            selectionMode="single" 
+                                            [showCurrentPageReport]="true"
+                                            [tableStyle]="{ 'font-size': '13px' }"
+                                        >
+                                            <ng-template pTemplate="header">
+                                                <tr>
+                                                    <th style="width:2px;" ><b><i class="fas fa-edit"></i></b></th>
+                                                    <th style="width:2px;"><b>X</b></th>
+                                                    <th style="width:auto;">Procedimiento</th>
+                                                    <th style="width:1px;">C1</th>
+                                                    <th style="width:auto;">Cirujano</th>
+                                                    <th style="width:1px;">C2</th>
+                                                    <th style="width:160px;">Ayudante 1</th>
+                                                    <th style="width:1px;">C3</th>
+                                                    <th style="width: 160px;">Ayudante 2</th>
+                                                    <th style="width: auto;">Diagnóstico Prequirúrgico</th>
+                                                    <th style="width: auto;">Diagnóstico Postquirúrgico</th>
+                                                    <th style="width: auto;">Diagnóstico Relacionado</th>
+                                                    <th style="width:2px;">Vía</th>
+                                                    <th style="width:1px;">Bilateralidad</th>
+                                                    <th style="width:1px;">Incruento</th>
+                                                </tr>
+                                            </ng-template>
+                                            <ng-template pTemplate="body" let-datos >
+                                                <tr style="height:10px; font-size: 14px;">
+                                                    <td>
+                                                        <button *ngIf="!guardarDisable" class="btn btn-info" (click)="editar(datos)"><i class="fas fa-edit"></i></button>
+                                                        <button *ngIf="guardarDisable" class="btn btn-info" disabled><i class="fas fa-edit"></i></button>
+                                                    </td>
+                                                    <td> 
+                                                        <button *ngIf="!guardarDisable" class="btn btn-danger" (click)="eliminar(datos.codigoProcedimiento)" >X</button>
+                                                        <button *ngIf="guardarDisable" class="btn btn-danger" disabled>X</button>
+                                                    </td>
+                                                    <td>{{ datos.procedimiento }}</td>
+                                                    <td>{{ datos.c1 }}</td>
+                                                    <td>{{ datos.cirujano }}</td>
+                                                    <td>{{ datos.c2 }}</td>
+                                                    <td>{{ datos.ayudante1 }}</td>
+                                                    <td>{{ datos.c3 }}</td>
+                                                    <td>{{ datos.ayudante2 }}</td>
+                                                    <td>{{ datos.prequirurgico }}</td>
+                                                    <td>{{ datos.postquirurgico }}</td>
+                                                    <td>{{ datos.relacionado }}</td>
+                                                    <td>{{ datos.via }}</td>
+                                                    <td>{{ datos.bilateralidad }}</td>
+                                                    <td>{{ datos.incruento }}</td>
+                                                </tr>
+                                            </ng-template>
+                                        </p-table>
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+        
+                        <div class="mb-4"></div>
+                    
+            </div>
+            <div class="tab-pane fade" id="pills-Descripcion" role="tabpanel" aria-labelledby="pills-contact-tab">
+
+                <div class="container-fluid mt-3">
+                    <div class="container-fluid">
+                        <label class="mb-3"><b>Descripción Quirúrgica</b> <b class="text-danger"> * </b></label>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                            <textarea 
+                                formControlName="desCripQuiru"
+                                cols="30" 
+                                rows="10" 
+                                class="form-control w-100 {{ activarValidations ? !guardarControlCirugia.controls.desCripQuiru.valid ? 
+                                    'form-control is-invalid' : 'form-control is-valid' : ''}}"
+                            ></textarea>
+                            <div class="text-danger ms-3" *ngIf="!guardarControlCirugia.controls.desCripQuiru.valid && activarValidations">
+                                El campo Descripción Quirúrgica es obligatorio
+                            </div>    
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container-fluid mt-3">
+                    <div class="container-fluid">
+                        <label class="d-inline"><b>Complicaciones</b> <b class="text-danger"> * </b></label>
+                        <select 
+                            formControlName="Scomplicacion" 
+                            (change)="selectComplicacion($event)"
+                            class="ms-1 form-control w-25 d-inline {{ activarValidations ? !guardarControlCirugia.controls.Scomplicacion.valid ? 
+                                'form-control is-invalid' : 'form-control is-valid' : ''}}"
+                        >
+                            <option value="N">NO</option>
+                            <option value="S">SI</option>
+                        </select>
+                        <div class="text-danger ms-3" *ngIf="!guardarControlCirugia.controls.Scomplicacion.valid && activarValidations">
+                            El campo Lista Complicaciones es obligatorio
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container-fluid mt-3">
+                    <div class="container-fluid">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                            <textarea 
+                                formControlName="complicacion" 
+                                cols="30" 
+                                rows="10" 
+                                class="form-control w-100"
+                                ></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container-fluid mt-3">
+                    <div class="container-fluid">
+                        <label class="d-inline"><b>Envío a Patología</b> <b class="text-danger"> * </b></label>
+                        <button class="d-inline btn btn-light" (click)="modalPatologia()" ><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+
+                <div class="container-fluid mt-3">
+                    <div class="container-fluid">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                            <textarea 
+                                #patologia
+                                formControlName="envioPatologia" 
+                                cols="30" 
+                                rows="10" 
+                                class="form-control w-100 {{ activarValidations ? !guardarControlCirugia.controls.envioPatologia.valid ? 
+                                    'form-control is-invalid' : 'form-control is-valid' : ''}}"                               
+                            ></textarea>
+                            <div class="text-danger ms-3" *ngIf="!guardarControlCirugia.controls.envioPatologia.valid && activarValidations">
+                                El campo Envío a Patología es obligatorio
+                            </div>    
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container-fluid mt-3">
+                    <div class="container-fluid">
+                        <label class="d-inline"><b>Estado de salida</b> <b class="text-danger"> * </b></label>
+                        <select 
+                            formControlName="estadoSalida" 
+                            class="ms-1 form-control w-25 d-inline {{ activarValidations ? !guardarControlCirugia.controls.estadoSalida.valid ? 
+                                'form-control is-invalid' : 'form-control is-valid' : ''}}"                           
+                        >
+                            <option value="V">VIVO</option>
+                            <option value="M">FALLECE</option>
+                        </select>
+                        <div class="text-danger ms-3" *ngIf="!guardarControlCirugia.controls.estadoSalida.valid && activarValidations">
+                            El campo Estado de salida es obligatorio
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-4"></div>
+
+            </div>
+            <div class="tab-pane fade" id="pills-perfusion" role="tabpanel" aria-labelledby="pills-contact-tab"  *ngIf="activePerfusion">
+                <div class="row ms-3">
+                    <div class="col-xs-7 col-sm-7 col-md-4 col-lg-3 col-xl-3">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                            <label for=""><b>Asistencia Ventricular</b></label>
+                            <div class="column col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                <div class="col-xs-8 col-sm-8 col-md-8 col-lg-5 col-xl-5 m-4 pt-2">
+                                    <input class="form-check-input"  formControlName="preoperatorio" type="checkbox" value="" >
+                                    <label class="form-check-label ps-1" for=""><b>Preoperatorio</b></label>
+                                </div>
+                                <div class="col-xs-8 col-sm-8 col-md-8  col-lg-5 col-xl-5 m-4 pt-2">
+                                    <input class="form-check-input"  formControlName="interoperatorio" type="checkbox" value="">
+                                    <label class="form-check-label ps-1" for=""><b>Interoperatorio</b></label>
+                                </div>
+                                <div class="col-xs-8 col-sm-8 col-md-8  col-lg-5 col-xl-5 m-4 pt-2">
+                                    <input class="form-check-input" formControlName="posoperatorio" type="checkbox" value="">
+                                    <label class="form-check-label ps-1" for=""><b>Posoperatorio</b></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
+                        <div class="col-xs-2 col-sm-2 col-md-12 col-lg-12 col-xl-12">
+                            <input class="form-check-control" formControlName="Cardioplejia" type="checkbox" value="option3">
+                            <label class="form-check-label ps-1" for=""><b>Cardioplejia</b></label>
+                        </div>
+                        <div class="column col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-10 col-xl-10 m-4 pt-3">
+                                <label for="" class="form-check-label pe-2 d-inline"><b>Anterogrado</b></label>
+                                <input 
+                                    class="form-control me-2 d-inline w-50" 
+                                    type="number" 
+                                    min="1" 
+                                    formControlName="anterogrado"
+                                ><label for="" >cc</label>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-10 col-xl-10 m-4 pt-3">
+                                <label  for="" class="form-check-label pe-3 pt-1 d-inline"><b>Retrograda</b></label>
+                                <input 
+                                    class="form-control me-2 d-inline w-50" 
+                                    type="number" 
+                                    min="1" 
+                                    formControlName="retrograda"
+                                ><label for="">cc</label>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-12  col-lg-10 col-xl-10 m-4 pt-3">
+                                <label for="" class="form-check-label pe-3 d-inline"><b>Simultánea</b></label>
+                                <input 
+                                    class="form-control me-2 d-inline w-50" 
+                                    type="number"  
+                                    min="1" 
+                                    formControlName="simultánea"
+                                ><label for="">cc</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                            <label for=""><b>Tiempo</b></label>
+                            <div class="column col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-10 col-xl-10 m-4 pt-3">
+                                    <label for="" class="form-check-label pe-4 d-inline"><b>Pinza Aórtica</b></label>
+                                    <input 
+                                        class="form-control me-1 d-inline w-50" 
+                                        type="number" 
+                                        min="1" 
+                                        formControlName="pinzaAortica"
+                                    ><label for="" >m</label>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-10 col-xl-10 m-4 pt-3">
+                                    <label  for="" class="form-check-label pe-5 pt-3 d-inline"><b>Perfusión</b></label>
+                                    <input 
+                                        class="form-control me-1 mt-2 d-inline w-50"
+                                        min="1" 
+                                        type="number" 
+                                        formControlName="perfusion"
+                                    ><label for="">m</label>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-12  col-lg-10 col-xl-10 m-4 pt-3">
+                                    <label for="" class="form-check-label pe-5 d-inline"><b>Paro total</b></label>
+                                    <input 
+                                        class="form-control me-1 d-inline w-50" 
+                                        type="number" 
+                                        min="1" 
+                                        formControlName="paroTotal"
+                                    ><label for="">m</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-9 col-sm-10 col-md-10 col-lg-12 col-xl-11 ms-3">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-10 col-xl-10 m-4 pt-3">
+                        <label for="" class="form-check-label pe-4 d-inline"><b>Temperatura Rectal</b></label>
+                        <input 
+                            class="form-control me-1 d-inline w-25" 
+                            type="number" 
+                            step="0.1" 
+                            min="0.1" 
+                            formControlName="temperaturaRectal"
+                        ><label for="" >Grados</label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-pane fade" id="pills-Medicamentos" role="tabpanel" aria-labelledby="pills-contact-tab">
+                <div class=" row col-xs-10 col-sm-10 col-md-10 col-lg-11 col-xl-11 ms-3">
+                    <div class="col-xs-10 col-sm-11 col-md-12 col-lg-7 col-xl-7">
+                        <app-medicamentos-quirurgicos titulo="Medicamentos" [frmParametro] ="guardarControlCirugia" [requerido]=true ></app-medicamentos-quirurgicos>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-2 col-xl-2">
+                        <label for="" class="pt-1"><b>Cantidad</b> <b class="text-danger"> * </b> </label>
+                        <input class="form-control" type="number" step="0.1" min="0.1" formControlName="cantMedicamento" >
+                    </div>
+                    <div class="col-xs-3 col-sm-3 col-md-5 col-lg-2 col-xl-2 ">
+                        <div class="d-flex justify-content-center">
+                            <button *ngIf="!guardarDisable"class="btn btn-secondary" (click)="adicionarMedicamento()" style="margin-top: 10%;" >Adicionar Medicamento</button>
+                            <button disabled *ngIf="guardarDisable" class="btn btn-secondary" (click)="adicionarMedicamento()" style="margin-top: 10%;" >Adicionar Medicamento</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-body">
+                    <div class="container-fluid">
+                        <div class="col-12 border border-6">
+                            <small>
+                                <p-table
+                                    [value]="tablaMedicamentoConsumo"  
+                                    styleClass="p-datatable-striped" 
+                                    selectionMode="single" 
+                                    [showCurrentPageReport]="true"
+                                    [tableStyle]="{ 'font-size': '13px' }"
+                                >
+                                    <ng-template pTemplate="header">
+                                        <tr>
+                                            <th style="width:2px; text-align: center;"><b> <i class="fas fa-edit"></i> </b></th>
+                                            <th style="width:2px; text-align: center;"><b> X </b></th>
+                                            <th style="width:2px;"><b>Código</b></th>
+                                            <th style="width:2px;"><b>Descripción</b></th>
+                                            <th style="width:2px;"><b>Cantidad</b></th>
+                                        </tr>
+                                    </ng-template>
+                                    <ng-template pTemplate="body"  let-datos>
+                                        <tr>
+                                            <td style="width:3%;">
+                                                <button *ngIf="!guardarDisable" class="btn btn-info" (click)="actualizarMedicamentosBtn(datos)"><i class="fas fa-edit"></i></button>
+                                                <button *ngIf="guardarDisable" class="btn btn-info" disabled><i class="fas fa-edit"></i></button>
+                                            </td>
+                                            <td style="width:3%;"> 
+                                                <button *ngIf="!guardarDisable" class="btn btn-danger" (click) ="eliminarMedicamento(datos.codigo)" >X</button>
+                                                <button *ngIf="guardarDisable" class="btn btn-danger" disabled>X</button>
+                                            </td>
+                                            <td style="width: 16%;">{{ datos.codigo }}</td>
+                                            <td style="width: 60%;">{{ datos.descripcion }}</td>
+                                            <td style="width: 6%;">{{ datos.cantidad }}</td>
+                                        </tr>
+                                    </ng-template>
+                                    <ng-template pTemplate="summary"> 
+                                        <button (click)="btnBorrarLista()" class="btn btn-secondary" *ngIf="tablaMedicamentoConsumo.length > 0" >Borrar Lista</button> 
+                                    </ng-template>
+                                    
+                                </p-table>
+                            </small>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-4"></div>
+            </div>
+                
+            </div>
+        </div>
+    </form>
+    <div class="card-footer text-muted fixed-bottom bg-light p-2 border-top" style="z-index: 0;">
+        <div class=" row justify-content-between">
+            <div class="col ms-3">
+                <button *ngIf="!guardarDisable" class="btn btn-danger btn-sm" (click) ="onSubmit()">Guardar</button>
+                <button *ngIf="guardarDisable" [disabled]="true" class="btn btn-danger btn-sm" disabled>Guardar</button>
+            </div>
+            <div class="col-auto me-3">
+                <button  routerLink="/inicio-control-cirugia"  type="button" class="btn btn-secondary btn-sm me-2" data-toggle="tooltip" data-placement="top" title="" data-original-title="Volver"><i class="fas fa-arrow-left"></i></button>
+                <app-pdf-view [contenido]=contenidoPDF  [isDisable]=enableVistaPDF ></app-pdf-view>
+                <app-vista-previa-pdf [contenidoVistaPrevia]=vistaPrevias [disabled]=enableVistaPrevia ></app-vista-previa-pdf>
+                <app-libro-hcweb [ingreso]="ingreso"></app-libro-hcweb>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-modal-dinamico 
+[tipoModal]=tipoModalGuardar
+[contenido]="modalContenidoGuardar" 
+*ngIf="isGuardar"
+(primerBotonEvento) = "eventoGuardar($event)"
+(segundoBotonEvento) = "eventoCancelarGuardar($event)"
+>
+</app-modal-dinamico> 
+
+
+<app-modal-dinamico 
+[tipoModal]=tipoModal  
+[contenido]="modalDinamicoContenido" 
+*ngIf="isModalDinamico"
+(primerBotonEvento) = "evento1($event)"
+(isActivoModalEvento) = "cerrarModal($event)"
+>
+</app-modal-dinamico>
+
+
+<app-modal-dinamico 
+[tipoModal]=miPreTipo  
+[contenido]="modalDinamiMiPres"
+*ngIf="modalMiPres"
+[classDinamico] = "'modal-lg'"
+[personalizado]=miPresPersonalizado
+(primerBotonEvento) = "aceptarMiPres($event)"
+>
+</app-modal-dinamico>
+
+
+
+<app-modal-dinamico 
+[tipoModal]=tipoModal  
+[contenido]="modalDinamicoContenidoEliminar" 
+*ngIf="isBorrarListaMedicamentos"
+(primerBotonEvento) = "eliminarListaMedicamentos($event)"
+(isActivoModalEvento) = "cerrarModal($event)"
+>
+</app-modal-dinamico>
+
+
+<app-modal-dinamico 
+[tipoModal]=tipoModalEliminar  
+[contenido]="modalDinamicoContenidoEliminar" 
+*ngIf="isEliminar || isEliminarMedicamento"
+(primerBotonEvento) = "eventoEliminar($event)"
+(segundoBotonEvento) = "eventoCancelarEliminar($event)"
+(isActivoModalEvento) = "cerrarModalEliminar($event)"
+>
+</app-modal-dinamico>
+
+<app-modal-patologia *ngIf="isModalPatologia" (IsModalActive)="IsModalActivePatologia($event)" ></app-modal-patologia>
+
+
+<app-modal-dinamico 
+[tipoModal]=tipoModalValidarProcedimiento
+[contenido]="modalContenidoValidarProcedimiento" 
+*ngIf="isValidarProce"
+(primerBotonEvento) = "eventoValidarProcedimiento($event)"
+(segundoBotonEvento) = "eventoCancelarValidarProcedimiento($event)"
+>
+</app-modal-dinamico>
+
+
+<router-outlet></router-outlet>

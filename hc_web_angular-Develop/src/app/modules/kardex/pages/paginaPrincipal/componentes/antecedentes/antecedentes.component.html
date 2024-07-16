@@ -1,0 +1,126 @@
+<div class="card-body espacio" *ngIf="datosDeAntecedentes">
+    <div class="row">
+        <div class="card-header">
+            <small><b>{{lcNombreAntecedente}}</b></small>
+        </div>
+        <div class="col-lg-12">
+            <label for="" class="form-label"><small><b>{{lcDiagnosticoPrincipal}}<b class="text-danger">
+                            *</b></b></small></label>
+            <textarea class="form-control" id="" rows="2" [ngModel]="datosDeAntecedentes.laDx.DIAGNOSTICO +' - '+ datosDeAntecedentes.laDx.DESCRIPCION_CIE"></textarea>
+        </div>
+        <div class="col-lg-12">
+            <label for="" class="form-label"><small><b>{{lcAntecedentesMedicos}}</b></small></label>
+            <textarea class="form-control" id="" rows="10"
+                [ngModel]="lcTextoLimpio"></textarea>
+        </div>
+        <div class="col-lg-12">
+            <label for="" class="form-label"><small><b>{{lcTratamientoMedicamentoso}}</b></small></label>
+            <textarea class="form-control" id="" rows="2"></textarea>
+        </div>
+        <div class="col-lg-3">
+            <label for="" class="form-label"><small><b>{{lcTipoDispositivoIntra}}</b></small></label>
+            <input type="text" class="form-control">
+        </div>
+        <div class="col-lg-3">
+            <label for="" class="form-label"><small><b>{{lcSitio}}</b></small></label>
+            <input type="text" class="form-control">
+        </div>
+        <div class="col-lg-3">
+            <label for="" class="form-label"><small><b>{{lcFechaInsercion}}</b></small></label>
+            <input type="date" class="form-control">
+        </div>
+        <div class="col-lg-3">
+            <label for="" class="form-label"><small><b>{{lcFechaCuracion}}</b></small></label>
+            <input type="date" class="form-control">
+        </div>
+        <div class="col-lg-12 pt-3">
+            <h4 class="text-center border rounded p-1 bg-fondo"><small><b><i>{{lcLiquidoEndovenosos}}</i></b></small>
+            </h4>
+        </div>
+        <div class="col-lg-6">
+            <label for="" class="form-label"><small><b>{{lcInfusion}}</b></small></label>
+            <input type="text" class="form-control" [ngModel]="datosDeAntecedentes.Liquidos">
+        </div>
+        <div class="col-lg-6">
+            <label for="" class="form-label"><small><b>{{lcCCh}}</b></small></label>
+            <input type="text" class="form-control">
+        </div>
+        <div class="col-lg-12 pt-3">
+            <h4 class="text-center border rounded p-1 bg-fondo"><small><b><i>{{lcControlEquipos}}</i></b></small></h4>
+        </div>
+        <div class="col-lg-3">
+            <label for="" class="form-label"><small><b>{{lcFechaEquipo}}</b></small></label>
+            <input type="date" class="form-control">
+        </div>
+        <div class="col-lg-3">
+            <label for="" class="form-label"><small><b>{{lcFechaCambio}}</b></small></label>
+            <input type="date" class="form-control">
+        </div>
+        <div class="col-lg-12 pt-3">
+            <h4 class="text-center border rounded p-1 bg-fondo"><small><b><i>{{lcEstadoNutricional}}</i></b></small>
+            </h4>
+        </div>
+        <div class="col-lg-3">
+            <label for="" class="form-label"><small><b>{{lcTalla}}</b></small></label>
+            <input type="text" class="form-control">
+        </div>
+        <div class="col-lg-3">
+            <label for="" class="form-label"><small><b>{{lcGluco}}</b></small></label>
+            <input type="text" class="form-control">
+        </div>
+        <div class="col-lg-3">
+            <label for="" class="form-label"><small><b>{{lcRhidrica}}</b></small></label>
+            <input type="text" class="form-control">
+        </div>
+        <div class="col-lg-3">
+            <label for="" class="form-label"><small><b>{{lcDieta}}</b></small></label>
+            <input type="text" class="form-control">
+        </div>
+        <div class="col-lg-12">
+            <label for="" class="form-label"><small><b>{{lcSoporteNutricionalEnteral}}</b></small></label>
+            <input type="text" class="form-control">
+        </div>
+        <div class="col-lg-12 pt-3">
+            <h4 class="text-center border rounded p-1 bg-fondo"><small><b><i>{{lcSoporteOxigeno}}</i></b></small></h4>
+        </div>
+        <div class="col-lg-8">
+            <label for="" class="form-label"><small><b>{{lcDispositivo}}</b></small></label>
+            <input type="text" class="form-control">
+        </div>
+        <div class="col-lg-4">
+            <label for="" class="form-label"><small><b>{{lcFIO2}}</b></small></label>
+            <input type="text" class="form-control">
+        </div>
+        <div class="col-lg-12 pt-3">
+            <h4 class="text-center border rounded p-1 bg-fondo">
+                <small><b><i>{{lcDispositivos}}</i></b></small>
+            </h4>
+        </div>
+        <div class="col-lg-6">
+            <label for="" class="form-label"><small><b>{{lcTipoDispositivo}}</b></small></label>
+            <input type="text" class="form-control">
+        </div>
+        <div class="col-lg-2">
+            <label for="" class="form-label"><small><b>{{lcSitio}}</b></small></label>
+            <input type="text" class="form-control">
+        </div>
+        <div class="col-lg-2">
+            <label for="" class="form-label"><small><b>{{lcFechaInsercion}}</b></small></label>
+            <input type="date" class="form-control">
+        </div>
+        <div class="col-lg-2">
+            <label for="" class="form-label"><small><b>{{lcFechaCuracion}}</b></small></label>
+            <input type="date" class="form-control">
+        </div>
+        <div class="col-lg-4">
+            <label for="" class="form-label"><small><b>{{lcFechaRetiroCambio}}</b></small></label>
+            <input type="date" class="form-control">
+        </div>
+        <div class="col-lg-8">
+            <label for="" class="form-label"><small><b>{{lcObservaciones}}</b></small></label>
+            <input type="text" class="form-control">
+        </div>
+
+    </div>
+</div>
+<app-footer-kardex></app-footer-kardex>

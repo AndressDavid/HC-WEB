@@ -1,0 +1,36 @@
+<div class="card-header">
+  <form id="frmDetails">
+     <div class="row">
+       <div class="form-row mb-2" >
+         <div class="col-12">
+           <label>Notas Anteriores</label>
+           <textarea rows="9" type="text" class="form-control" [readOnly]="true" >{{ datosAnt }}</textarea>
+         </div>
+       </div>
+       <div class="form-row pt-2">
+         <label id="lblAnalisisE" for="edtAnalisisE">Nota Nueva</label>
+         <div class="col-12">
+          <textarea rows="9" type="text" class="form-control" name="txtNotas" id="txtNotas" [(ngModel)]="valorTextarea"> </textarea>
+         </div>
+       </div>
+
+       <div class="card-footer">
+         <div class="row justify-content-between">
+           <div class="col-auto">
+             <button type="Submit" class="btn btn-danger btn-sm ms-2"  (click)="GuardarNuevaNota()">Guardar</button>
+             <app-modal-dinamico *ngIf="activar"  [tipoModal]="tipoModald" [contenido]=contenidog (click)="ValidarDatos()"></app-modal-dinamico>
+             <app-modal-dinamico
+               *ngIf="activarConfir"
+               [tipoModal]="tipoModalConfir"
+               [contenido]="contenidoConfir"
+               (primerBotonEvento)="primerBotonEvento()"
+               (segundoBotonEvento)="segundoBotonEvento()"
+             ></app-modal-dinamico>
+
+             <button type="button" class="btn btn-secondary btn-sm ms-2">Salir</button>
+           </div>
+         </div>
+       </div>
+     </div>
+   </form>
+ </div>

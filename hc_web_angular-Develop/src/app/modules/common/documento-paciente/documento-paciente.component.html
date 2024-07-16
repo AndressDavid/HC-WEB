@@ -1,0 +1,10 @@
+
+<label class="control-label" for="">Identidad</label>
+<!--  -->
+<div class="input-group" [formGroup]=frmParametro>
+    <select class="form-control"  formControlName="selTipDoc" name ="selTipDoc">
+        <option value="" selected></option>
+        <option value="{{documento.key}}"  *ngFor="let documento of documentos | keyvalue">{{documento.value}}</option>
+    </select>
+   <input  class="form-control" formControlName="documento" name="documento" type="text">
+</div>

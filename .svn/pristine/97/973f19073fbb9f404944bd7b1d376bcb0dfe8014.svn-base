@@ -1,0 +1,10 @@
+cTareaNombre=Nutricion fines de semana
+cTareaDescripcion=Envío automático de cenas los fines de semana y festivos
+cTareaActiva=NO
+cTareaMinuto=30,35
+cTareaHora=15
+cTareaDiaMes=*
+cTareaMes=*
+cTareaDiaSemana=*
+nIntentosMaximos=1
+cArchivo=script.php

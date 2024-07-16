@@ -1,0 +1,7 @@
+<P>Apreciado(a) Doctor(a)</P>
+<P>El paciente <STRONG>[[Nombre]]</STRONG> con ingreso<STRONG> [[Ingreso]]</STRONG> se encuentra en<STRONG> [[Via]] [[Habitacion]]</STRONG></P>
+<P>Se solicita interconsulta con <STRONG>[[Interconsulta]]</STRONG> para <STRONG>[[Opcion]] </STRONG> con prioridad <STRONG>[[Prioridad]]</STRONG>.</P>
+<b>Observaciones</b>
+<P>[[Observaciones]]</P>
+<b>M&eacute;dico Solicitante</b>
+<P>[[Medico]] - [[Solicitante]]</P>

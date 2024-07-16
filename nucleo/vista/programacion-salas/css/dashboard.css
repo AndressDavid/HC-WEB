@@ -1,0 +1,20 @@
+body{ background-color: #1f1d1d !important; color: #ffffff; }
+.card{ background-color: transparent !important; }		
+.anteriores{ font-size: 2.8em !important; }
+.hoy{ font-size: 2em !important; }
+.filaPrincipal th{ width:25%; }
+
+.bg-estado-1 {background-color: #dc3545!important;}
+.border-estado-1 {border-color: #dc3545!important;}	
+
+.bg-estado-2 {background-color: #007bff!important;}
+.border-estado-2 {border-color: #007bff!important;}	
+
+.bg-estado-3 {background-color: #28a745!important;}
+.border-estado-3 {border-color: #28a745!important;}
+
+.bg-estado-4 {background-color: #6c757d!important;}
+.border-estado-4 {border-color: #6c757d!important;}		
+
+.bg-estado-5 {background-color: #ffc107!important;}
+.border-estado-5 {border-color: #ffc107!important;}	

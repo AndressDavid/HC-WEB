@@ -1,0 +1,31 @@
+<ng-container *ngIf="mostrarBusqueda || mostrarModuloBusqueda">
+  <div class="container-fluid pt-2 sticky-top">
+    <div class="card">
+      <div class="card-header">
+        <div class="row">
+          <div class="col-md-2 pb-2">
+            <label for="Ingreso" class="form-label"><small><b>{{lcIngreso}}</b></small></label>
+            <input pInputText [(ngModel)]="textoInput" type="text" class="form-control form-control-sm"
+              (input)="verificarTextoInput()" (input)="onInputChange($event)">
+          </div>
+          <div class="col-md-4 pb-2">
+            <label for="Ingreso" class="form-label"><small><b>{{lcSeccion}}</b></small></label>
+            <select type="text" class="form-select form-select-sm">
+              <option value="">1</option>
+            </select>
+          </div>
+          <div class="col-md-3 col-lg-2 pb-2">
+            <label>&nbsp;</label>
+            <button type="button" [disabled]="textoInput === ''"
+              class="form-control form-control-sm btn btn-secondary btn-sm"
+              (click)="buscarIngreso()">{{lcBuscar}}</button>
+          </div>
+          <div class="col-md-3 col-lg-2 pb-2">
+            <label>&nbsp;</label>
+            <button type="button" class="form-control form-control-sm btn btn-secondary btn-sm"><a href="./" class="text-white" style="text-decoration: none;">{{lcLimpiar}}</a></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>

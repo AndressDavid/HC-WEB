@@ -1,0 +1,18 @@
+<footer class="mt-4 p-4 bg-light " data-step="0" style="margin-bottom: 45px;">
+    <div class="row justify-content-center">
+        <div class="col-sm-12 col-md-6 text-md-left letra">
+            <b>{{year}} © Fundación Clínica Shaio</b>
+            <br>
+            <h6 class="footerH6">Grupo de Desarrollo, TI. 2018 | IP Clíente {{ipCliente}} | HOST {{recuperarServidor()}} | hcweb </h6>
+        </div>
+
+        <div class="col-sm-12 col-md-6 text-md-end letra">
+            soporte&#64;shaio.org <br>
+            +57-1-5938210 ext 2173
+        </div>
+    </div>
+
+</footer>
+<div *ngIf="alert()" class="opacity-75 alert alert-danger develop-message"
+role="alert"><h6 class="p-1" style="font-size: 16px; z-index: 10;">Historia Clínica Web - Entorno de Pruebas - {{recuperarServidor()}}</h6>
+</div>

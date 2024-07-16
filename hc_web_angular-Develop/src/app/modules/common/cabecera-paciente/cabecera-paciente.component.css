@@ -1,0 +1,25 @@
+:host {
+  display: block;
+}
+.fixed-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000; /* Asegúrate de que la cabecera esté por encima del contenido */
+  background-color: white; 
+
+}
+
+.letras{
+  font-size: 13px;
+}
+
+.encabezar{
+  position: fixed; /* o absolute, dependiendo de tu diseño */
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff; /* color de fondo deseado */
+  z-index: 1000; /* un valor alto para asegurarse de que esté por encima de otros elementos */
+}
+

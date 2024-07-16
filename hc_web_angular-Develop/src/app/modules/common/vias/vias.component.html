@@ -1,0 +1,7 @@
+<label class="control-label" for="">Vía Ingreso</label>
+<div class="input-group" [formGroup]=frmParametro>
+    <select class="form-control" formControlName="selectVias" name="selectVias" id="selectVias">
+        <option value="" selected></option>
+        <option value="{{via.key}}" *ngFor="let via of vias | keyvalue">{{via.value}}</option>
+    </select>
+</div>

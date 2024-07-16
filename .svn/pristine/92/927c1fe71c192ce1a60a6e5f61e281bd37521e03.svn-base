@@ -1,0 +1,7 @@
+
+
+<P>Apreciado(a) Señor(a):</P>
+<P>El paciente: <STRONG>[[Nombre]]</STRONG> con numero de ingreso <STRONG>[[Ingreso]]</STRONG>, hospitalizado en la habitacion <STRONG>[[Habitacion]]</STRONG> en tratamiento farmacológico con el(los) Medicamento(s):</P>
+<UL>[[Detalle]] </UL>
+<P>Excedío la(s) DOSIS recomendadas y fue prescrito por medico<STRONG> [[Medico]] </STRONG>quien decidió reformular</P>
+<P>Mensaje enviado automáticamente por Historia Clínica.<BR>Por favor No Responder</P>

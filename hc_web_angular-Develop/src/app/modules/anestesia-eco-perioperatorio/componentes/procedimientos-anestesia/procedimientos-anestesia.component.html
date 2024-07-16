@@ -1,0 +1,106 @@
+<div class="card-body" *ngIf="ingresoEsValido">
+  <div class="container-fluid">
+    <form class="needs-validation" novalidate [formGroup]="procForm">
+      <div class="row mt-3 mb-3">
+        <div class="col ms-2">
+          <h5>Procedimientos Anestesia</h5>
+        </div>
+      </div>
+      <div class="row container-fluid">
+        <div class="col-lg-12">
+          <div class="row">
+            <div class="col-xl-10 col-lg-9 col-md-8 pb-2">
+              <label for="validationTooltip04" class="form-label mb-0"
+                ><b>Procedimientos:</b></label
+              >
+              <select
+                class="form-select mt-2"
+                id="validationTooltip04"
+                required
+                formControlName="procValor"
+              >
+                <option></option>
+                @for (Procedimientos of listadoProcedimientos; track $index) {
+                <option>{{ Procedimientos.descup }}</option>
+                }
+              </select>
+            </div>
+            <div class="needs-validation col-xl-2 col-lg-3 col-md-4 pb-2 pe-2">
+              <label for="cobrable" class="me-3"><b>Cobrable:</b></label>
+              <select
+                class="form-select obligatorio mt-2"
+                name="cobrable"
+                formControlName="cobroValor"
+                required
+              >
+                <option></option>
+                <option>Si</option>
+                <option>No</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row container-fluid">
+        <div class="col-12 pb-2 mt-3 mb-3">
+          <div>
+            <label for="descripcion" class="form-label"
+              ><b>Descripción:</b></label
+            >
+            <textarea
+              class="form-control"
+              id="descripcion"
+              formControlName="descValor"
+              rows="10"
+              required
+            ></textarea>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="container-fluid">
+  <div class="card-footer text-muted fixed-bottom bg-light">
+    <div class="row justify-content-end">
+      <div class="col-auto">
+        <button
+          id="procedimientosModal"
+          type="button"
+          (click)="guardarProcedimiento()"
+          class="form-control-sm btn btn-danger btn-sm ms-2"
+          tabindex="3"
+          accesskey="G"
+        >
+          <u><b>G</b></u
+          >uardar
+        </button>
+        <app-modal-dinamico
+          *ngIf="activar"
+          [tipoModal]="tipoAlerta"
+          [contenido]="contenido"
+          (click)="ValidarDatos()"
+        ></app-modal-dinamico>
+        <app-modal-dinamico
+          *ngIf="activarConfir"
+          [tipoModal]="tipoModalConfir"
+          [contenido]="contenidoConfir"
+          (primerBotonEvento)="primerBotonEvento()"
+          (segundoBotonEvento)="segundoBotonEvento()"
+        ></app-modal-dinamico>
+        <button
+          id="btnEvoluciones"
+          type="button"
+          (click)="onLimpiar()"
+          class="btn btn-secondary btn-sm ms-2"
+          tabindex="1"
+          accesskey="L"
+        >
+          <u><b>L</b></u
+          >impiar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

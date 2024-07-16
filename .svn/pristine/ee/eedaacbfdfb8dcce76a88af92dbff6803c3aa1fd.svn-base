@@ -1,0 +1,10 @@
+﻿cTareaNombre=Generar y Enviar Soporte de LAB para CM
+cTareaDescripcion=Generar PDF de soportes de LAB y enviar a carpeta compartida de Transfiriendo
+cTareaActiva=NO
+cTareaMinuto=10
+cTareaHora=1,3,5,19,21,23
+cTareaDiaMes=*
+cTareaMes=*
+cTareaDiaSemana=*
+nIntentosMaximos=1
+cArchivo=script.php

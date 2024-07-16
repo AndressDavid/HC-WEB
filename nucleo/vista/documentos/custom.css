@@ -1,0 +1,11 @@
+.badge-btn { cursor: pointer; }
+ul.fancytree-container {
+	border: none;
+	max-height: 500px;
+	overflow: auto;
+}
+span.fancytree-node.noing > span.fancytree-title { color: #bbb; }
+
+#tbdDocumentos tr {
+	cursor:pointer; cursor: hand;
+}

@@ -1,0 +1,8 @@
+<label class="control-label" for=""></label>
+
+<div class="input-group" [formGroup]=frmParametro >
+    <select class="form-control" (change)="cambioEspecialidad($event)" formControlName="{{forname}}">
+        <option value=""></option>
+        <option value="{{especialidades.codigo}}" *ngFor="let especialidades of especialidadesMedicosRespuesta">{{especialidades.descripcion}}</option>
+    </select>
+</div>

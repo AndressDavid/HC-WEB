@@ -1,0 +1,5 @@
+<form ngNoForm method="post" class="d-inline" [action]=urlLibro target="_blank">
+    <input type="hidden" value={{ingreso}} name="ingreso">
+    <button  *ngIf="tipoBtn === 'P'" type="submit" class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Libro HC"><i class="fas fa-book-medical"></i></button>
+    <button  *ngIf="tipoBtn === 'N'" type="submit" class="btn btn-primary btn-sm w-100">Ir al libro HC</button>
+</form>

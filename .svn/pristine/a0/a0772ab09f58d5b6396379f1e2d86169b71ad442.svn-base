@@ -1,0 +1,10 @@
+﻿cTareaNombre=Generar y Enviar Soportes para CM sin LAB
+cTareaDescripcion=Generar PDF de soportes diferentes a LAB y enviar a carpeta compartida de Transfiriendo
+cTareaActiva=NO
+cTareaMinuto=*/30
+cTareaHora=*
+cTareaDiaMes=*
+cTareaMes=*
+cTareaDiaSemana=*
+nIntentosMaximos=1
+cArchivo=script.php

@@ -1,0 +1,12 @@
+:host {
+  display: block;
+}
+
+.pointer{
+  cursor: pointer;
+}
+
+.card {
+  position: relative; 
+  z-index: 1; 
+}

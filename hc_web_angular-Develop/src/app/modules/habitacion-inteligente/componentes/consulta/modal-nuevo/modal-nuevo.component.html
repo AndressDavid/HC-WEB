@@ -1,0 +1,116 @@
+<div
+  #nuevaHabModal
+  class="modal fade show"
+  tabindex="-1"
+  aria-hidden="true"
+  style="display: block; background-color: rgba(0, 0, 0, 0.364)"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5">Nueva Habitación</h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+          (click)="close(false)"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="nuevoForm">
+          <div class="mb-3">
+            <label for="selSeccion" class="form-label"><b>Sección</b></label>
+            <select
+              id="selSeccion"
+              class="form-select col-1"
+              formControlName="seccionValor"
+              (change)="onSeccionChange()"
+            >
+              <option></option>
+              <option
+                value="{{ seccion.key }}"
+                *ngFor="let seccion of secciones | keyvalue"
+              >
+                {{ seccion.key + " - " + seccion.value }}
+              </option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="selCama" class="form-label"><b>Habitación</b></label>
+            <select
+              id="selCama"
+              class="form-select col-1"
+              formControlName="habitacionValor"
+            >
+              <option></option>
+              @for (Habitaciones of listadoHabitaciones; track $index) {
+              <option>{{ Habitaciones.cama }}</option>
+              }
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="ipDispValor" class="form-label"
+              ><b>IP del Dispositivo</b></label
+            >
+            <input
+              formControlName="ipDispValor"
+              id="ipDispValor"
+              type="text"
+              class="form-control"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="macDispValor" class="form-label"
+              ><b>MAC del Dispositivo</b></label
+            >
+            <input
+              formControlName="macDispValor"
+              id="macDispValor"
+              type="text"
+              class="form-control"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="macDispValor" class="form-label"><b>Activo</b></label>
+            <select formControlName="activo" id="selActivo" class="form-select">
+              <option value="1">Activa</option>
+              <option value="0">Inactiva</option>
+            </select>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="onCancelar()">
+          Cancelar
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="guardarNuevaHabitacion()"
+        >
+          Guardar
+        </button>
+        <app-modal-dinamico
+          *ngIf="activar"
+          [tipoModal]="tipoModal"
+          [contenido]="contenido"
+          (click)="ValidarDatos()"
+        ></app-modal-dinamico>
+        <app-modal-dinamico
+          *ngIf="activarConfir"
+          [tipoModal]="tipoModalConfir"
+          [contenido]="contenidoConfir"
+          (primerBotonEvento)="primerBotonEvento()"
+          (segundoBotonEvento)="segundoBotonEvento()"
+        ></app-modal-dinamico>
+        <app-modal-dinamico
+          *ngIf="activarVal"
+          [tipoModal]="tipoModalVal"
+          [contenido]="contenidoVal"
+          (primerBotonEvento)="CerrarModal()"
+        ></app-modal-dinamico>
+      </div>
+    </div>
+  </div>
+</div>

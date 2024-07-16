@@ -1,0 +1,92 @@
+<!-- 
+
+<div class="card mt-3 m-1 espacio">
+    <div class=" card-body container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="nav flex-sm-column nav-pills sticky-top">
+                    <a class="nav-link pointer text-dark" (click)="enviaSalidaSituacion()">
+                        <small> <i class="fas fa-file-alt"></i> {{situacion}} <i class="fas fa-spinner fa-spin" *ngIf="CargaSpinnerSituacion"></i></small>
+                    </a>
+                    <a class="nav-link pointer text-dark" (click)="enviaSalidaAntecedente()">
+                        <small><i class="fas fa-spinner fa-spin" *ngIf="CargaSpinnerAntecedentes"></i><i class="fas fa-notes-medical"></i>{{antecedentes}}</small>
+                    </a>
+                    <a class="nav-link pointer text-dark" (click)="enviaSalidaEvaluacion()">
+                        <small><i class="fas fa-spinner fa-spin" *ngIf="CargaSpinnerEvaluacion"></i><i class="fas fa-prescription-bottle-alt"></i>{{evaluacion}}</small>
+                    </a>
+                    <a class="nav-link pointer text-dark" (click)="enviaSalidaRecomendacion()">
+                        <small><i class="fas fa-spinner fa-spin" *ngIf="CargaSpinnerRecomendacion"></i><i class="fas fa-grip-vertical"></i>{{recomendacion}}</small>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+<!-- 
+<div class="card mt-3 m-1 espacio">
+    <div class=" card-body container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="nav flex-sm-column nav-pills sticky-top">
+                    <a class="nav-link pointer text-dark" (click)="enviaSalidaSituacion()" [class.active]="enlaceSeleccionado === 0">
+                        <small><i class="fas fa-spinner fa-spin" *ngIf="cargaEnCurso[0]"></i><i class="fas fa-file-alt"></i>{{situacion}}</small>
+                    </a>
+                    <a class="nav-link pointer text-dark" (click)="enviaSalidaAntecedente()" [class.active]="enlaceSeleccionado === 1">
+                        <small><i class="fas fa-spinner fa-spin" *ngIf="cargaEnCurso[1]"></i><i class="fas fa-notes-medical"></i>{{antecedentes}}</small>
+                    </a>
+                    <a class="nav-link pointer text-dark" (click)="enviaSalidaEvaluacion()" [class.active]="enlaceSeleccionado === 2">
+                        <small><i class="fas fa-spinner fa-spin" *ngIf="cargaEnCurso[2]"></i><i class="fas fa-prescription-bottle-alt"></i>{{evaluacion}}</small>
+                    </a>
+                    <a class="nav-link pointer text-dark" (click)="enviaSalidaRecomendacion()" [class.active]="enlaceSeleccionado === 3">
+                        <small><i class="fas fa-spinner fa-spin" *ngIf="cargaEnCurso[3]"></i><i class="fas fa-grip-vertical"></i>{{recomendacion}}</small>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+<!-- <div class="card mt-3 m-1 espacio">
+    <div class="card-body container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="nav flex-sm-column nav-pills sticky-top">
+                    <a class="nav-link pointer text-dark" (click)="enviaSalidaSituacion()" [class.active]="enlaceSeleccionado === 0">
+                        <small><i class="fas fa-spinner fa-spin" *ngIf="cargaEnCurso[0]"></i><i class="fas fa-file-alt"></i>{{situacion}}</small>
+                    </a>
+                    <a class="nav-link pointer text-dark" (click)="enviaSalidaAntecedente()" [class.active]="enlaceSeleccionado === 1">
+                        <small><i class="fas fa-spinner fa-spin" *ngIf="cargaEnCurso[1]"></i><i class="fas fa-notes-medical"></i>{{antecedentes}}</small>
+                    </a>
+                    <a class="nav-link pointer text-dark" (click)="enviaSalidaEvaluacion()" [class.active]="enlaceSeleccionado === 2">
+                        <small><i class="fas fa-spinner fa-spin" *ngIf="cargaEnCurso[2]"></i><i class="fas fa-prescription-bottle-alt"></i>{{evaluacion}}</small>
+                    </a>
+                    <a class="nav-link pointer text-dark" (click)="enviaSalidaRecomendacion()" [class.active]="enlaceSeleccionado === 3">
+                        <small><i class="fas fa-spinner fa-spin" *ngIf="cargaEnCurso[3]"></i><i class="fas fa-grip-vertical"></i>{{recomendacion}}</small>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+<div class="card mt-3 m-1 espacio">
+    <div class="card-body container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="nav flex-sm-column nav-pills sticky-top">
+                    <a class="nav-link pointer text-dark" (click)="enviaSalidaSituacion()" [class.active]="enlaceSeleccionado === 0" [ngStyle]="{ background: enlaceSeleccionado === 0 ? 'lightgrey' : 'white',  color: enlaceSeleccionado === 0 ? 'white' : 'black' }">
+                        <small><i class="fas fa-file-alt"></i>{{situacion}}</small>
+                    </a>
+                    <a class="nav-link pointer text-dark" (click)="enviaSalidaAntecedente()" [class.active]="enlaceSeleccionado === 1" [ngStyle]="{ background: enlaceSeleccionado === 1 ? 'lightgrey' : 'white', color: enlaceSeleccionado === 1 ? 'white' : 'black'}">
+                        <small><i class="fas fa-notes-medical"></i>{{antecedentes}}</small>
+                    </a>
+                    <a class="nav-link pointer text-dark" (click)="enviaSalidaEvaluacion()" [class.active]="enlaceSeleccionado === 2" [ngStyle]="{ background: enlaceSeleccionado === 2 ? 'lightgrey' : 'white', color: enlaceSeleccionado === 2 ? 'white' : 'black'}">
+                        <small><i class="fas fa-prescription-bottle-alt"></i>{{evaluacion}}</small>
+                    </a>
+                    <a class="nav-link pointer text-dark" (click)="enviaSalidaRecomendacion()" [class.active]="enlaceSeleccionado === 3" [ngStyle]="{ background: enlaceSeleccionado === 3 ? 'lightgrey' : 'white', color: enlaceSeleccionado === 0 ? 'white' : 'black'}">
+                        <small><i class="fas fa-grip-vertical"></i>{{recomendacion}}</small>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

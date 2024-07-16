@@ -1,0 +1,102 @@
+.hc-body {
+	width: 97%;
+	border: 1px solid black;
+}
+.hc-border {
+	border: 1px solid #bbb;
+}
+.hc-alignL {
+	text-align: left;
+}
+.hc-alignC {
+	text-align: center;
+}
+.hc-alignR {
+	text-align: right;
+}
+.hc-encabezado {
+	margin: 0px;
+	width: 95%;
+}
+.hc-titulo {
+	font: bold 1.6em sans-serif;
+	margin: 1em 2em 0 1em;
+}
+.hc-subtitulo {
+	font: bold 1.2em sans-serif;
+	margin: 0 2em 0 1em;
+}
+.hc-titulo1 {
+	font: bold 1.5em monospace;
+	margin: 0.9em 2em 0 1em;
+}
+.hc-titulo2 {
+	font: bold 1.4em monospace;
+	margin: 0.6em 2em 0 1.4em;
+}
+.hc-titulo3 {
+	font: bold 1.3em monospace;
+	margin: 0.5em 2em 0 1.8em;
+}
+.hc-titulo4 {
+	font: bold 1.2em monospace;
+	margin: 0.4em 2em 0 2.2em;
+}
+.hc-titulo5 {
+	font: bold 1.2em monospace;
+	margin: 0.3em 2em 0 2.6em;
+}
+.hc-titulo6 {
+	font: oblique bold 1.1em monospace;
+	margin: 0.2em 2em 0 2.8em;
+}
+.hc-titulo, .hc-subtitulo, .hc-titulo1, .hc-titulo2, .hc-titulo3, .hc-titulo4, .hc-titulo5, .hc-titulo6 {
+	padding: 0;
+}
+.hc-texto7,.hc-texto8,.hc-texto9,.hc-texto10,.hc-txthtml7,.hc-txthtml8,.hc-txthtml9,.hc-txthtml10 {
+	width: 100%;
+	margin: 0 2em 0 5em;
+	padding: 0.1em;
+}
+.hc-texto7 {
+	font: 0.8em monospace;
+}
+.hc-texto8 {
+	font: 0.9em monospace;
+}
+.hc-texto9 {
+	font: 1em monospace;
+}
+.hc-texto10 {
+	font: 1.1em monospace;
+}
+.hc-txthtml7 {
+	font: 0.8em monospace;
+}
+.hc-txthtml8 {
+	font: 0.9em monospace;
+}
+.hc-txthtml9 {
+	font: 1em monospace;
+}
+.hc-txthtml10 {
+	font: 1.1em monospace;
+}
+.hc-divTabla {
+	margin: 0.5em 2em 0.5em 3em;
+	width: 100%;
+}
+.hc-tabla,.hc-tablaSL {
+	font: 1em monospace;
+	margin: 0;
+	padding: 0;
+	border-collapse: collapse;
+}
+.hc-tabla tr td {
+	border: 1px solid grey;
+	word-break: break-word;
+	overflow-wrap: break-word;
+}
+.hc-firmas {
+	margin: 3em 2em 0 1em;
+}

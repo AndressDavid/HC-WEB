@@ -1,0 +1,16 @@
+#
+# robots.txt
+#
+# Este archivo es para evitar el rastreo y la indexación de ciertas partes
+# del sitio por rastreadores web y arañas ejecutadas por sitios como Yahoo!
+# y Google. Al decirles a estos "robots" dónde no ir a su sitio,
+# se ahorra ancho de banda y recursos del servidor.
+#
+
+User-agent: *
+Crawl-delay: 60
+# Directories
+Disallow: /nucleo/
+Disallow: /tareas/
+# Files
+Disallow: /cron.php

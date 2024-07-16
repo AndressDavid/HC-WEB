@@ -1,0 +1,19 @@
+.letra{
+    font-size: 16px;
+}
+.footerH6{
+    font-size: 0.8rem;
+    font-weight: normal;
+    padding-top: 3px;
+}
+
+.develop-message { 
+    position: fixed; 
+    bottom: 0; 
+    right: 0;
+    margin: 0;
+    padding: 0;
+    width: 480px;
+    height: 30px;
+    opacity:0.8;
+}

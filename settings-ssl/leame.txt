@@ -1,0 +1,1 @@
+El contenido de esta carpeta no se debe subir a las carpetas html de los servidores de producción o desarrollo

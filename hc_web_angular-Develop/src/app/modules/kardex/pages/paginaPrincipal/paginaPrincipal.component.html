@@ -1,0 +1,48 @@
+
+
+<ng-container>
+    <app-encabezado [listaDatosEncabezado]="datosIngresoEncabezadosData"></app-encabezado>
+    <div class="container-fluid p-2 pt-5 mt-5" *ngIf="validarModulo">
+        <div class="row">
+            <div class="col-lg-2">
+                <app-seleccion (OutSeleccionSituacion)="handleSeleccionSituacion($event)"
+                    (OutSeleccionAntedecentes)="handleSeleccionAntecedentes($event)"
+                    (OutSeleccionEvaluacion)="handleSeleccionEvaluacion($event)"
+                    (OutSeleccionRecomendacion)="handleSeleccionRecomendacion($event)"
+                    (OutDatosDeSituacion)="onGetDatosSituacion($event)"
+                    (OutDatosDeAntecedentes)="onGetDatosAntecedentes($event)"
+                    (OutDatosDeEvaluacion)="onGetDatosEvaluacion($event)"
+                    (OutDatosDeRecomendacion)="onGetDatosRecomendacion($event)">
+                </app-seleccion>
+            </div>
+            <div class="col-lg-10 pt-3">
+                <div class="col-lg-12 border-right card" *ngIf="CamposSituacion">
+                    <div class="row">
+                        <app-situacion [datosDeSituacion]="datosIngresoSituacion"></app-situacion>
+                    </div>
+                </div>
+                <div class="col-lg-12 border-right card" *ngIf="CamposAntecedente">
+                    <div class="row">
+                        <app-antecedentes [datosDeAntecedentes]="datosIngresoAntecedentes"></app-antecedentes>
+                    </div>
+                </div>
+                <div class="col-lg-12 border-right card" *ngIf="CamposEvaluacion">
+                    <div class="row">
+                        <app-evaluacion [datosDeEvaluacion]="datosIngresoEvaluacion"></app-evaluacion>
+                    </div>
+                </div>
+                <div class="col-lg-12" *ngIf="CamposRecomendacion">
+                    <div class="row">
+                        <app-recomendacion [datosDeRecomendaciones]="datosIngresoRecomendacion"></app-recomendacion>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-container>
+
+<ng-container *ngIf="mostrarTablaBus">
+    <app-lista-pacientes (OutListadoPacientes)="onGetListaPacientes($event)"
+        (OutDatosCabeceraDatos)="onGetDatosEncabezadoData($event)" (OutModuloBusqueda)="onGetModuloBusqueda($event)">
+    </app-lista-pacientes>
+</ng-container>

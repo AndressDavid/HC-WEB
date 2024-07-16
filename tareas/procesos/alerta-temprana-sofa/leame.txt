@@ -1,0 +1,49 @@
+pAO2 / FiO2	
+- De donde?
+pAO2 = Presión parcial de oxigeno (Presión Arterial? si es así es siastolica o diastolica?)
+FiO2 = Fracción inspirada de oxigeno
+
+Cociente PaO2/FiO2  = PaO2/FiO2 (en porcentaje) x 100
+
+Ejemplo:
+PaO2 = 86 mmHg
+FiO2 = 21%
+
+Cociente = (86/21)*100 =409
+
+
+
+CREATININA (mg/dL)	
+-RiaCup
+         0            903823         0099           CREATININA DEPURACIÓN               
+         0            903824         4770           CREATININA EN ORINA DE 24 HORAS     
+         0            903876         903876         CREATININA EN ORINA PARCIAL         
+         0            903895         2500           CREATININA EN SUERO U OTROS FLUIDOS 
+         1            903825         2500           CREATININA EN SUERO, ORINA U OTROS  
+
+DIURESIS (L/d)	
+- Que es?
+
+BILIRRUBINA (mg/dL)	
+-RiaCup
+         0            903809         2280           BILIRRUBINAS TOTAL Y DIRECTA
+
+Presión arterial(mmHg)	
+- Signos
+
+Plaquetas (miles/mm3)	
+- RiaCup
+          0            906445         906445         PLAQUETAS ANTICUERPOS CIRCULANTES IG G IG M E IG A SEMIAUTOMATIZADO O AUTOMATIZ
+          1            906446         906446         PLAQUETAS ANTIGENOS ASOCIADOS A ANTICUERPOS IG G IG M E IG A SEMIAUTOMATIZADO O
+          1            906751         906751         PLAQUETAS CD41 POR INMUNOHISTOQUIMICA                                          
+          1            906750         906750         PLAQUETAS CD41 SEMIAUTOMATIZADO O AUTOMATIZADO                                 
+          1            906753         906753         PLAQUETAS CD61 POR INMUNOHISTOQUIMICA                                          
+          1            906752         906752         PLAQUETAS CD61 SEMIAUTOMATIZADO O AUTOMATIZADO                                 
+          1            906838         906838         PLAQUETAS FACTOR 4 SEMIAUTOMATIZADO O AUTOMATIZADO                             
+          1            XLABC1         XLABC1         PLAQUETAS LEUCOREDUCIDAS-COMPENSAR                                             
+          1            XLABC2         XLABC2         PLAQUETAS POR AFERESIS FILTRADA-COMPENSAR                                      
+          1            906342         906342         PLAQUETAS, ANTICUERPOS CIRCULANTES IG G, IG M E IG A POR CITOMETRIA DE FLUJO   
+          1            906343         906343         PLAQUETAS, ANTIGENOS ASOCIADOS A ANTICUERPOS IG G, IG M E IG A POR CITOMETRIA D      
+
+Glasgow Coma Scale
+- Historia

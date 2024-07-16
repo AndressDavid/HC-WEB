@@ -1,0 +1,94 @@
+
+<nav class="col-sm-12 navbar navbar-expand-lg navbar-light p-1" [ngStyle]="{ 'background-color': estiloMenu }" >
+    <div class="container-fluid" >
+        <div class="navbar-brand overflow-hidden">
+            <img src="./assets/logo.png" alt="Logo" style="margin-left: -20px; padding-left: 8px;" /><span style="margin-left: -5px;"
+                [ngStyle]="{ 'color': colorLetraMenu }">HC<sup>W</sup> | Historia Cl&iacute;nica Web</span>
+        </div>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent" [ngStyle]="{ 'background-color': estiloMenu }">
+
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle esp" role="button" href="#" id="especialidad" data-bs-toggle="dropdown"
+                [ngStyle]="{ 'color': colorLetraMenu }" aria-expanded="false">
+                Especialidad
+            </a>
+            <ul class="dropdown-menu"  aria-labelledby="especialidad">
+                <a class="dropdown-item" *ngFor="let especialida of especialidad" href="#" aria-labelledby="navbarDropdown"
+                    (click)="cambiarEspecialidad(especialida)"
+                    [class.negrita]="especialida === especialidadSeleccionada">
+
+                    <span *ngIf=" especialida?.ESPECIALIDAD['cId'] === chuloEspecialidad ">
+                        <i class="fas fa-check pe-2"></i>
+                        <b>{{ especialida?.TIPO['cNombre'] }} - {{ especialida?.ESPECIALIDAD['cNombre'] }}</b>
+                    </span>
+                    <ng-container *ngIf=" especialida?.ESPECIALIDAD['cId'] !== chuloEspecialidad ">
+                        {{ especialida?.TIPO['cNombre'] }} - {{ especialida?.ESPECIALIDAD['cNombre'] }}
+                    </ng-container>
+                    
+                </a>
+            </ul>
+          </li>
+          <li class="nav-item dropdown" *ngFor="let menuItem of menuItems">
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-bs-toggle="dropdown" 
+                [ngStyle]="{ 'color': colorLetraMenu }">
+                {{ menuItem?.PROMPT }}
+            </a>
+            <div class="dropdown-menu">
+                <li class="nav-item dropdown">
+                    <div  aria-labelledby="navbardrop" href="#" *ngFor="let submenu of menuItem.submenu">
+                        <a class="text-dark" *ngFor="let item of submenu | keyvalue"
+                            style="text-decoration: none;" [ngStyle]="{ 'color': colorLetraMenu }">
+                            <ng-container *ngIf="item.key == 'PROMPT'">
+                                <div *ngIf="submenu['MENUTYPE'] === 'popup'" class="dropdown-header">
+                                    {{submenu['PROMPT']}}
+                                </div>
+                                <a [href]="urlFija + submenu['CMD']"  *ngIf="submenu['MENUTYPE'] !== 'popup'" class="dropdown-item">
+                                    {{ item.value }}
+                                </a>
+                            </ng-container>
+                        </a>
+                        <div *ngFor="let subsubmenu of submenu.submenu2">
+                            <a [href]="urlFija + subsubmenu['CMD']" class="text-dark"
+                                *ngFor="let subitem of subsubmenu | keyvalue" Style="text-decoration: none;">
+                                <div *ngIf="subitem.key == 'PROMPT'" class="dropdown-item">
+                                    {{ subitem.value }}
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </li>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+<nav class="navbar navbar-light bg-light pt-1 pb-1 p-3">
+    <div class="navbar-nav">
+        <a class="btn btn-outline-secondary btn-sm" alt="Pagina principal" href="../" data-toggle="tooltip"
+            data-placement="right" title="Ir a la pagina principal"><i class="fas fa-home"></i> {{servidor}}</a>
+    </div>
+    <div class="navbar-nav justify-content-end">
+        <div class="btn-group" role="group" aria-label="Opciones de Usuario">
+            <a type="button" class="btn btn-outline-secondary btn-sm" href="../modulo-perfil"><i
+                    class="fas fa-user-circle"></i>
+                {{nombres}}</a>
+            <a type="button" class="btn btn-outline-secondary btn-sm" href="#"><i class="fas fa-bell"></i>
+                {{recordatorios}}</a>
+            <a type="button" class="btn btn-outline-secondary btn-sm" alt="Cerrar sesion" href="../salir"><i
+                    class="fas fa-power-off"></i> Cerrar sesi&oacute;n</a>
+        </div>
+    </div>
+</nav>
+
+<div class="alert alert-warning" role="alert" *ngIf="respuesta">
+    Se realizo el cambio la especialidad. Se cargo el modo
+    <strong> {{especialidadSeleccionada.TIPO['cNombre'] }} - {{especialidadSeleccionada.ESPECIALIDAD['cNombre']
+        }}</strong>
+</div>
+

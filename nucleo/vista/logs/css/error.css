@@ -1,0 +1,13 @@
+.hljs { padding: 2em;}
+.hljs, .hljs-subst { color: #444; white-space: pre-wrap; font-size: 0.9em;}
+.hljs-attribute { color: #a31515; }
+.hljs-comment { color: #008000; }
+.hljs-literal { color: #04c; }
+.hljs-meta-database-error { color: #ff0000; font-weight: bolder; }
+.hljs-meta-database-error::before { content: "***"; display: block;}
+.hljs-meta-note { color: #522896; background: #d3b8ff; padding: 0.2em; font-weight: bolder; border: 1px solid #b292e6; border-radius: .25rem;}
+.hljs-meta-notice { color: #ff0000; font-weight: bolder; }
+.hljs-meta-query { color: #47184a; display: block;}
+.hljs-meta-query-bin-value{ color: #770080; font-style: italic; display: block;}
+.hljs-meta-query-error { color: #9a1313; font-weight: bolder; }
+.hljs-meta-query-error::after { content: "***"; display: block;}

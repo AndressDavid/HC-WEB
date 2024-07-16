@@ -1,0 +1,6 @@
+<div class="container-fluid">
+  <div class="card mt-2">
+    <app-ingreso (OutIngresoValido)="onGetIngresoValido($event)" />
+    <app-procedimientos-anestesia [ingresoEsValido]="ingresoValido" />
+  </div>
+</div>
